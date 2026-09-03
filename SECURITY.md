@@ -15,7 +15,8 @@ no forms, and no server-side secrets.
 - API keys, tokens, passwords, `.env` files
 - Authentication, payments, or a database
 - Private Discord server internals (the invite URL is a normal public link)
-- Email addresses, phone numbers, postal addresses, or dates of birth
+- Private email addresses, phone numbers, postal addresses, or dates of birth
+- The only published contact mail is the team address in `content/site.json` (`email`), shown on the legal page
 
 ## Content rules
 

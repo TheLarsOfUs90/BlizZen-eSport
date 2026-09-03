@@ -9,12 +9,20 @@
     "image": "media/player-thelars.png",
     "featured": true,
     "quote": {
-      "de": "Blitz im Play. Zen danach. Der Rest ist Discord.",
-      "en": "Blitz in the play. Zen after. The rest is Discord."
+      "de": "Und einfach nur Döötz.",
+      "en": "Und einfach nur Döötz."
     },
     "bio": {
-      "de": "TheLarsOfUs hat BliZzen 2026 in der Altmark gestartet. Adult-eSport, tox-frei, Voice statt Formular. Welches Game gerade läuft, ist zweitrangig — der Squad nicht.",
-      "en": "TheLarsOfUs started BliZzen in 2026 in the Altmark. Adult esports, tox-free, voice instead of a form. Which game is on is secondary — the squad is not."
+      "de": "TheLarsOfUs hat BliZzen 2026 in der Altmark gestartet. Adult-eSport, tox-frei. Games, die gerade Spaß machen: Off the Grid und Battlefield RedSec.",
+      "en": "TheLarsOfUs started BliZzen in 2026 in the Altmark. Adult esports, tox-free. Games that are fun right now: Off the Grid and Battlefield RedSec."
+    },
+    "socials": {
+      "x": "https://x.com/TheLarsOfUs",
+      "discord": "",
+      "instagram": "",
+      "twitch": "",
+      "youtube": "",
+      "tiktok": ""
     },
     "stats": [
       { "label": { "de": "Seit", "en": "Since" }, "value": "2026" },

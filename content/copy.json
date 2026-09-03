@@ -39,7 +39,10 @@
     "social": {
       "x": "X",
       "discord": "Discord",
-      "instagram": "Instagram"
+      "instagram": "Instagram",
+      "twitch": "Twitch",
+      "youtube": "YouTube",
+      "tiktok": "TikTok"
     },
     "footer": {
       "line": "BLZ · Altmark · 18+"
@@ -71,11 +74,14 @@
       "title": "Rechtliches & Datenschutz",
       "dek": "Statische Clubseite. Kein Shop, kein Login, kein Tracking.",
       "p1": "Diese Website ist die öffentliche Präsenz von BliZzen eSport, einem privaten Adult-eSport-Club aus der Altmark. Sie wird über GitHub Pages bereitgestellt.",
-      "p2": "Es gibt keine Benutzerkonten, keine Formulare, keinen Shop und keine serverseitige Datenverarbeitung. Kontakt läuft über den öffentlichen Discord-Invite.",
+      "p2": "Es gibt keine Benutzerkonten, keine Formulare, keinen Shop und keine serverseitige Datenverarbeitung. Kontakt läuft über Discord oder die Team-E-Mail.",
       "p3": "Es werden keine Analyse- oder Werbecookies gesetzt. Sprache und Darstellung (Hell/Dunkel) speichert der Browser lokal (localStorage). Das ist technisch nötig für die Anzeige und wird nicht an uns übermittelt.",
-      "p4": "Teamfotos und Texte erscheinen nur mit Einverständnis der jeweiligen Person. Klarnamen, Adressen, E-Mails oder Geburtsdaten gehören nicht auf diese Seite.",
+      "p4": "Teamfotos und Texte erscheinen nur mit Einverständnis der jeweiligen Person. Klarnamen, Privatadressen oder Geburtsdaten gehören nicht auf diese Seite.",
+      "impressum": "Impressum",
+      "operator": "Betreiber",
+      "email": "Team-E-Mail",
       "contact": "Kontakt",
-      "contactP": "Über Discord. Keine E-Mail-Adresse auf dieser Seite, damit keine Adressen öffentlich gescraped werden."
+      "contactP": "Über Discord oder die Team-E-Mail im Impressum."
     },
     "notFound": {
       "title": "Falscher Server.",
@@ -123,7 +129,10 @@
     "social": {
       "x": "X",
       "discord": "Discord",
-      "instagram": "Instagram"
+      "instagram": "Instagram",
+      "twitch": "Twitch",
+      "youtube": "YouTube",
+      "tiktok": "TikTok"
     },
     "footer": {
       "line": "BLZ · Altmark · 18+"
@@ -155,11 +164,14 @@
       "title": "Legal & privacy",
       "dek": "Static club site. No shop, no login, no tracking.",
       "p1": "This website is the public presence of BliZzen eSport, a private adult esports club from the Altmark. It is hosted on GitHub Pages.",
-      "p2": "There are no accounts, forms, shop, or server-side processing. Contact happens through the public Discord invite.",
+      "p2": "There are no accounts, forms, shop, or server-side processing. Contact happens through Discord or the team email.",
       "p3": "No analytics or advertising cookies are set. Language and theme (light/dark) stay in the browser (localStorage). That is needed to render the page and is not sent to us.",
-      "p4": "Team photos and copy appear only with that person’s consent. Real names, addresses, emails, or dates of birth do not belong on this site.",
+      "p4": "Team photos and copy appear only with that person’s consent. Real names, private addresses, or dates of birth do not belong on this site.",
+      "impressum": "Legal notice",
+      "operator": "Operator",
+      "email": "Team email",
       "contact": "Contact",
-      "contactP": "Via Discord. No email address is published here, so addresses cannot be scraped."
+      "contactP": "Via Discord or the team email in the legal notice."
     },
     "notFound": {
       "title": "Wrong server.",

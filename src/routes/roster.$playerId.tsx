@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { SiteShell } from "@/components/site-shell";
+import { SocialLinks } from "@/components/social-links";
 import { getPlayer } from "@/data/roster";
 import { usePrefs, tx } from "@/lib/prefs";
 import { asset } from "@/lib/asset";
@@ -46,6 +47,7 @@ function PlayerPage() {
           {player.name ? <p className="mt-2 text-lg text-mist">{player.name}</p> : null}
           <blockquote className="mt-8 max-w-lg text-xl text-fog">{tx(player.quote, locale)}</blockquote>
           <p className="mt-6 max-w-lg text-sm leading-relaxed text-mist">{tx(player.bio, locale)}</p>
+          <SocialLinks className="mt-6" links={player.socials} />
           <dl className="mt-10 grid grid-cols-3 gap-px bg-edge">
             {player.stats.map((s) => (
               <div key={s.label.de} className="bg-void p-4">

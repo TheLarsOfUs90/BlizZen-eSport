@@ -19,6 +19,29 @@ function LegalPage() {
         <p>{t.legal.p2}</p>
         <p>{t.legal.p3}</p>
         <p>{t.legal.p4}</p>
+
+        <h2 className="display pt-8 text-3xl text-fog">{t.legal.impressum}</h2>
+        <dl className="max-w-xl space-y-3">
+          <div>
+            <dt className="kicker">{t.legal.operator}</dt>
+            <dd className="mt-1 text-fog">
+              {org.name}
+              <br />
+              {org.hq}, {org.country}
+            </dd>
+          </div>
+          {org.email ? (
+            <div>
+              <dt className="kicker">{t.legal.email}</dt>
+              <dd className="mt-1">
+                <a href={`mailto:${org.email}`} className="text-fog hover:underline">
+                  {org.email}
+                </a>
+              </dd>
+            </div>
+          ) : null}
+        </dl>
+
         <h2 className="display pt-6 text-3xl text-fog">{t.legal.contact}</h2>
         <p>{t.legal.contactP}</p>
         {org.socials.discord ? (

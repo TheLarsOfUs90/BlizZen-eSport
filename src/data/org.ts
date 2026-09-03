@@ -1,6 +1,6 @@
 import site from "../../content/site.json";
 import { players } from "@/data/roster";
-import { publicSocialUrl, httpsUrl } from "@/lib/safe";
+import { publicSocialUrl, httpsUrl, publicEmail } from "@/lib/safe";
 
 const discord =
   httpsUrl(site.socials.discord) ?? "https://discord.gg/F2EyDybxCf";
@@ -13,6 +13,7 @@ export const org = {
   hq: site.hq,
   country: site.country,
   age: site.age,
+  email: publicEmail("email" in site ? site.email : "") ?? "",
   socials: {
     discord,
     x: publicSocialUrl(site.socials.x) ?? "",

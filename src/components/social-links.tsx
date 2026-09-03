@@ -2,20 +2,30 @@ import { org } from "@/data/org";
 import { usePrefs } from "@/lib/prefs";
 import { cn } from "@/lib/utils";
 import { ExternalLink } from "@/components/external-link";
+import type { SocialKind } from "@/lib/safe";
 
-export function SocialLinks({ className }: { className?: string }) {
+const ORDER: SocialKind[] = ["discord", "x", "instagram", "twitch", "youtube", "tiktok"];
+
+export function SocialLinks({
+  className,
+  links,
+}: {
+  className?: string;
+  links?: Partial<Record<SocialKind, string>>;
+}) {
   const { t } = usePrefs();
-  const links = [
-    { href: org.socials.discord, label: t.social.discord, icon: <DiscordMark /> },
-    { href: org.socials.x, label: t.social.x, icon: <XMark /> },
-    { href: org.socials.instagram, label: t.social.instagram, icon: <InstagramMark /> },
-  ].filter((item) => item.href);
+  const source: Partial<Record<SocialKind, string>> = links ?? org.socials;
+  const items = ORDER.flatMap((kind) => {
+    const href = source[kind];
+    if (!href) return [];
+    return [{ href, label: t.social[kind], icon: iconFor(kind) }];
+  });
 
-  if (links.length === 0) return null;
+  if (items.length === 0) return null;
 
   return (
     <ul className={cn("flex flex-wrap items-center gap-1", className)}>
-      {links.map((item) => (
+      {items.map((item) => (
         <li key={item.label}>
           <ExternalLink
             href={item.href}
@@ -29,6 +39,23 @@ export function SocialLinks({ className }: { className?: string }) {
       ))}
     </ul>
   );
+}
+
+function iconFor(kind: SocialKind) {
+  switch (kind) {
+    case "x":
+      return <XMark />;
+    case "instagram":
+      return <InstagramMark />;
+    case "twitch":
+      return <TwitchMark />;
+    case "youtube":
+      return <YouTubeMark />;
+    case "tiktok":
+      return <TikTokMark />;
+    default:
+      return <DiscordMark />;
+  }
 }
 
 function XMark() {
@@ -53,6 +80,31 @@ function InstagramMark() {
       <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
       <circle cx="12" cy="12" r="3.6" />
       <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function TwitchMark() {
+  return (
+    <svg viewBox="0 0 24 24" className="size-4" aria-hidden="true" fill="currentColor">
+      <path d="M4.3 2 3 6.2v13.1h4.5V22h2.4l2.3-2.7h3.5L21 15.4V2H4.3Zm15 12.3-2.6 2.6h-4.1l-2.3 2.7v-2.7H6.6V3.7h12.7v10.6Z" />
+      <path d="M16.4 7.2h-1.6v4.8h1.6V7.2Zm-4.3 0H10.5v4.8h1.6V7.2Z" />
+    </svg>
+  );
+}
+
+function YouTubeMark() {
+  return (
+    <svg viewBox="0 0 24 24" className="size-4" aria-hidden="true" fill="currentColor">
+      <path d="M23 12.2s0-3.3-.4-4.8c-.2-.9-.9-1.6-1.8-1.8C19.2 5.2 12 5.2 12 5.2s-7.2 0-8.8.4c-.9.2-1.6.9-1.8 1.8C1 8.9 1 12.2 1 12.2s0 3.3.4 4.8c.2.9.9 1.6 1.8 1.8 1.6.4 8.8.4 8.8.4s7.2 0 8.8-.4c.9-.2 1.6-.9 1.8-1.8.4-1.5.4-4.8.4-4.8ZM9.8 15.6V8.8l6.2 3.4-6.2 3.4Z" />
+    </svg>
+  );
+}
+
+function TikTokMark() {
+  return (
+    <svg viewBox="0 0 24 24" className="size-4" aria-hidden="true" fill="currentColor">
+      <path d="M14.7 3c.4 2.6 1.9 4.6 4.3 5v3c-1.5 0-2.9-.5-4.1-1.3v6.4A6.2 6.2 0 1 1 8.3 10v3.2a3.1 3.1 0 1 0 2.2 3V3h4.2Z" />
     </svg>
   );
 }

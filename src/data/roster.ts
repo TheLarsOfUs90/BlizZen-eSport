@@ -1,7 +1,7 @@
 import site from "../../content/site.json";
 import team from "../../content/team.json";
 import type { L10n } from "@/lib/prefs";
-import { clip, mediaPath, playerId } from "@/lib/safe";
+import { clip, mediaPath, playerId, playerSocials, type SocialKind } from "@/lib/safe";
 
 export type Player = {
   id: string;
@@ -15,6 +15,7 @@ export type Player = {
   bio: L10n;
   featured?: boolean;
   stats: { label: L10n; value: string }[];
+  socials: Partial<Record<SocialKind, string>>;
 };
 
 function asL10n(value: unknown): L10n | undefined {
@@ -54,6 +55,7 @@ function asPlayer(raw: (typeof team)[number]): Player | undefined {
     bio,
     featured: Boolean(raw.featured),
     stats: stats.slice(0, 6),
+    socials: playerSocials("socials" in raw ? raw.socials : undefined),
   };
 }
 
