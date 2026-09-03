@@ -19,7 +19,7 @@
     "@fontsource-variable/manrope": "^5.2.8",
     "@fontsource/barlow-condensed": "^5.2.8",
     "@fontsource/ibm-plex-mono": "^5.2.7",
-    "lucide-react": "^0.510.0",
+    "lucide-react": "^1.38.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "sonner": "^2.0.7",
