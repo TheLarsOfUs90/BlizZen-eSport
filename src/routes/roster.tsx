@@ -7,6 +7,7 @@ import { ExternalLink } from "@/components/external-link";
 import { org } from "@/data/org";
 import { players } from "@/data/roster";
 import { usePrefs } from "@/lib/prefs";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/roster")({ component: RosterPage });
 
@@ -25,7 +26,14 @@ function RosterPage() {
           </Button>
         ) : null}
       </section>
-      <ul className="mx-auto grid max-w-[1440px] gap-px bg-edge sm:grid-cols-2 lg:grid-cols-3">
+      <ul
+        className={cn(
+          "mx-auto grid gap-px bg-edge",
+          players.length === 1
+            ? "max-w-[720px] px-4 sm:px-6 lg:px-10"
+            : "max-w-[1440px] sm:grid-cols-2 lg:grid-cols-3",
+        )}
+      >
         {players.map((player) => (
           <li key={player.id}>
             <PlayerCard player={player} />

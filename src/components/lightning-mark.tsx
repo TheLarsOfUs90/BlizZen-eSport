@@ -25,16 +25,13 @@ export function LogoLockup({
   markClassName?: string;
 }) {
   return (
-    <span className={cn("inline-flex items-center gap-2.5", className)}>
+    <span className={cn("inline-flex items-center", className)}>
       <img
         src={asset("/brand/logo-mark.png")}
-        alt=""
-        className={cn("logo-mark h-9 w-auto", markClassName)}
+        alt="BliZzen"
+        className={cn("logo-mark h-10 w-auto", markClassName)}
         style={{ outline: "none" }}
       />
-      <span className="display text-[22px] leading-none tracking-[0.08em] text-fog">
-        BliZzen
-      </span>
     </span>
   );
 }
