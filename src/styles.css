@@ -1,0 +1,254 @@
+@import "@fontsource-variable/manrope";
+@import "@fontsource/barlow-condensed/700.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+@import "tailwindcss";
+
+/* Runtime tokens. @theme inline maps these so light/dark and .stage-dark
+   recolor Tailwind background and text utilities. */
+:root {
+  --bz-void: #0a0e1a;
+  --bz-panel: #111827;
+  --bz-panel-2: #172033;
+  --bz-fog: #f4f6fa;
+  --bz-mist: #8b95a8;
+  --bz-dim: #5c6578;
+  --bz-edge: #243049;
+  --bz-ice: #e8eef6;
+  --bz-ink: #0a0e1a;
+  --bz-live: #7ec8ff;
+  --bz-win: #2f7d58;
+  --bz-loss: #b54545;
+  --bz-shadow-border: 0 0 0 1px color-mix(in oklab, white 12%, transparent);
+  --bz-shadow-border-hover: 0 0 0 1px color-mix(in oklab, white 28%, transparent);
+  color-scheme: dark;
+}
+
+html.light {
+  --bz-void: #f3f4f7;
+  --bz-panel: #ffffff;
+  --bz-panel-2: #e8ecf1;
+  --bz-fog: #0c1018;
+  --bz-mist: #4e5a6c;
+  --bz-dim: #6d7889;
+  --bz-edge: #c9d0da;
+  --bz-ice: #0a0e1a;
+  --bz-ink: #f4f6fa;
+  --bz-live: #1569a8;
+  --bz-win: #1f6b48;
+  --bz-loss: #a33a3a;
+  --bz-shadow-border:
+    0 0 0 1px color-mix(in oklab, black 8%, transparent),
+    0 1px 2px -1px color-mix(in oklab, black 6%, transparent);
+  --bz-shadow-border-hover:
+    0 0 0 1px color-mix(in oklab, black 14%, transparent),
+    0 1px 2px -1px color-mix(in oklab, black 10%, transparent);
+  color-scheme: light;
+}
+
+.stage-dark {
+  --bz-void: #0a0e1a;
+  --bz-panel: #111827;
+  --bz-panel-2: #172033;
+  --bz-fog: #f4f6fa;
+  --bz-mist: #8b95a8;
+  --bz-dim: #5c6578;
+  --bz-edge: #243049;
+  --bz-ice: #e8eef6;
+  --bz-ink: #0a0e1a;
+  --bz-live: #7ec8ff;
+  --bz-shadow-border: 0 0 0 1px color-mix(in oklab, white 12%, transparent);
+  --bz-shadow-border-hover: 0 0 0 1px color-mix(in oklab, white 28%, transparent);
+  color: var(--bz-fog);
+  background: var(--bz-void);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-void: var(--bz-void);
+  --color-panel: var(--bz-panel);
+  --color-panel-2: var(--bz-panel-2);
+  --color-fog: var(--bz-fog);
+  --color-mist: var(--bz-mist);
+  --color-dim: var(--bz-dim);
+  --color-edge: var(--bz-edge);
+  --color-ice: var(--bz-ice);
+  --color-ink: var(--bz-ink);
+  --color-live: var(--bz-live);
+  --color-win: var(--bz-win);
+  --color-loss: var(--bz-loss);
+
+  --font-sans: "Manrope Variable", "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  --shadow-border: var(--bz-shadow-border);
+  --shadow-border-hover: var(--bz-shadow-border-hover);
+}
+
+html.light .logo-mark {
+  filter: brightness(0);
+}
+
+html.light .stage-dark .logo-mark {
+  filter: none;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--bz-void);
+    color: var(--bz-fog);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--bz-void);
+    color: var(--bz-fog);
+    font-family: var(--font-sans);
+    min-height: 100dvh;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--bz-ice);
+    color: var(--bz-ink);
+  }
+
+  img {
+    outline: 1px solid color-mix(in oklab, var(--bz-fog) 10%, transparent);
+    outline-offset: -1px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bz-mist);
+    font-weight: 500;
+  }
+
+  .display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    line-height: 0.9;
+  }
+
+  .hairline {
+    height: 1px;
+    background: var(--bz-edge);
+    border: 0;
+  }
+
+  .panel {
+    background: var(--bz-panel);
+    box-shadow: var(--bz-shadow-border);
+  }
+
+  .live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--bz-live);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--bz-live) 55%, transparent);
+    animation: live-pulse 1.8s ease-out infinite;
+  }
+
+  .field {
+    height: 2.75rem;
+    background: var(--bz-void);
+    color: var(--bz-fog);
+    padding: 0 0.75rem;
+    font-size: 0.875rem;
+    box-shadow: var(--bz-shadow-border);
+    outline: none;
+  }
+
+  .field:focus {
+    box-shadow: var(--bz-shadow-border-hover);
+  }
+}
+
+@keyframes live-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--bz-live) 55%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.hero-enter {
+  opacity: 0;
+  animation: rise-in 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.stagger-1 {
+  animation-delay: 80ms;
+}
+.stagger-2 {
+  animation-delay: 180ms;
+}
+.stagger-3 {
+  animation-delay: 280ms;
+}
+.stagger-4 {
+  animation-delay: 400ms;
+}
+.stagger-5 {
+  animation-delay: 520ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-enter,
+  .live-dot {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

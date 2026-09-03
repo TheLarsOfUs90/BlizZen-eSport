@@ -1,0 +1,25 @@
+[
+  {
+    "id": "thelars",
+    "ign": "TheLarsOfUs",
+    "name": "",
+    "role": { "de": "Gründer", "en": "Founder" },
+    "country": { "de": "Altmark", "en": "Altmark" },
+    "countryCode": "DE",
+    "image": "media/player-thelars.png",
+    "featured": true,
+    "quote": {
+      "de": "Blitz im Play. Zen danach. Der Rest ist Discord.",
+      "en": "Blitz in the play. Zen after. The rest is Discord."
+    },
+    "bio": {
+      "de": "TheLarsOfUs hat BliZzen 2026 in der Altmark gestartet. Adult-eSport, tox-frei, Voice statt Formular. Welches Game gerade läuft, ist zweitrangig — der Squad nicht.",
+      "en": "TheLarsOfUs started BliZzen in 2026 in the Altmark. Adult esports, tox-free, voice instead of a form. Which game is on is secondary — the squad is not."
+    },
+    "stats": [
+      { "label": { "de": "Seit", "en": "Since" }, "value": "2026" },
+      { "label": { "de": "Heimat", "en": "Home" }, "value": "Altmark" },
+      { "label": { "de": "Alter", "en": "Age" }, "value": "18+" }
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+{
+  "name": "BliZzen eSport",
+  "short": "BLZ",
+  "founded": 2026,
+  "hq": "Altmark",
+  "country": "Deutschland",
+  "age": "18+",
+  "socials": {
+    "discord": "https://discord.gg/F2EyDybxCf",
+    "x": "",
+    "instagram": ""
+  },
+  "games": [
+    {
+      "id": "rl",
+      "name": { "de": "Rocket League", "en": "Rocket League" },
+      "short": "RL",
+      "blurb": {
+        "de": "Autos, Ball, Anstand. Scrims ohne Beleidigungs-Playlist.",
+        "en": "Cars, ball, manners. Scrims without an insult playlist."
+      }
+    },
+    {
+      "id": "fifa",
+      "name": { "de": "FIFA", "en": "FIFA" },
+      "short": "FIFA",
+      "blurb": {
+        "de": "Clubs, FUT, interne Liga. Kein Pause-Spam, kein Rage-Quit.",
+        "en": "Clubs, FUT, internal league. No pause-spam, no rage-quit."
+      }
+    },
+    {
+      "id": "r6",
+      "name": { "de": "Rainbow Six Siege", "en": "Rainbow Six Siege" },
+      "short": "R6",
+      "blurb": {
+        "de": "Taktik, Comms, klare Rollen. Kein Flame im Voice.",
+        "en": "Tactics, comms, clear roles. No flame in voice."
+      }
+    },
+    {
+      "id": "otg",
+      "name": { "de": "Off the Grid", "en": "Off the Grid" },
+      "short": "OTG",
+      "blurb": {
+        "de": "Extraction, Loot, Nerven. Erwachsene Entscheidungen im Drop.",
+        "en": "Extraction, loot, nerves. Adult decisions in the drop."
+      }
+    },
+    {
+      "id": "bf",
+      "name": { "de": "Battlefield RedSec", "en": "Battlefield RedSec" },
+      "short": "BF",
+      "blurb": {
+        "de": "Battle Royale, Squad, klare Comms. Laut nur, wenn’s sitzt.",
+        "en": "Battle royale, squad, clean comms. Loud only when it lands."
+      }
+    },
+    {
+      "id": "gta",
+      "name": { "de": "GTA 6", "en": "GTA 6" },
+      "short": "GTA",
+      "soon": true,
+      "blurb": {
+        "de": "Sobald es da ist. Los Santos, dann Voice.",
+        "en": "The moment it drops. Los Santos, then voice."
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+# dependencies
+node_modules
+
+# build
+dist
+.output
+.nitro
+.vercel
+.vinxi
+.tanstack
+*.tsbuildinfo
+
+# env / secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+.vercel
+.grok
+
+# logs / os
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.cache
+coverage
+*.zip

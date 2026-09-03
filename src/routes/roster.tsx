@@ -1,0 +1,40 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PlayerCard } from "@/components/player-card";
+import { SiteShell } from "@/components/site-shell";
+import { SocialLinks } from "@/components/social-links";
+import { Button } from "@/components/ui/button";
+import { ExternalLink } from "@/components/external-link";
+import { org } from "@/data/org";
+import { players } from "@/data/roster";
+import { usePrefs } from "@/lib/prefs";
+
+export const Route = createFileRoute("/roster")({ component: RosterPage });
+
+function RosterPage() {
+  const { t } = usePrefs();
+
+  return (
+    <SiteShell>
+      <section className="mx-auto max-w-[1440px] px-4 py-16 sm:px-6 sm:py-20 lg:px-10">
+        <p className="kicker">{t.roster.kicker}</p>
+        <h1 className="display mt-4 text-6xl sm:text-8xl">{t.roster.title}</h1>
+        <p className="mt-4 max-w-xl text-mist">{t.roster.dek}</p>
+        {org.socials.discord ? (
+          <Button asChild className="mt-8">
+            <ExternalLink href={org.socials.discord}>{t.home.cta}</ExternalLink>
+          </Button>
+        ) : null}
+      </section>
+      <ul className="mx-auto grid max-w-[1440px] gap-px bg-edge sm:grid-cols-2 lg:grid-cols-3">
+        {players.map((player) => (
+          <li key={player.id}>
+            <PlayerCard player={player} />
+          </li>
+        ))}
+      </ul>
+      <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-6 lg:px-10">
+        <SocialLinks />
+      </div>
+    </SiteShell>
+  );
+}
