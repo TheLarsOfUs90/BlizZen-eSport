@@ -1,8 +1,8 @@
-# BliZzen eSport
+# BlizZen eSport
 
-Statische Website des Adult-eSport-Clubs **BliZzen** aus der Altmark.
+Statische Website des Adult-eSport-Clubs **BlizZen** aus der Altmark.
 
-- Live: https://thelarsOfUs90.github.io/BliZzen-eSport/
+- Live: https://thelarsOfUs90.github.io/BlizZen-eSport/
 - Discord: https://discord.gg/xgAwd7eTT6
 - Kein Backend, keine Accounts, keine Secrets
 

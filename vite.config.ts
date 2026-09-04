@@ -4,7 +4,7 @@ import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 const pages = process.env.GITHUB_PAGES === "true";
-const base = pages ? "/BliZzen-eSport/" : "/";
+const base = pages ? "/BlizZen-eSport/" : "/";
 
 export default defineConfig({
   base,

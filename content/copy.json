@@ -1,7 +1,7 @@
 {
   "de": {
     "meta": {
-      "description": "BliZzen eSport — Adult-eSport aus der Altmark. Welches Game, ist egal. 18+, tox-frei."
+      "description": "BlizZen eSport — Adult-eSport aus der Altmark. Welches Game, ist egal. 18+, tox-frei."
     },
     "nav": {
       "roster": "Team",
@@ -15,8 +15,8 @@
       "themeDark": "Dunkel"
     },
     "home": {
-      "kicker": "BliZzen eSport",
-      "h1": "BliZzen",
+      "kicker": "BlizZen eSport",
+      "h1": "BlizZen",
       "intent": "Der Name ist Programm.",
       "blitz": "Blitz — der Moment, in dem ein Play sitzt und das Adrenalin kickt.",
       "zen": "Zen — die Ruhe und Zufriedenheit danach.",
@@ -30,7 +30,7 @@
       "gamesSoon": "Ab Release",
       "rosterKicker": "Team",
       "rosterH": "Das Team.",
-      "rosterP": "Gesichter von BliZzen. Der Rest trifft sich im Voice.",
+      "rosterP": "Gesichter von BlizZen. Der Rest trifft sich im Voice.",
       "rosterCta": "Zum Team",
       "endKicker": "Voice",
       "endH": "Der Rest passiert im Discord.",
@@ -50,16 +50,16 @@
     "roster": {
       "kicker": "Team",
       "title": "Das Team.",
-      "dek": "Spielerinnen und Spieler von BliZzen. Neue Gesichter kommen über Discord.",
+      "dek": "Spielerinnen und Spieler von BlizZen. Neue Gesichter kommen über Discord.",
       "back": "Team"
     },
     "about": {
       "kicker": "Club",
       "title": "Adult. Im Voice.",
       "dek": "Adult-eSport aus der Altmark. Fair, tox-frei. Welches Game, ist egal.",
-      "orgKicker": "BliZzen",
+      "orgKicker": "BlizZen",
       "orgH": "Ernst im Match. Entspannt danach.",
-      "p1": "Hey, schön dass du da bist. BliZzen ist Adult-eSport aus der Altmark. Wir spielen, was wir lieben — mit Leuten, die erscheinen.",
+      "p1": "Hey, schön dass du da bist. BlizZen ist Adult-eSport aus der Altmark. Wir spielen, was wir lieben — mit Leuten, die erscheinen.",
       "p2": "Remote-Sessions, Scrims, interne Ligen, Chill-Abende, VOD-Reviews. Memes und Gear-Talk ausdrücklich erwünscht. Flame nicht.",
       "p3": "18+. Wer dazugehören will, kommt über Discord.",
       "hq": "Heimat",
@@ -73,7 +73,7 @@
       "kicker": "Hinweise",
       "title": "Rechtliches & Datenschutz",
       "dek": "Statische Clubseite. Kein Shop, kein Login, kein Tracking.",
-      "p1": "Diese Website ist die öffentliche Präsenz von BliZzen eSport, einem privaten Adult-eSport-Club aus der Altmark. Sie wird über GitHub Pages bereitgestellt.",
+      "p1": "Diese Website ist die öffentliche Präsenz von BlizZen eSport, einem privaten Adult-eSport-Club aus der Altmark. Sie wird über GitHub Pages bereitgestellt.",
       "p2": "Es gibt keine Benutzerkonten, keine Formulare, keinen Shop und keine serverseitige Datenverarbeitung. Kontakt läuft über Discord oder die Team-E-Mail.",
       "p3": "Es werden keine Analyse- oder Werbecookies gesetzt. Sprache und Darstellung (Hell/Dunkel) speichert der Browser lokal (localStorage). Das ist technisch nötig für die Anzeige und wird nicht an uns übermittelt.",
       "p4": "Teamfotos und Texte erscheinen nur mit Einverständnis der jeweiligen Person. Klarnamen, Privatadressen oder Geburtsdaten gehören nicht auf diese Seite.",
@@ -91,7 +91,7 @@
   },
   "en": {
     "meta": {
-      "description": "BliZzen eSport — adult esports from Germany’s Altmark. The game doesn’t matter. 18+, tox-free."
+      "description": "BlizZen eSport — adult esports from Germany’s Altmark. The game doesn’t matter. 18+, tox-free."
     },
     "nav": {
       "roster": "Team",
@@ -105,8 +105,8 @@
       "themeDark": "Dark"
     },
     "home": {
-      "kicker": "BliZzen eSport",
-      "h1": "BliZzen",
+      "kicker": "BlizZen eSport",
+      "h1": "BlizZen",
       "intent": "The name is the program.",
       "blitz": "Blitz — the moment a play lands and the adrenaline hits.",
       "zen": "Zen — the calm and contentment after.",
@@ -120,7 +120,7 @@
       "gamesSoon": "When it drops",
       "rosterKicker": "Team",
       "rosterH": "The team.",
-      "rosterP": "Faces of BliZzen. Everyone else is in voice.",
+      "rosterP": "Faces of BlizZen. Everyone else is in voice.",
       "rosterCta": "Meet the team",
       "endKicker": "Voice",
       "endH": "The rest happens on Discord.",
@@ -140,16 +140,16 @@
     "roster": {
       "kicker": "Team",
       "title": "The team.",
-      "dek": "Players of BliZzen. New faces arrive through Discord.",
+      "dek": "Players of BlizZen. New faces arrive through Discord.",
       "back": "Team"
     },
     "about": {
       "kicker": "Club",
       "title": "Adult. In voice.",
       "dek": "Adult esports from the Altmark. Fair, tox-free. The game doesn’t matter.",
-      "orgKicker": "BliZzen",
+      "orgKicker": "BlizZen",
       "orgH": "Serious in the match. Human after it.",
-      "p1": "Hey — glad you’re here. BliZzen is adult esports from the Altmark. We play what we love — with people who show up.",
+      "p1": "Hey — glad you’re here. BlizZen is adult esports from the Altmark. We play what we love — with people who show up.",
       "p2": "Remote sessions, scrims, internal leagues, easy nights, VOD reviews. Memes and gear-talk wanted. Flame is not.",
       "p3": "18+. If you want in, Discord is the door.",
       "hq": "Home",
@@ -163,7 +163,7 @@
       "kicker": "Legal",
       "title": "Legal & privacy",
       "dek": "Static club site. No shop, no login, no tracking.",
-      "p1": "This website is the public presence of BliZzen eSport, a private adult esports club from the Altmark. It is hosted on GitHub Pages.",
+      "p1": "This website is the public presence of BlizZen eSport, a private adult esports club from the Altmark. It is hosted on GitHub Pages.",
       "p2": "There are no accounts, forms, shop, or server-side processing. Contact happens through Discord or the team email.",
       "p3": "No analytics or advertising cookies are set. Language and theme (light/dark) stay in the browser (localStorage). That is needed to render the page and is not sent to us.",
       "p4": "Team photos and copy appear only with that person’s consent. Real names, private addresses, or dates of birth do not belong on this site.",

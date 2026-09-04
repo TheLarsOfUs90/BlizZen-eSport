@@ -1,6 +1,6 @@
 # Security
 
-BliZzen eSport is a static website. There are no user accounts, no database,
+BlizZen eSport is a static website. There are no user accounts, no database,
 no forms, and no server-side secrets.
 
 ## What is in this repository

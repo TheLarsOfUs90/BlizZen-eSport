@@ -5,7 +5,7 @@ import { asset } from "@/lib/asset";
 import { copy } from "@/lib/copy";
 import appCss from "../styles.css?url";
 
-const APP_NAME = "BliZzen eSport";
+const APP_NAME = "BlizZen eSport";
 const DESCRIPTION = copy.de.meta.description;
 const CSP = [
   "default-src 'self'",

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thelarsOfUs90.github.io/BliZzen-eSport/
+Sitemap: https://thelarsOfUs90.github.io/BlizZen-eSport/

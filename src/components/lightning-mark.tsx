@@ -28,7 +28,7 @@ export function LogoLockup({
     <span className={cn("inline-flex items-center", className)}>
       <img
         src={asset("/brand/logo-mark.png")}
-        alt="BliZzen"
+        alt="BlizZen"
         className={cn("logo-mark h-10 w-auto", markClassName)}
         style={{ outline: "none" }}
       />

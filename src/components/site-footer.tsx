@@ -12,7 +12,7 @@ export function SiteFooter() {
         <div className="lg:col-span-7">
           <img
             src={asset("/brand/logo-mark.png")}
-            alt="BliZzen"
+            alt="BlizZen"
             className="logo-mark h-16 w-auto"
             style={{ outline: "none" }}
           />
