@@ -1,7 +1,7 @@
 {
   "de": {
     "meta": {
-      "description": "BlizZen eSport — Adult-eSport aus der Altmark. Welches Game, ist egal. 18+, tox-frei."
+      "description": "BlizZen eSport aus der Altmark. Entspannt daddeln, leicht kompetitiv. 18+."
     },
     "nav": {
       "roster": "Team",
@@ -25,16 +25,16 @@
       "statFounded": "Gegründet",
       "statHq": "Gründungsort",
       "gamesKicker": "Games",
-      "gamesH": "Welches Game, ist egal.",
-      "gamesP": "Wir spielen, worauf Lust ist. Aktuell Rocket League, FIFA, Rainbow Six, Off the Grid und Battlefield RedSec. Ab Release von GTA 6 auch das.",
+      "gamesH": "Spiel, worauf du Lust hast.",
+      "gamesP": "Gedaddelt wird, was Spaß macht. Aktuell: Rocket League, FIFA, Rainbow Six, Off the Grid und Battlefield RedSec. GTA 6 ab Release.",
       "gamesSoon": "Ab Release",
       "rosterKicker": "Team",
       "rosterH": "Das Team.",
-      "rosterP": "Gesichter von BlizZen. Der Rest trifft sich im Voice.",
+      "rosterP": "Locker daddeln, blitzend rein!",
       "rosterCta": "Zum Team",
-      "endKicker": "Voice",
-      "endH": "Der Rest passiert im Discord.",
-      "endP": "Scrims, Chill, Memes. Kein Formular."
+      "endKicker": "BlizZen",
+      "endH": "Weiter geht’s im Discord.",
+      "endP": "Scrims, Chill, Memes."
     },
     "social": {
       "x": "X",
@@ -50,23 +50,23 @@
     "roster": {
       "kicker": "Team",
       "title": "Das Team.",
-      "dek": "Spielerinnen und Spieler von BlizZen. Neue Gesichter kommen über Discord.",
+      "dek": "Das aktuelle Line-up. Wer neu dazukommt, startet im Discord.",
       "back": "Team"
     },
     "about": {
       "kicker": "Club",
-      "title": "Adult. Im Voice.",
-      "dek": "Adult-eSport aus der Altmark. Fair, tox-frei. Welches Game, ist egal.",
+      "title": "Locker daddeln, blitzend rein.",
+      "dek": "eSport aus der Altmark. Daddeln mit Biss. 18+.",
       "orgKicker": "BlizZen",
-      "orgH": "Ernst im Match. Entspannt danach.",
-      "p1": "Hey, schön dass du da bist. BlizZen ist Adult-eSport aus der Altmark. Wir spielen, was wir lieben — mit Leuten, die erscheinen.",
-      "p2": "Remote-Sessions, Scrims, interne Ligen, Chill-Abende, VOD-Reviews. Memes und Gear-Talk ausdrücklich erwünscht. Flame nicht.",
-      "p3": "18+. Wer dazugehören will, kommt über Discord.",
+      "orgH": "eSport ist auch Sport.",
+      "p1": "Hey, schön, dass du da bist. BlizZen ist eSport aus der Altmark. Wir daddeln, was wir lieben — mit Leuten, die das fühlen. Bevor es BlizZen gab, gab es ein paar Dudes, die einfach nur gerne gedaddelt haben. Zufällig haben sich diese Dudes in BF3 bei einer krassen Jeep-Stuff-Aktion als Feinde kennengelernt. Es folgte eine PS4-Party-Einladung, und der Rest war Geschichte. Es hat remote gevibed, und man hat wahrscheinlich mehr Zeit gemeinsam online verbracht als mit seinen Real-Life-Freunden — bis die Online-Freunde irgendwann selbst zu Real-Life-Freunden wurden.",
+      "p2": "Danach folgten viele Daddel-Sessions mit Spielen wie BF4, GTA 5, Minecraft, ARK: Survival Evolved und Rainbow Six Siege. Rainbow Six Siege hat auch großen Anteil am Teamnamen BlizZen. Es hieß dann immer nur: Wir gehen da blitzend rein. Ein extrem schneller Push mit dem Operator Blitz an der Front. Diese Taktik war bei der ersten Anwendung in einem Match zu 99 % erfolgreich — und so tauften wir sie: blitzend reingehen.",
+      "p3": "Daddeln ist für uns Spaß, Emotion, Adrenalin, Befriedigung, Ruhe und Entspannung. Remote-Sessions, Scrims, Ligen, Chill-Abende und Memes. Wenn alles passt, treffen wir uns auch privat. #touchgrass. Ob du ins Team passt, finden wir nur raus, wenn du dem Discord beitrittst und wir dich kennenlernen dürfen.",
       "hq": "Heimat",
       "age": "Alter",
       "tag": "Tag",
       "founded": "Gegründet",
-      "quote": "Faire Atmosphäre. Wir sind erwachsen.",
+      "quote": "Es ist gefährlich, allein zu gehen. Nimm dies. - The Legend of Zelda",
       "join": "Discord beitreten"
     },
     "legal": {
@@ -91,7 +91,7 @@
   },
   "en": {
     "meta": {
-      "description": "BlizZen eSport — adult esports from Germany’s Altmark. The game doesn’t matter. 18+, tox-free."
+      "description": "BlizZen eSport from the Altmark. Casual gaming with a light competitive edge. 18+"
     },
     "nav": {
       "roster": "Team",
@@ -115,16 +115,16 @@
       "statFounded": "Founded",
       "statHq": "Founded in",
       "gamesKicker": "Games",
-      "gamesH": "Which game doesn’t matter.",
-      "gamesP": "We play what we feel like. Right now: Rocket League, FIFA, Rainbow Six, Off the Grid and Battlefield RedSec. GTA 6 when it drops.",
+      "gamesH": "Play whatever you're in the mood for.",
+      "gamesP": "We play whatever's fun. Right now: Rocket League, FIFA, Rainbow Six, Off the Grid and Battlefield RedSec. GTA 6 when it drops.",
       "gamesSoon": "When it drops",
       "rosterKicker": "Team",
       "rosterH": "The team.",
-      "rosterP": "Faces of BlizZen. Everyone else is in voice.",
+      "rosterP": "Chill and game — then strike like lightning",
       "rosterCta": "Meet the team",
-      "endKicker": "Voice",
-      "endH": "The rest happens on Discord.",
-      "endP": "Scrims, easy nights, memes. No form."
+      "endKicker": "BlizZen",
+      "endH": "Continues on Discord.",
+      "endP": "Scrims, easy nights, memes."
     },
     "social": {
       "x": "X",
@@ -140,23 +140,23 @@
     "roster": {
       "kicker": "Team",
       "title": "The team.",
-      "dek": "Players of BlizZen. New faces arrive through Discord.",
+      "dek": "The current lineup. New faces arrive through Discord.",
       "back": "Team"
     },
     "about": {
       "kicker": "Club",
-      "title": "Adult. In voice.",
-      "dek": "Adult esports from the Altmark. Fair, tox-free. The game doesn’t matter.",
+      "title": "Chill and game — then strike like lightning.",
+      "dek": "eSports from the Altmark. Casual play with bite. 18+.",
       "orgKicker": "BlizZen",
       "orgH": "Serious in the match. Human after it.",
-      "p1": "Hey — glad you’re here. BlizZen is adult esports from the Altmark. We play what we love — with people who show up.",
-      "p2": "Remote sessions, scrims, internal leagues, easy nights, VOD reviews. Memes and gear-talk wanted. Flame is not.",
-      "p3": "18+. If you want in, Discord is the door.",
+      "p1": "Hey, good to have you here. BlizZen is eSports from the Altmark. We play what we love — with people who feel the same. Before BlizZen, there were just a few dudes who liked to game. By chance, those dudes met as enemies in BF3 during a wild jeep-stunt play. A PS4 party invite followed, and the rest was history. It vibed remotely, and we probably spent more time together online than with our real-life friends — until the online friends became real-life friends too.",
+      "p2": "What followed were countless sessions in games like BF4, GTA 5, Minecraft, ARK: Survival Evolved and Rainbow Six Siege. Rainbow Six Siege also played a big part in the team name BlizZen. The call was always the same: we go in blazing. An extremely fast push with the operator Blitz at the front. The first time we used that tactic in a match, it worked about 99% of the time — so we named it: going in blazing.",
+      "p3": "Gaming, for us, is fun, emotion, adrenaline, satisfaction, calm and downtime. Remote sessions, scrims, leagues, chill nights and memes. When it fits, we meet offline too. #touchgrass. Whether you fit the team is something we’ll only find out if you join the Discord and we get to know you.",
       "hq": "Home",
       "age": "Age",
       "tag": "Tag",
       "founded": "Founded",
-      "quote": "Fair room. We are adults.",
+      "quote": "It’s dangerous to go alone. Take this. - The Legend of Zelda.",
       "join": "Join Discord"
     },
     "legal": {
