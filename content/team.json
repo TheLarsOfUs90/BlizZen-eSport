@@ -9,25 +9,25 @@
     "image": "media/player-thelars.png",
     "featured": true,
     "quote": {
-      "de": "Und einfach nur Döötz.",
-      "en": "Und einfach nur Döötz."
+      "de": "Flach spielen, hoch gewinnen.",
+      "en": "Play flat, win high."
     },
     "bio": {
-      "de": "TheLarsOfUs hat BlizZen 2026 in der Altmark gestartet. Adult-eSport, tox-frei. Games, die gerade Spaß machen: Off the Grid und Battlefield RedSec.",
-      "en": "TheLarsOfUs started BlizZen in 2026 in the Altmark. Adult esports, tox-free. Games that are fun right now: Off the Grid and Battlefield RedSec."
+      "de": "BlizZen-eSport 2026 in der Altmark gestartet | Möchtegern-Superheld | Papa | eSport ist auch Sport | Einfach nur Daddeln",
+      "en": "BlizZen-eSport 2026 launched in the Altmark | Wannabe superhero | Dad | eSports is a sport too | Just gaming"
     },
     "socials": {
       "x": "https://x.com/TheLarsOfUs",
       "discord": "",
       "instagram": "",
-      "twitch": "",
-      "youtube": "",
-      "tiktok": ""
+      "twitch": "https://www.twitch.tv/thelarsofus",
+      "youtube": "https://www.youtube.com/@thelarsofus",
+      "tiktok": "https://www.tiktok.com/@thelarsofus90"
     },
     "stats": [
       { "label": { "de": "Seit", "en": "Since" }, "value": "2026" },
       { "label": { "de": "Heimat", "en": "Home" }, "value": "Altmark" },
-      { "label": { "de": "Alter", "en": "Age" }, "value": "18+" }
+      { "label": { "de": "Alter", "en": "Age" }, "value": "too old" }
     ]
   }
 ]
