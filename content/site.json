@@ -17,8 +17,8 @@
       "name": { "de": "Rocket League", "en": "Rocket League" },
       "short": "RL",
       "blurb": {
-        "de": "Autos, Ball, Anstand. Scrims ohne Beleidigungs-Playlist.",
-        "en": "Cars, ball, manners. Scrims without an insult playlist."
+        "de": "Das Runde muss ins eckige.",
+        "en": „You’ve got to put the ball in the net.“
       }
     },
     {
@@ -26,8 +26,8 @@
       "name": { "de": "FIFA", "en": "FIFA" },
       "short": "FIFA",
       "blurb": {
-        "de": "Clubs, FUT, interne Liga. Kein Pause-Spam, kein Rage-Quit.",
-        "en": "Clubs, FUT, internal league. No pause-spam, no rage-quit."
+        "de": "Hoch und weit bringt Sicherheit.",
+        "en": "If in doubt, kick it out."
       }
     },
     {
@@ -35,8 +35,8 @@
       "name": { "de": "Rainbow Six Siege", "en": "Rainbow Six Siege" },
       "short": "R6",
       "blurb": {
-        "de": "Taktik, Comms, klare Rollen. Kein Flame im Voice.",
-        "en": "Tactics, comms, clear roles. No flame in voice."
+        "de": "Blitzend reingehen.",
+        "en": "„Goes in like a flash.“
       }
     },
     {
@@ -44,8 +44,8 @@
       "name": { "de": "Off the Grid", "en": "Off the Grid" },
       "short": "OTG",
       "blurb": {
-        "de": "Extraction, Loot, Nerven. Erwachsene Entscheidungen im Drop.",
-        "en": "Extraction, loot, nerves. Adult decisions in the drop."
+        "de": „Neue Glieder, neues Glück.",
+        "en": "New limbs, new luck."
       }
     },
     {
@@ -53,8 +53,8 @@
       "name": { "de": "Battlefield RedSec", "en": "Battlefield RedSec" },
       "short": "BF",
       "blurb": {
-        "de": "Battle Royale, Squad, klare Comms. Laut nur, wenn’s sitzt.",
-        "en": "Battle royale, squad, clean comms. Loud only when it lands."
+        "de": "Im Feuer ist Schluss.",
+        "en": "In the fire, it’s over."
       }
     },
     {
@@ -63,8 +63,8 @@
       "short": "GTA",
       "soon": true,
       "blurb": {
-        "de": "Sobald es da ist. Los Santos, dann Voice.",
-        "en": "The moment it drops. Los Santos, then voice."
+        "de": "Mehr Sterne, mehr Leben.",
+        "en": "More stars, more life."
       }
     }
   ]
