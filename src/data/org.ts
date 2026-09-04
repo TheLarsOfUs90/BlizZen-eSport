@@ -3,7 +3,7 @@ import { players } from "@/data/roster";
 import { publicSocialUrl, httpsUrl, publicEmail } from "@/lib/safe";
 
 const discord =
-  httpsUrl(site.socials.discord) ?? "https://discord.gg/F2EyDybxCf";
+  httpsUrl(site.socials.discord) ?? "https://discord.gg/xgAwd7eTT6";
 
 export const org = {
   name: site.name,

@@ -3,7 +3,7 @@
 Statische Website des Adult-eSport-Clubs **BliZzen** aus der Altmark.
 
 - Live: https://thelarsOfUs90.github.io/BliZzen-eSport/
-- Discord: https://discord.gg/F2EyDybxCf
+- Discord: https://discord.gg/xgAwd7eTT6
 - Kein Backend, keine Accounts, keine Secrets
 
 ## Inhalte ändern

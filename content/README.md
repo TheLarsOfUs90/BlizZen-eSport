@@ -19,7 +19,7 @@ Datei: `site.json`
 
 ```json
 "socials": {
-  "discord": "https://discord.gg/F2EyDybxCf",
+  "discord": "https://discord.gg/xgAwd7eTT6",
   "x": "",
   "instagram": ""
 },
