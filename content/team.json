@@ -29,5 +29,36 @@
       { "label": { "de": "Heimat", "en": "Home" }, "value": "Altmark" },
       { "label": { "de": "Alter", "en": "Age" }, "value": "too old" }
     ]
+  },
+  {
+    "id": "inus",
+    "ign": "InusPinus",
+    "name": "",
+    "role": { "de": "Motivator", "en": "Motivator" },
+    "country": { "de": "Altmark", "en": "Altmark" },
+    "countryCode": "DE",
+    "image": "media/player-inus.png",
+    "featured": true,
+    "quote": {
+      "de": "Das Schmeckt.",
+      "en": "Tastes good."
+    },
+    "bio": {
+      "de": "Mitglied der Stunde 0 | Pilze | Mum | Muggel | Skyrim main",
+      "en": "Hour-zero member | Mushrooms | Mum | Muggle | Skyrim main"
+    },
+    "socials": {
+      "x": "",
+      "discord": "",
+      "instagram": "",
+      "twitch": "",
+      "youtube": "",
+      "tiktok": ""
+    },
+    "stats": [
+      { "label": { "de": "Seit", "en": "Since" }, "value": "2026" },
+      { "label": { "de": "Heimat", "en": "Home" }, "value": "Altmark" },
+      { "label": { "de": "Alter", "en": "Age" }, "value": "too old" }
+    ]
   }
 ]
