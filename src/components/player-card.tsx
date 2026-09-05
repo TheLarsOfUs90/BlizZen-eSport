@@ -54,11 +54,15 @@ export function PlayerCard({
           {player.name ? <p className="text-sm text-mist">{player.name}</p> : null}
         </div>
       </Link>
-      <div className="flex flex-1 flex-col gap-3 border-t border-edge p-4 sm:p-5">
-        <p className="text-lg leading-snug text-fog sm:text-xl">{quote}</p>
-        <p className="text-sm leading-relaxed text-mist">{bio}</p>
-        <PlayerStats stats={player.stats} compact className="-mx-4 sm:-mx-5" />
-        <SocialLinks links={player.socials} className="mt-auto -ml-3" />
+      <div className="flex min-h-0 flex-1 flex-col border-t border-edge">
+        <div className="flex min-h-0 flex-1 flex-col gap-3 p-4 sm:p-5">
+          <p className="text-lg leading-snug text-fog sm:text-xl">{quote}</p>
+          <p className="flex-1 text-sm leading-relaxed text-mist">{bio}</p>
+        </div>
+        <PlayerStats stats={player.stats} compact />
+        <div className="flex min-h-11 items-center px-1 pb-3 sm:px-2">
+          <SocialLinks links={player.socials} />
+        </div>
       </div>
     </article>
   );

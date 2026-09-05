@@ -32,9 +32,9 @@ function RosterPage() {
           </Button>
         ) : null}
       </section>
-      <ul className={cn("mx-auto grid gap-px bg-edge", rosterCols(players.length))}>
+      <ul className={cn("mx-auto grid items-stretch gap-px bg-edge", rosterCols(players.length))}>
         {players.map((player) => (
-          <li key={player.id}>
+          <li key={player.id} className="h-full min-h-0">
             <PlayerCard player={player} />
           </li>
         ))}

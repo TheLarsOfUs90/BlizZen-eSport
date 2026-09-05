@@ -59,7 +59,13 @@ function Home() {
               </Link>
             </Button>
           </div>
-          <div className={faces.length > 1 ? "grid gap-px bg-edge sm:grid-cols-2 lg:col-span-7" : "lg:col-span-7"}>
+          <div
+            className={
+              faces.length > 1
+                ? "grid items-stretch gap-px bg-edge sm:grid-cols-2 lg:col-span-7"
+                : "lg:col-span-7"
+            }
+          >
             {faces.map((player) => (
               <PlayerCard key={player.id} player={player} large={faces.length === 1} />
             ))}
