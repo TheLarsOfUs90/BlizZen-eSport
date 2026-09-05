@@ -3,8 +3,7 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
-const pages = process.env.GITHUB_PAGES === "true";
-const base = pages ? "/BlizZen-eSport/" : "/";
+const base = "/";
 
 export default defineConfig({
   base,
