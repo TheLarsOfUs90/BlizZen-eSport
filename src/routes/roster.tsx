@@ -11,6 +11,12 @@ import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/roster")({ component: RosterPage });
 
+function rosterCols(count: number) {
+  if (count <= 1) return "max-w-[720px] px-4 sm:px-6 lg:px-10";
+  if (count === 2) return "max-w-[1440px] sm:grid-cols-2";
+  return "max-w-[1440px] sm:grid-cols-2 lg:grid-cols-3";
+}
+
 function RosterPage() {
   const { t } = usePrefs();
 
@@ -26,14 +32,7 @@ function RosterPage() {
           </Button>
         ) : null}
       </section>
-      <ul
-        className={cn(
-          "mx-auto grid gap-px bg-edge",
-          players.length === 1
-            ? "max-w-[720px] px-4 sm:px-6 lg:px-10"
-            : "max-w-[1440px] sm:grid-cols-2 lg:grid-cols-3",
-        )}
-      >
+      <ul className={cn("mx-auto grid gap-px bg-edge", rosterCols(players.length))}>
         {players.map((player) => (
           <li key={player.id}>
             <PlayerCard player={player} />
