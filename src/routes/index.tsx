@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { CountUp } from "@/components/count-up";
-import { PlayerCard } from "@/components/player-card";
+import { PlayerCard, playerCardTracks } from "@/components/player-card";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteShell } from "@/components/site-shell";
 import { SocialLinks } from "@/components/social-links";
@@ -62,8 +62,8 @@ function Home() {
           <div
             className={
               faces.length > 1
-                ? "grid items-stretch gap-px bg-edge sm:grid-cols-2 lg:col-span-7"
-                : "lg:col-span-7"
+                ? `${playerCardTracks} items-stretch gap-px bg-edge sm:grid-cols-2 lg:col-span-7`
+                : `${playerCardTracks} lg:col-span-7`
             }
           >
             {faces.map((player) => (

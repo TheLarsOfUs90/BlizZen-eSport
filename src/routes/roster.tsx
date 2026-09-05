@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PlayerCard } from "@/components/player-card";
+import { PlayerCard, playerCardTracks } from "@/components/player-card";
 import { SiteShell } from "@/components/site-shell";
 import { SocialLinks } from "@/components/social-links";
 import { Button } from "@/components/ui/button";
@@ -32,9 +32,15 @@ function RosterPage() {
           </Button>
         ) : null}
       </section>
-      <ul className={cn("mx-auto grid items-stretch gap-px bg-edge", rosterCols(players.length))}>
+      <ul
+        className={cn(
+          "mx-auto items-stretch gap-px bg-edge",
+          playerCardTracks,
+          rosterCols(players.length),
+        )}
+      >
         {players.map((player) => (
-          <li key={player.id} className="h-full min-h-0">
+          <li key={player.id} className="contents">
             <PlayerCard player={player} />
           </li>
         ))}

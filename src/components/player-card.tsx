@@ -6,6 +6,9 @@ import { asset } from "@/lib/asset";
 import { SocialLinks } from "@/components/social-links";
 import { PlayerStats } from "@/components/player-stats";
 
+export const playerCardTracks =
+  "grid [grid-template-rows:auto_auto_1fr_auto_auto]";
+
 export function PlayerCard({
   player,
   large,
@@ -20,15 +23,15 @@ export function PlayerCard({
   return (
     <article
       className={cn(
-        "flex h-full flex-col overflow-hidden bg-panel transition-[box-shadow] duration-150",
-        "shadow-border hover:shadow-border-hover",
+        "row-span-5 grid h-full grid-rows-subgrid overflow-hidden bg-panel",
+        "shadow-border transition-[box-shadow] duration-150 hover:shadow-border-hover",
       )}
     >
       <Link
         to="/roster/$playerId"
         params={{ playerId: player.id }}
         className={cn(
-          "group relative block overflow-hidden",
+          "group relative block min-h-0 overflow-hidden",
           large ? "min-h-[320px] sm:min-h-[420px]" : "aspect-[4/5]",
         )}
       >
@@ -54,15 +57,13 @@ export function PlayerCard({
           {player.name ? <p className="text-sm text-mist">{player.name}</p> : null}
         </div>
       </Link>
-      <div className="flex min-h-0 flex-1 flex-col border-t border-edge">
-        <div className="flex min-h-0 flex-1 flex-col gap-3 p-4 sm:p-5">
-          <p className="text-lg leading-snug text-fog sm:text-xl">{quote}</p>
-          <p className="flex-1 text-sm leading-relaxed text-mist">{bio}</p>
-        </div>
+      <p className="px-4 pt-4 text-lg leading-snug text-fog sm:px-5 sm:pt-5 sm:text-xl">{quote}</p>
+      <p className="px-4 pt-3 text-sm leading-relaxed text-mist sm:px-5">{bio}</p>
+      <div className="mt-4">
         <PlayerStats stats={player.stats} compact />
-        <div className="flex min-h-11 items-center px-1 pb-3 sm:px-2">
-          <SocialLinks links={player.socials} />
-        </div>
+      </div>
+      <div className="flex min-h-11 items-center px-1 py-3 sm:px-2">
+        <SocialLinks links={player.socials} />
       </div>
     </article>
   );
