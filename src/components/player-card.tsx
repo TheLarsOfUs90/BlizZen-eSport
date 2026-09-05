@@ -4,6 +4,7 @@ import { usePrefs, tx } from "@/lib/prefs";
 import { cn } from "@/lib/utils";
 import { asset } from "@/lib/asset";
 import { SocialLinks } from "@/components/social-links";
+import { PlayerStats } from "@/components/player-stats";
 
 export function PlayerCard({
   player,
@@ -56,6 +57,7 @@ export function PlayerCard({
       <div className="flex flex-1 flex-col gap-3 border-t border-edge p-4 sm:p-5">
         <p className="text-lg leading-snug text-fog sm:text-xl">{quote}</p>
         <p className="text-sm leading-relaxed text-mist">{bio}</p>
+        <PlayerStats stats={player.stats} compact className="-mx-4 sm:-mx-5" />
         <SocialLinks links={player.socials} className="mt-auto -ml-3" />
       </div>
     </article>
