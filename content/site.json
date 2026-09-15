@@ -62,7 +62,7 @@
       "name": { "de": "Apex Legends", "en": "Apex Legends" },
       "short": "APEX",
       "blurb": {
-        "de": "Heiß droppen, kalt bleiben.",
+        "de": "Heiß droppen, Ruhe bewahren.",
         "en": "Drop hot, stay cool."
       }
     },
@@ -80,8 +80,8 @@
       "name": { "de": "Gran Turismo 7", "en": "Gran Turismo 7" },
       "short": "GT7",
       "blurb": {
-        "de": "Wer bremst, verliert. Fast.",
-        "en": "Braking is losing. Almost."
+        "de": "Wer bremst, verliert.",
+        "en": "Braking is losing."
       }
     },
     {
