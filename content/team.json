@@ -119,7 +119,7 @@
     },
     "stats": [
       { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
-      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Altmark", "en": "Altmark" } },
+      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Siegen", "en": "Siegen" } },
       { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "Mitte 30", "en": "Mid-30s" } }
     ]
   }
