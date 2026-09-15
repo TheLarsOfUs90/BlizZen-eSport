@@ -16,29 +16,26 @@ const DRAG_THRESHOLD = 8;
 
 export function RosterMarquee({ players }: { players: Player[] }) {
   const { t } = usePrefs();
-  const rootRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
+  const scrollerRef = useRef<HTMLDivElement>(null);
   const stripRef = useRef<HTMLUListElement>(null);
-  const offsetRef = useRef(0);
+  const widthRef = useRef(0);
   const draggingRef = useRef(false);
+  const hoveringRef = useRef(false);
+  const touchingRef = useRef(false);
+  const reduceRef = useRef(false);
   const lastXRef = useRef(0);
   const startXRef = useRef(0);
-  const startYRef = useRef(0);
-  const axisRef = useRef<"none" | "x" | "y">("none");
-  const pressedRef = useRef(false);
   const movedRef = useRef(false);
-  const hoverRef = useRef(false);
-  const reduceRef = useRef(false);
-  const widthRef = useRef(0);
   const rafRef = useRef(0);
   const lastTRef = useRef(0);
   const [dragging, setDragging] = useState(false);
 
-  const applyOffset = useCallback((value: number) => {
+  const wrapScroll = useCallback(() => {
+    const scroller = scrollerRef.current;
     const width = widthRef.current;
-    offsetRef.current = width > 0 ? ((value % width) + width) % width : value;
-    const track = trackRef.current;
-    if (track) track.style.transform = `translate3d(${-offsetRef.current}px, 0, 0)`;
+    if (!scroller || width <= 0) return;
+    if (scroller.scrollLeft >= width) scroller.scrollLeft -= width;
+    else if (scroller.scrollLeft < 0) scroller.scrollLeft += width;
   }, []);
 
   const measure = useCallback(() => {
@@ -70,81 +67,55 @@ export function RosterMarquee({ players }: { players: Player[] }) {
       const previous = lastTRef.current || now;
       const dt = Math.min(0.064, (now - previous) / 1000);
       lastTRef.current = now;
+      const scroller = scrollerRef.current;
       const width = widthRef.current;
-      if (width > 0 && !draggingRef.current && !hoverRef.current && !reduceRef.current) {
-        applyOffset(offsetRef.current + (width / duration) * dt);
+      const paused =
+        draggingRef.current || hoveringRef.current || touchingRef.current || reduceRef.current;
+      if (scroller && width > 0 && !paused) {
+        scroller.scrollLeft += (width / duration) * dt;
+        wrapScroll();
       }
       rafRef.current = requestAnimationFrame(tick);
     };
     rafRef.current = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafRef.current);
-  }, [applyOffset, players.length]);
-
-  const endGesture = (event: ReactPointerEvent<HTMLDivElement>) => {
-    const wasDragging = draggingRef.current;
-    pressedRef.current = false;
-    draggingRef.current = false;
-    axisRef.current = "none";
-    setDragging(false);
-    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
-      event.currentTarget.releasePointerCapture(event.pointerId);
-    }
-    if (!wasDragging && event.pointerType !== "mouse") return;
-    const root = rootRef.current;
-    if (event.pointerType === "mouse" && root) {
-      const rect = root.getBoundingClientRect();
-      hoverRef.current =
-        event.clientX >= rect.left &&
-        event.clientX <= rect.right &&
-        event.clientY >= rect.top &&
-        event.clientY <= rect.bottom;
-    } else {
-      hoverRef.current = false;
-    }
-  };
+  }, [players.length, wrapScroll]);
 
   const onPointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (event.pointerType === "mouse" && event.button !== 0) return;
-    pressedRef.current = true;
-    movedRef.current = false;
-    axisRef.current = "none";
-    lastXRef.current = event.clientX;
-    startXRef.current = event.clientX;
-    startYRef.current = event.clientY;
     if (event.pointerType === "mouse") {
+      if (event.button !== 0) return;
       draggingRef.current = true;
-      axisRef.current = "x";
+      movedRef.current = false;
+      lastXRef.current = event.clientX;
+      startXRef.current = event.clientX;
       event.currentTarget.setPointerCapture(event.pointerId);
+      return;
     }
+    touchingRef.current = true;
+    movedRef.current = false;
   };
 
   const onPointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (!pressedRef.current) return;
-    const totalX = event.clientX - startXRef.current;
-    const totalY = event.clientY - startYRef.current;
-
-    if (axisRef.current === "y") return;
-
-    if (axisRef.current === "none") {
-      if (Math.hypot(totalX, totalY) < DRAG_THRESHOLD) return;
-      if (Math.abs(totalX) >= Math.abs(totalY)) {
-        axisRef.current = "x";
-        draggingRef.current = true;
-        lastXRef.current = startXRef.current;
-        event.currentTarget.setPointerCapture(event.pointerId);
-      } else {
-        axisRef.current = "y";
-        return;
-      }
-    }
-
+    if (event.pointerType !== "mouse" || !draggingRef.current) return;
     const dx = event.clientX - lastXRef.current;
-    if (dx === 0) return;
     lastXRef.current = event.clientX;
-    applyOffset(offsetRef.current - dx);
-    if (Math.abs(totalX) >= DRAG_THRESHOLD) {
+    const scroller = scrollerRef.current;
+    if (scroller && dx !== 0) {
+      scroller.scrollLeft -= dx;
+      wrapScroll();
+    }
+    if (Math.abs(event.clientX - startXRef.current) >= DRAG_THRESHOLD) {
       movedRef.current = true;
       setDragging(true);
+    }
+  };
+
+  const onPointerUp = (event: ReactPointerEvent<HTMLDivElement>) => {
+    draggingRef.current = false;
+    touchingRef.current = false;
+    setDragging(false);
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
     }
   };
 
@@ -167,26 +138,26 @@ export function RosterMarquee({ players }: { players: Player[] }) {
 
   return (
     <div
-      ref={rootRef}
-      className={cn("roster-marquee relative overflow-hidden border-y border-edge", dragging && "is-dragging")}
+      ref={scrollerRef}
+      className={cn("roster-marquee relative border-y border-edge", dragging && "is-dragging")}
       role="region"
-      aria-label={`${t.home.rosterH} ${t.home.rosterPause}`}
+      aria-label={t.home.rosterH}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
-      onPointerUp={endGesture}
-      onPointerCancel={endGesture}
-      onLostPointerCapture={endGesture}
+      onPointerUp={onPointerUp}
+      onPointerCancel={onPointerUp}
       onClickCapture={onClickCapture}
+      onScroll={wrapScroll}
       onPointerEnter={(event) => {
-        if (event.pointerType === "mouse") hoverRef.current = true;
+        if (event.pointerType === "mouse") hoveringRef.current = true;
       }}
       onPointerLeave={(event) => {
-        if (event.pointerType === "mouse" && !draggingRef.current) hoverRef.current = false;
+        if (event.pointerType === "mouse" && !draggingRef.current) hoveringRef.current = false;
       }}
     >
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-void to-transparent sm:w-20" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-void to-transparent sm:w-20" />
-      <div ref={trackRef} className="roster-marquee-track">
+      <div className="roster-marquee-track">
         <MarqueeStrip players={players} stripRef={stripRef} />
         <MarqueeStrip players={players} clone />
       </div>

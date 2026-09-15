@@ -55,7 +55,6 @@ function Home() {
             <SectionKicker index="02" label={t.home.rosterKicker} />
             <h2 className="display mt-4 max-w-xl text-5xl sm:text-7xl">{t.home.rosterH}</h2>
             <p className="mt-3 max-w-lg text-mist">{t.home.rosterP}</p>
-            <p className="kicker mt-4 text-dim">{t.home.rosterPause}</p>
           </div>
           <Button asChild variant="ghost" className="self-start sm:self-auto">
             <Link to="/roster">

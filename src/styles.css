@@ -241,9 +241,16 @@ html.light .stage-dark .logo-mark {
 
 .roster-marquee {
   cursor: grab;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
   user-select: none;
-  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
+}
+
+.roster-marquee::-webkit-scrollbar {
+  display: none;
 }
 
 .roster-marquee.is-dragging {
@@ -261,7 +268,6 @@ html.light .stage-dark .logo-mark {
 .roster-marquee-track {
   display: flex;
   width: max-content;
-  will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
