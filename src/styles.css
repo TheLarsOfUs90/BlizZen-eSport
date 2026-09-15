@@ -241,16 +241,9 @@ html.light .stage-dark .logo-mark {
 
 .roster-marquee {
   cursor: grab;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
+  overflow: hidden;
   user-select: none;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-x: contain;
-}
-
-.roster-marquee::-webkit-scrollbar {
-  display: none;
+  touch-action: pan-y;
 }
 
 .roster-marquee.is-dragging {
