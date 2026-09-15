@@ -23,6 +23,9 @@ export function RosterMarquee({ players }: { players: Player[] }) {
   const draggingRef = useRef(false);
   const lastXRef = useRef(0);
   const startXRef = useRef(0);
+  const startYRef = useRef(0);
+  const axisRef = useRef<"none" | "x" | "y">("none");
+  const pressedRef = useRef(false);
   const movedRef = useRef(false);
   const hoverRef = useRef(false);
   const reduceRef = useRef(false);
@@ -77,34 +80,16 @@ export function RosterMarquee({ players }: { players: Player[] }) {
     return () => cancelAnimationFrame(rafRef.current);
   }, [applyOffset, players.length]);
 
-  const onPointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (event.pointerType === "mouse" && event.button !== 0) return;
-    draggingRef.current = true;
-    movedRef.current = false;
-    lastXRef.current = event.clientX;
-    startXRef.current = event.clientX;
-    event.currentTarget.setPointerCapture(event.pointerId);
-  };
-
-  const onPointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (!draggingRef.current) return;
-    const dx = event.clientX - lastXRef.current;
-    if (dx === 0) return;
-    lastXRef.current = event.clientX;
-    applyOffset(offsetRef.current - dx);
-    if (Math.abs(event.clientX - startXRef.current) >= DRAG_THRESHOLD) {
-      movedRef.current = true;
-      setDragging(true);
-    }
-  };
-
-  const onPointerUp = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (!draggingRef.current) return;
+  const endGesture = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const wasDragging = draggingRef.current;
+    pressedRef.current = false;
     draggingRef.current = false;
+    axisRef.current = "none";
     setDragging(false);
     if (event.currentTarget.hasPointerCapture(event.pointerId)) {
       event.currentTarget.releasePointerCapture(event.pointerId);
     }
+    if (!wasDragging && event.pointerType !== "mouse") return;
     const root = rootRef.current;
     if (event.pointerType === "mouse" && root) {
       const rect = root.getBoundingClientRect();
@@ -115,6 +100,51 @@ export function RosterMarquee({ players }: { players: Player[] }) {
         event.clientY <= rect.bottom;
     } else {
       hoverRef.current = false;
+    }
+  };
+
+  const onPointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    pressedRef.current = true;
+    movedRef.current = false;
+    axisRef.current = "none";
+    lastXRef.current = event.clientX;
+    startXRef.current = event.clientX;
+    startYRef.current = event.clientY;
+    if (event.pointerType === "mouse") {
+      draggingRef.current = true;
+      axisRef.current = "x";
+      event.currentTarget.setPointerCapture(event.pointerId);
+    }
+  };
+
+  const onPointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (!pressedRef.current) return;
+    const totalX = event.clientX - startXRef.current;
+    const totalY = event.clientY - startYRef.current;
+
+    if (axisRef.current === "y") return;
+
+    if (axisRef.current === "none") {
+      if (Math.hypot(totalX, totalY) < DRAG_THRESHOLD) return;
+      if (Math.abs(totalX) >= Math.abs(totalY)) {
+        axisRef.current = "x";
+        draggingRef.current = true;
+        lastXRef.current = startXRef.current;
+        event.currentTarget.setPointerCapture(event.pointerId);
+      } else {
+        axisRef.current = "y";
+        return;
+      }
+    }
+
+    const dx = event.clientX - lastXRef.current;
+    if (dx === 0) return;
+    lastXRef.current = event.clientX;
+    applyOffset(offsetRef.current - dx);
+    if (Math.abs(totalX) >= DRAG_THRESHOLD) {
+      movedRef.current = true;
+      setDragging(true);
     }
   };
 
@@ -143,9 +173,9 @@ export function RosterMarquee({ players }: { players: Player[] }) {
       aria-label={`${t.home.rosterH} ${t.home.rosterPause}`}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
-      onPointerUp={onPointerUp}
-      onPointerCancel={onPointerUp}
-      onLostPointerCapture={onPointerUp}
+      onPointerUp={endGesture}
+      onPointerCancel={endGesture}
+      onLostPointerCapture={endGesture}
       onClickCapture={onClickCapture}
       onPointerEnter={(event) => {
         if (event.pointerType === "mouse") hoverRef.current = true;
@@ -180,7 +210,7 @@ function MarqueeStrip({
       aria-hidden={clone || undefined}
     >
       {players.map((player) => (
-        <li key={player.id} className="flex w-[min(86vw,21rem)] shrink-0 border-r border-edge">
+        <li key={player.id} className="flex w-[min(60vw,21rem)] shrink-0 border-r border-edge sm:w-[21rem]">
           <PlayerCard player={player} stacked className="w-full" />
         </li>
       ))}

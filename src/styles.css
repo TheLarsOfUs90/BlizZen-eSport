@@ -242,7 +242,8 @@ html.light .stage-dark .logo-mark {
 .roster-marquee {
   cursor: grab;
   user-select: none;
-  touch-action: none;
+  touch-action: pan-y;
+  overscroll-behavior-x: contain;
 }
 
 .roster-marquee.is-dragging {
