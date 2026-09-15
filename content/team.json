@@ -91,5 +91,36 @@
       { "label": { "de": "Heimat", "en": "Home" }, "value": "Norddeutschland" },
       { "label": { "de": "Alter", "en": "Age" }, "value": "Jungspund" }
     ]
+  },
+  {
+    "id": "dead",
+    "ign": "DeadLock",
+    "name": "",
+    "role": { "de": "Killjunkie", "en": "Frag Junkie" },
+    "country": { "de": "Siegen", "en": "Siegen" },
+    "countryCode": "DE",
+    "image": "media/player-dead.png",
+    "featured": true,
+    "quote": {
+      "de": "Lass die mal f***en.",
+      "en": "Run that lobby."
+    },
+    "bio": {
+      "de": "I Bims 1 Baschtl, zu allen Schandtaten bereit.",
+      "en": "I Bims 1 Baschtl, down for every dirty deed."
+    },
+    "socials": {
+      "x": "",
+      "discord": "",
+      "instagram": "",
+      "twitch": "",
+      "youtube": "",
+      "tiktok": ""
+    },
+    "stats": [
+      { "label": { "de": "Seit", "en": "Since" }, "value": "2026" },
+      { "label": { "de": "Heimat", "en": "Home" }, "value": "Altmark" },
+      { "label": { "de": "Alter", "en": "Age" }, "value": "Mitte 30" }
+    ]
   }
 ]
