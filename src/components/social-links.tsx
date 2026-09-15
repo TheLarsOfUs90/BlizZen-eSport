@@ -9,9 +9,11 @@ const ORDER: SocialKind[] = ["discord", "x", "instagram", "twitch", "youtube", "
 export function SocialLinks({
   className,
   links,
+  compact,
 }: {
   className?: string;
   links?: Partial<Record<SocialKind, string>>;
+  compact?: boolean;
 }) {
   const { t } = usePrefs();
   const source: Partial<Record<SocialKind, string>> = links ?? org.socials;
@@ -24,16 +26,21 @@ export function SocialLinks({
   if (items.length === 0) return null;
 
   return (
-    <ul className={cn("flex flex-wrap items-center gap-1", className)}>
+    <ul className={cn("flex items-center gap-1", compact ? "flex-nowrap" : "flex-wrap", className)}>
       {items.map((item) => (
         <li key={item.label}>
           <ExternalLink
             href={item.href}
             aria-label={item.label}
-            className="inline-flex h-11 items-center gap-2 px-3 font-display text-[13px] tracking-[0.16em] text-mist uppercase transition-colors duration-150 hover:text-fog"
+            className={cn(
+              "inline-flex h-11 items-center text-mist uppercase transition-colors duration-150 hover:text-fog",
+              compact
+                ? "w-11 justify-center"
+                : "gap-2 px-3 font-display text-[13px] tracking-[0.16em]",
+            )}
           >
             {item.icon}
-            <span>{item.label}</span>
+            <span className={compact ? "sr-only" : undefined}>{item.label}</span>
           </ExternalLink>
         </li>
       ))}

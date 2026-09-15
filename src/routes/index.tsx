@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { CountUp } from "@/components/count-up";
-import { PlayerCard, memberCardSpan, memberCols, playerCardTracks } from "@/components/player-card";
 import { fillCols, fillSpan } from "@/lib/fill-grid";
+import { RosterMarquee } from "@/components/roster-marquee";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteShell } from "@/components/site-shell";
 import { SocialLinks } from "@/components/social-links";
@@ -49,36 +49,21 @@ function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1440px] px-4 py-16 sm:px-6 sm:py-24 lg:px-10">
-        <div className="grid items-center gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+      <section>
+        <div className="mx-auto flex max-w-[1440px] flex-col gap-6 px-4 py-16 sm:flex-row sm:items-end sm:justify-between sm:px-6 sm:py-20 lg:px-10">
+          <div>
             <SectionKicker index="02" label={t.home.rosterKicker} />
             <h2 className="display mt-4 max-w-xl text-5xl sm:text-7xl">{t.home.rosterH}</h2>
             <p className="mt-3 max-w-lg text-mist">{t.home.rosterP}</p>
-            <Button asChild variant="ghost" className="mt-8">
-              <Link to="/roster">
-                {t.home.rosterCta} <ArrowRight className="size-4" />
-              </Link>
-            </Button>
+            <p className="kicker mt-4 text-dim">{t.home.rosterPause}</p>
           </div>
-          <div
-            className={cn(
-              playerCardTracks,
-              "lg:col-span-7",
-              faces.length > 1 && "items-stretch gap-px bg-edge",
-              memberCols(faces.length),
-            )}
-          >
-            {faces.map((player, index) => (
-              <PlayerCard
-                key={player.id}
-                player={player}
-                large={faces.length === 1}
-                className={memberCardSpan(index, faces.length)}
-              />
-            ))}
-          </div>
+          <Button asChild variant="ghost" className="self-start sm:self-auto">
+            <Link to="/roster">
+              {t.home.rosterCta} <ArrowRight className="size-4" />
+            </Link>
+          </Button>
         </div>
+        <RosterMarquee players={faces} />
       </section>
 
       <section className="relative overflow-hidden border-t border-edge">
