@@ -60,5 +60,36 @@
       { "label": { "de": "Heimat", "en": "Home" }, "value": "Altmark" },
       { "label": { "de": "Alter", "en": "Age" }, "value": "too old" }
     ]
+  },
+  {
+    "id": "skill",
+    "ign": "Skillbasiert",
+    "name": "",
+    "role": { "de": "Fragger", "en": "Fragger" },
+    "country": { "de": "Norddeutschland", "en": "North Germany" },
+    "countryCode": "DE",
+    "image": "media/player-skill.png",
+    "featured": true,
+    "quote": {
+      "de": "Niemand legt sich mit Streichzart an!",
+      "en": "Nobody messes with Streichzart!"
+    },
+    "bio": {
+      "de": "Erreiche Level 20 um Bio freizuschalten.",
+      "en": "Reach Level 20 to unlock Bio."
+    },
+    "socials": {
+      "x": "",
+      "discord": "",
+      "instagram": "",
+      "twitch": "",
+      "youtube": "",
+      "tiktok": ""
+    },
+    "stats": [
+      { "label": { "de": "Seit", "en": "Since" }, "value": "2026" },
+      { "label": { "de": "Heimat", "en": "Home" }, "value": "Norddeutschland" },
+      { "label": { "de": "Alter", "en": "Age" }, "value": "Jungspund" }
+    ]
   }
 ]
