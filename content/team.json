@@ -122,5 +122,67 @@
       { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Siegen", "en": "Siegen" } },
       { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "Mitte 30", "en": "Mid-30s" } }
     ]
+  },
+  {
+    "id": "dark",
+    "ign": "Dark_Crime92",
+    "name": "",
+    "role": { "de": "Scharfschütze und Händler", "en": "Sniper and Trader" },
+    "country": { "de": "Deutschland", "en": "Germany" },
+    "countryCode": "DE",
+    "image": "media/player-dark.png",
+    "featured": true,
+    "quote": {
+      "de": "Hat hier jemand Krit bestellt?",
+      "en": "Special delivery: one crit."
+    },
+    "bio": {
+      "de": "ARK Veteran mit leichtem Hang zum Beach Bobs wegmachen.",
+      "en": "ARK vet with a slight habit of wiping beach bobs."
+    },
+    "socials": {
+      "x": "",
+      "discord": "",
+      "instagram": "",
+      "twitch": "",
+      "youtube": "",
+      "tiktok": ""
+    },
+    "stats": [
+      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
+      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Deutschland", "en": "Germany" } },
+      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "7eleven", "en": "7eleven" } }
+    ]
+  },
+  {
+    "id": "maxi",
+    "ign": "Maxi_King",
+    "name": "",
+    "role": { "de": "Team-Architekt", "en": "Team-Architect" },
+    "country": { "de": "NRW", "en": "NRW" },
+    "countryCode": "DE",
+    "image": "media/player-maxi.png",
+    "featured": true,
+    "quote": {
+      "de": "Darf ich hier auch mitmachen?",
+      "en": "Can I hop in too?"
+    },
+    "bio": {
+      "de": "Ein Herz für Beach Bobs.",
+      "en": "A soft spot for beach bobs."
+    },
+    "socials": {
+      "x": "",
+      "discord": "",
+      "instagram": "",
+      "twitch": "",
+      "youtube": "",
+      "tiktok": ""
+    },
+    "stats": [
+      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
+      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "NRW", "en": "NRW" } },
+      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "Jung geblieben", "en": "Young at heart" } }
+    ]
   }
 ]
