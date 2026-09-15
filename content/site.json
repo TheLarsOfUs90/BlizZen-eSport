@@ -58,6 +58,33 @@
       }
     },
     {
+      "id": "apex",
+      "name": { "de": "Apex Legends", "en": "Apex Legends" },
+      "short": "APEX",
+      "blurb": {
+        "de": "Heiß droppen, kalt bleiben.",
+        "en": "Drop hot, stay cool."
+      }
+    },
+    {
+      "id": "dayz",
+      "name": { "de": "DayZ", "en": "DayZ" },
+      "short": "DAYZ",
+      "blurb": {
+        "de": "Heute Freund, morgen Loot.",
+        "en": "Friend today, loot tomorrow."
+      }
+    },
+    {
+      "id": "gt7",
+      "name": { "de": "Gran Turismo 7", "en": "Gran Turismo 7" },
+      "short": "GT7",
+      "blurb": {
+        "de": "Wer bremst, verliert. Fast.",
+        "en": "Braking is losing. Almost."
+      }
+    },
+    {
       "id": "gta",
       "name": { "de": "GTA 6", "en": "GTA 6" },
       "short": "GTA",
