@@ -55,7 +55,7 @@ Nur `https://`-Links zu Discord, X, Instagram, YouTube, Twitch oder TikTok. Leer
     "tiktok": ""
   },
   "stats": [
-    { "label": { "de": "Rolle", "en": "Role" }, "value": "Support" }
+    { "label": { "de": "Rolle", "en": "Role" }, "value": { "de": "Support", "en": "Support" } }
   ]
 }
 ```
@@ -68,6 +68,7 @@ Hinweise:
 - `featured: true` zeigt die Person groß auf der Startseite.
 - `name` ist optional. Klarnamen nur mit Einverständnis.
 - `quote` ist die Überschrift im Profil, `bio` der Kurztext darunter.
+- `stats.value` hat wie die Labels `de` und `en`, damit der Sprachschalter greift.
 - `socials` sind optional. Leere Links werden nicht angezeigt.
 - Die Mitgliederzahl auf der Startseite zählt automatisch die Einträge in `team.json`.
 

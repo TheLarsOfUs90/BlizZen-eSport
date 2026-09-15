@@ -20,7 +20,7 @@ export function PlayerStats({
         <div key={s.label.de} className={cn("bg-void", compact ? "p-3" : "p-4")}>
           <dt className="kicker">{tx(s.label, locale)}</dt>
           <dd className={cn("display mt-2 leading-none", compact ? "text-xl sm:text-2xl" : "text-3xl")}>
-            {s.value}
+            {tx(s.value, locale)}
           </dd>
         </div>
       ))}

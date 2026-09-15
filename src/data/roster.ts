@@ -14,7 +14,7 @@ export type Player = {
   quote: L10n;
   bio: L10n;
   featured?: boolean;
-  stats: { label: L10n; value: string }[];
+  stats: { label: L10n; value: L10n }[];
   socials: Partial<Record<SocialKind, string>>;
 };
 
@@ -23,6 +23,16 @@ function asL10n(value: unknown): L10n | undefined {
   const rec = value as { de?: unknown; en?: unknown };
   if (typeof rec.de !== "string" || typeof rec.en !== "string") return undefined;
   return { de: clip(rec.de, 800), en: clip(rec.en, 800) };
+}
+
+function asStatValue(value: unknown): L10n | undefined {
+  if (typeof value === "string") {
+    const text = clip(value, 40);
+    return text ? { de: text, en: text } : undefined;
+  }
+  const loc = asL10n(value);
+  if (!loc) return undefined;
+  return { de: clip(loc.de, 40), en: clip(loc.en, 40) };
 }
 
 function asPlayer(raw: (typeof team)[number]): Player | undefined {
@@ -37,7 +47,7 @@ function asPlayer(raw: (typeof team)[number]): Player | undefined {
   const stats = Array.isArray(raw.stats)
     ? raw.stats.flatMap((row) => {
         const label = asL10n(row.label);
-        const value = clip(row.value, 40);
+        const value = asStatValue(row.value);
         return label && value ? [{ label, value }] : [];
       })
     : [];

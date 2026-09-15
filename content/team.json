@@ -25,9 +25,9 @@
       "tiktok": "https://www.tiktok.com/@thelarsofus90"
     },
     "stats": [
-      { "label": { "de": "Seit", "en": "Since" }, "value": "2026" },
-      { "label": { "de": "Heimat", "en": "Home" }, "value": "Altmark" },
-      { "label": { "de": "Alter", "en": "Age" }, "value": "too old" }
+      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
+      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Altmark", "en": "Altmark" } },
+      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "zu alt", "en": "too old" } }
     ]
   },
   {
@@ -56,9 +56,9 @@
       "tiktok": ""
     },
     "stats": [
-      { "label": { "de": "Seit", "en": "Since" }, "value": "2026" },
-      { "label": { "de": "Heimat", "en": "Home" }, "value": "Altmark" },
-      { "label": { "de": "Alter", "en": "Age" }, "value": "too old" }
+      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
+      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Altmark", "en": "Altmark" } },
+      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "zu alt", "en": "too old" } }
     ]
   },
   {
@@ -87,9 +87,9 @@
       "tiktok": ""
     },
     "stats": [
-      { "label": { "de": "Seit", "en": "Since" }, "value": "2026" },
-      { "label": { "de": "Heimat", "en": "Home" }, "value": "Norddeutschland" },
-      { "label": { "de": "Alter", "en": "Age" }, "value": "Jungspund" }
+      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
+      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Norddeutschland", "en": "North Germany" } },
+      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "Jungspund", "en": "Youngster" } }
     ]
   },
   {
@@ -118,9 +118,9 @@
       "tiktok": ""
     },
     "stats": [
-      { "label": { "de": "Seit", "en": "Since" }, "value": "2026" },
-      { "label": { "de": "Heimat", "en": "Home" }, "value": "Altmark" },
-      { "label": { "de": "Alter", "en": "Age" }, "value": "Mitte 30" }
+      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
+      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Altmark", "en": "Altmark" } },
+      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "Mitte 30", "en": "Mid-30s" } }
     ]
   }
 ]
