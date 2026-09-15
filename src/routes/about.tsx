@@ -6,7 +6,9 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink } from "@/components/external-link";
 import { org } from "@/data/org";
 import { titles } from "@/data/roster";
+import { fillCols, fillSpan } from "@/lib/fill-grid";
 import { usePrefs, tx } from "@/lib/prefs";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/about")({ component: AboutPage });
 
@@ -39,17 +41,17 @@ function AboutPage() {
           <SocialLinks className="mt-4" />
         </div>
         <aside className="lg:col-span-5">
-          <dl className="grid grid-cols-2 gap-px bg-edge">
-            {facts.map(([k, v]) => (
-              <div key={k} className="bg-void p-5">
+          <dl className={cn("grid gap-px bg-edge", fillCols(facts.length, "always"))}>
+            {facts.map(([k, v], index) => (
+              <div key={k} className={cn("bg-void p-5", fillSpan(index, facts.length, "always"))}>
                 <dt className="kicker">{k}</dt>
                 <dd className="display mt-2 text-3xl">{v}</dd>
               </div>
             ))}
           </dl>
-          <ul className="mt-6 grid gap-px bg-edge sm:grid-cols-2">
-            {titles.map((g) => (
-              <li key={g.id} className="bg-void p-5">
+          <ul className={cn("mt-6 grid gap-px bg-edge", fillCols(titles.length))}>
+            {titles.map((g, index) => (
+              <li key={g.id} className={cn("bg-void p-5", fillSpan(index, titles.length))}>
                 <p className="kicker">{g.soon ? t.home.gamesSoon : g.short}</p>
                 <p className="display mt-2 text-2xl">{tx(g.name, locale)}</p>
               </li>

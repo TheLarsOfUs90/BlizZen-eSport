@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { CountUp } from "@/components/count-up";
 import { PlayerCard, memberCardSpan, memberCols, playerCardTracks } from "@/components/player-card";
+import { fillCols, fillSpan } from "@/lib/fill-grid";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteShell } from "@/components/site-shell";
 import { SocialLinks } from "@/components/social-links";
@@ -36,9 +37,9 @@ function Home() {
           <SectionKicker index="01" label={t.home.gamesKicker} />
           <h2 className="display mt-4 max-w-3xl text-5xl sm:text-6xl">{t.home.gamesH}</h2>
           <p className="mt-4 max-w-2xl text-mist">{t.home.gamesP}</p>
-          <ul className="mt-10 grid gap-px bg-edge sm:grid-cols-2 lg:grid-cols-3">
-            {titles.map((g) => (
-              <li key={g.id} className="bg-void p-6">
+          <ul className={cn("mt-10 grid gap-px bg-edge", fillCols(titles.length))}>
+            {titles.map((g, index) => (
+              <li key={g.id} className={cn("bg-void p-6", fillSpan(index, titles.length))}>
                 <p className="kicker">{g.soon ? t.home.gamesSoon : g.short}</p>
                 <h3 className="display mt-2 text-3xl">{tx(g.name, locale)}</h3>
                 <p className="mt-2 text-sm text-mist">{tx(g.blurb, locale)}</p>

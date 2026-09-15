@@ -5,23 +5,13 @@ import { cn } from "@/lib/utils";
 import { asset } from "@/lib/asset";
 import { SocialLinks } from "@/components/social-links";
 import { PlayerStats } from "@/components/player-stats";
+import { fillCols, fillSpan } from "@/lib/fill-grid";
 
 export const playerCardTracks =
   "grid [grid-template-rows:auto_auto_1fr_auto_auto]";
 
-export function memberCols(count: number) {
-  if (count <= 1) return "";
-  if (count % 3 === 0) return "sm:grid-cols-3";
-  return "sm:grid-cols-2";
-}
-
-export function memberCardSpan(index: number, count: number) {
-  if (count <= 1) return undefined;
-  const cols = count % 3 === 0 ? 3 : 2;
-  if (count % cols !== 1 || index !== count - 1) return undefined;
-  if (cols === 2) return "sm:col-span-2 sm:w-full sm:max-w-[50%] sm:justify-self-center";
-  return "sm:col-span-3 sm:w-full sm:max-w-[33.333%] sm:justify-self-center";
-}
+export const memberCols = fillCols;
+export const memberCardSpan = fillSpan;
 
 export function PlayerCard({
   player,
