@@ -239,31 +239,28 @@ html.light .stage-dark .logo-mark {
   animation-delay: 520ms;
 }
 
-@keyframes roster-marquee {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-50%, 0, 0);
-  }
+.roster-marquee {
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.roster-marquee.is-dragging {
+  cursor: grabbing;
+}
+
+.roster-marquee.is-dragging a {
+  pointer-events: none;
+}
+
+.roster-marquee img {
+  -webkit-user-drag: none;
 }
 
 .roster-marquee-track {
   display: flex;
   width: max-content;
-  animation: roster-marquee var(--marquee-ms, 40s) linear infinite;
-}
-
-.roster-marquee.is-paused .roster-marquee-track,
-.roster-marquee:active .roster-marquee-track {
-  animation-play-state: paused;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .roster-marquee:hover .roster-marquee-track,
-  .roster-marquee:focus-within .roster-marquee-track {
-    animation-play-state: paused;
-  }
+  will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -277,18 +274,5 @@ html.light .stage-dark .logo-mark {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
-  }
-
-  .roster-marquee {
-    overflow-x: auto;
-  }
-
-  .roster-marquee-track {
-    animation: none;
-    transform: none;
-  }
-
-  .roster-marquee-clone {
-    display: none;
   }
 }

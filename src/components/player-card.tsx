@@ -32,7 +32,7 @@ export function PlayerCard({
     <article
       className={cn(
         stacked
-          ? "flex h-full flex-col overflow-hidden bg-panel"
+          ? "grid h-full [grid-template-rows:auto_auto_1fr_auto_auto] overflow-hidden bg-panel"
           : "row-span-5 grid h-full grid-rows-subgrid overflow-hidden bg-panel",
         "shadow-border transition-[box-shadow] duration-150 hover:shadow-border-hover",
         className,
@@ -69,13 +69,11 @@ export function PlayerCard({
         </div>
       </Link>
       <p className="px-4 pt-4 text-lg leading-snug text-fog sm:px-5 sm:pt-5 sm:text-xl">{quote}</p>
-      <p className={cn("px-4 pt-3 text-sm leading-relaxed text-mist sm:px-5", stacked && "flex-1")}>
-        {bio}
-      </p>
+      <p className="px-4 pt-3 text-sm leading-relaxed text-mist sm:px-5">{bio}</p>
       <div className="mt-4">
         <PlayerStats stats={player.stats} compact layout={stacked ? "rows" : "tiles"} />
       </div>
-      <div className="flex min-h-11 items-center px-1 py-3 sm:px-2">
+      <div className="flex h-14 shrink-0 items-center px-1 sm:px-2">
         <SocialLinks links={player.socials} compact={stacked} />
       </div>
     </article>
