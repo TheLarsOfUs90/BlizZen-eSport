@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PlayerCard, playerCardTracks } from "@/components/player-card";
+import { PlayerCard, memberCardSpan, memberCols, playerCardTracks } from "@/components/player-card";
 import { SiteShell } from "@/components/site-shell";
 import { SocialLinks } from "@/components/social-links";
 import { Button } from "@/components/ui/button";
@@ -11,14 +11,9 @@ import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/roster")({ component: RosterPage });
 
-function rosterCols(count: number) {
-  if (count <= 1) return "max-w-[720px] px-4 sm:px-6 lg:px-10";
-  if (count === 2) return "max-w-[1440px] sm:grid-cols-2";
-  return "max-w-[1440px] sm:grid-cols-2 lg:grid-cols-3";
-}
-
 function RosterPage() {
   const { t } = usePrefs();
+  const count = players.length;
 
   return (
     <SiteShell>
@@ -36,12 +31,13 @@ function RosterPage() {
         className={cn(
           "mx-auto items-stretch gap-px bg-edge",
           playerCardTracks,
-          rosterCols(players.length),
+          count <= 1 ? "max-w-[720px] px-4 sm:px-6 lg:px-10" : "max-w-[1440px]",
+          memberCols(count),
         )}
       >
-        {players.map((player) => (
+        {players.map((player, index) => (
           <li key={player.id} className="contents">
-            <PlayerCard player={player} />
+            <PlayerCard player={player} className={memberCardSpan(index, count)} />
           </li>
         ))}
       </ul>

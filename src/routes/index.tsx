@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { CountUp } from "@/components/count-up";
-import { PlayerCard, playerCardTracks } from "@/components/player-card";
+import { PlayerCard, memberCardSpan, memberCols, playerCardTracks } from "@/components/player-card";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteShell } from "@/components/site-shell";
 import { SocialLinks } from "@/components/social-links";
@@ -11,6 +11,7 @@ import { org } from "@/data/org";
 import { featuredPlayers, titles } from "@/data/roster";
 import { usePrefs, tx } from "@/lib/prefs";
 import { asset } from "@/lib/asset";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -60,14 +61,20 @@ function Home() {
             </Button>
           </div>
           <div
-            className={
-              faces.length > 1
-                ? `${playerCardTracks} items-stretch gap-px bg-edge sm:grid-cols-2 lg:col-span-7`
-                : `${playerCardTracks} lg:col-span-7`
-            }
+            className={cn(
+              playerCardTracks,
+              "lg:col-span-7",
+              faces.length > 1 && "items-stretch gap-px bg-edge",
+              memberCols(faces.length),
+            )}
           >
-            {faces.map((player) => (
-              <PlayerCard key={player.id} player={player} large={faces.length === 1} />
+            {faces.map((player, index) => (
+              <PlayerCard
+                key={player.id}
+                player={player}
+                large={faces.length === 1}
+                className={memberCardSpan(index, faces.length)}
+              />
             ))}
           </div>
         </div>
