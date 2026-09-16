@@ -184,5 +184,36 @@
       { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "NRW", "en": "NRW" } },
       { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "Jung geblieben", "en": "Young at heart" } }
     ]
+  },
+  {
+    "id": "crak",
+    "ign": "CrakzZ",
+    "name": "",
+    "role": { "de": "Die menschliche Karte", "en": "The human map" },
+    "country": { "de": "Sachsen Anhalt", "en": "Saxony-Anhalt" },
+    "countryCode": "DE",
+    "image": "media/player-crak.png",
+    "featured": true,
+    "quote": {
+      "de": "Spiele nicht das Spiel, sondern spiele deinen Gegner.",
+      "en": "Beat the player, not the game."
+    },
+    "bio": {
+      "de": "Daddeln mit den Dudes. Das ist unser Glück. Kein Weg zurück. Kein Augenblick.",
+      "en": "Gaming with the dudes. That's our luck. No way back. Not a moment."
+    },
+    "socials": {
+      "x": "",
+      "discord": "",
+      "instagram": "",
+      "twitch": "",
+      "youtube": "",
+      "tiktok": ""
+    },
+    "stats": [
+      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
+      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Sachsen Anhalt", "en": "Saxony-Anhalt" } },
+      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "35", "en": "35" } }
+    ]
   }
 ]
