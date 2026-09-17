@@ -5,24 +5,25 @@ import { cn } from "@/lib/utils";
 import { asset } from "@/lib/asset";
 import { SocialLinks } from "@/components/social-links";
 import { PlayerStats } from "@/components/player-stats";
-import { fillCols, fillSpan } from "@/lib/fill-grid";
+import { fillCols } from "@/lib/fill-grid";
 
 export const playerCardTracks =
   "grid [grid-template-rows:auto_auto_1fr_auto_auto]";
 
 export const memberCols = fillCols;
-export const memberCardSpan = fillSpan;
 
 export function PlayerCard({
   player,
   large,
   className,
   stacked,
+  statsLayout,
 }: {
   player: Player;
   large?: boolean;
   className?: string;
   stacked?: boolean;
+  statsLayout?: "tiles" | "rows";
 }) {
   const { locale } = usePrefs();
   const quote = tx(player.quote, locale);
@@ -71,7 +72,11 @@ export function PlayerCard({
       <p className="px-4 pt-4 text-lg leading-snug text-fog sm:px-5 sm:pt-5 sm:text-xl">{quote}</p>
       <p className="px-4 pt-3 text-sm leading-relaxed text-mist sm:px-5">{bio}</p>
       <div className="mt-4">
-        <PlayerStats stats={player.stats} compact layout={stacked ? "rows" : "tiles"} />
+        <PlayerStats
+          stats={player.stats}
+          compact
+          layout={statsLayout ?? (stacked ? "rows" : "tiles")}
+        />
       </div>
       <div className="flex h-14 shrink-0 items-center px-1 sm:px-2">
         <SocialLinks links={player.socials} compact={stacked} />
