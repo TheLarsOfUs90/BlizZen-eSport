@@ -29,11 +29,9 @@ function AboutPage() {
           <p className="kicker">{t.about.orgKicker}</p>
           <h2 className="display mt-3 text-5xl">{t.about.orgH}</h2>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-mist">
-            {[t.about.p1, t.about.p2, t.about.p3].flatMap((block, i) =>
-              block.split("\n\n").map((para, j) => (
-                <p key={`${i}-${j}`}>{para}</p>
-              )),
-            )}
+            {t.about.body.map((para, index) => (
+              <p key={index}>{para}</p>
+            ))}
           </div>
           {org.socials.discord ? (
             <Button asChild className="mt-8">
