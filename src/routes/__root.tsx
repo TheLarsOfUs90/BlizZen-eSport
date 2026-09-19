@@ -29,7 +29,7 @@ export const Route = createRootRoute({
       { name: "description", content: DESCRIPTION },
       { name: "theme-color", content: "#0A0E1A" },
       { name: "referrer", content: "strict-origin-when-cross-origin" },
-      { name: "robots", content: "index,follow" },
+      { name: "robots", content: import.meta.env.VITE_PREVIEW === "1" ? "noindex,nofollow" : "index,follow" },
       { property: "og:title", content: APP_NAME },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:image", content: asset("og.jpg") },

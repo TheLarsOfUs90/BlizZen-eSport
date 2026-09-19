@@ -1,0 +1,39 @@
+name: Deploy preview
+
+on:
+  push:
+    branches: [preview]
+  workflow_dispatch:
+
+concurrency:
+  group: preview
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAGES_BASE: /BlizZen-eSport-preview/
+      VITE_PREVIEW: "1"
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
+      - run: rm -f dist/client/CNAME
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.PREVIEW_DEPLOY_KEY }}
+          external_repository: TheLarsOfUs90/BlizZen-eSport-preview
+          publish_branch: gh-pages
+          publish_dir: dist/client
+          force_orphan: true

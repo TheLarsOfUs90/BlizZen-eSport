@@ -3,7 +3,7 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
-const base = "/";
+const base = process.env.GITHUB_PAGES_BASE || "/";
 
 export default defineConfig({
   base,
