@@ -369,8 +369,8 @@ html.blitz-pointer-on .roster-marquee.is-dragging * {
   height: 14px;
   margin: -7px 0 0 -7px;
   border-radius: 999px;
-  background: color-mix(in oklab, var(--bz-fog) 38%, transparent);
-  box-shadow: 0 0 10px color-mix(in oklab, var(--bz-live) 22%, transparent);
+  background: color-mix(in oklab, #f4f6fa 70%, var(--bz-live) 30%);
+  mix-blend-mode: difference;
   pointer-events: none;
   will-change: transform, filter;
 }
