@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "@tanstack/react-router";
 
-const IDLE_MS = 120;
-const GLITCH_MS = 160;
-const MOVE_PX = 1;
+const LERP = 0.18;
+const GLITCH_MS = 200;
+const SCALES = [18, 10, 4, 0];
 
 function canUsePointer() {
   return (
@@ -18,35 +19,16 @@ function nativeTarget(node: EventTarget | null) {
   );
 }
 
-function isRouteChangeClick(event: MouseEvent) {
-  if (event.button !== 0) return false;
-  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return false;
-  const origin = event.target;
-  if (!(origin instanceof Element)) return false;
-  const link = origin.closest("a");
-  if (!link) return false;
-  if (link.target === "_blank") return false;
-  const href = link.getAttribute("href");
-  if (!href || href.startsWith("mailto:") || href.startsWith("tel:")) return false;
-  let url: URL;
-  try {
-    url = new URL(link.href, window.location.href);
-  } catch {
-    return false;
-  }
-  if (url.origin !== window.location.origin) return false;
-  if (url.pathname === window.location.pathname) return false;
-  return true;
-}
-
 export function BlitzPointer() {
   const [on, setOn] = useState(false);
-  const [glitch, setGlitch] = useState(false);
-  const rootRef = useRef<HTMLDivElement>(null);
-  const idleRef = useRef(0);
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<SVGFEDisplacementMapElement>(null);
+  const mouseRef = useRef({ x: 0, y: 0 });
+  const posRef = useRef({ x: 0, y: 0 });
+  const rafRef = useRef(0);
   const glitchRef = useRef(0);
   const glitchingRef = useRef(false);
-  const lastRef = useRef({ x: 0, y: 0 });
+  const router = useRouter();
 
   useEffect(() => {
     if (!canUsePointer()) return;
@@ -54,94 +36,113 @@ export function BlitzPointer() {
     document.documentElement.classList.add("blitz-pointer-on");
     return () => {
       document.documentElement.classList.remove("blitz-pointer-on");
-      window.clearTimeout(idleRef.current);
+      document.documentElement.classList.remove("blitz-route-glitch");
+      window.cancelAnimationFrame(rafRef.current);
       window.clearTimeout(glitchRef.current);
     };
   }, []);
 
   useEffect(() => {
     if (!on) return;
-    const root = rootRef.current;
-    if (!root) return;
+    const cursor = cursorRef.current;
+    if (!cursor) return;
 
-    const hide = () => {
-      root.dataset.hide = "1";
+    const tick = () => {
+      const mouse = mouseRef.current;
+      const pos = posRef.current;
+      pos.x += (mouse.x - pos.x) * LERP;
+      pos.y += (mouse.y - pos.y) * LERP;
+      const dx = mouse.x - pos.x;
+      const dy = mouse.y - pos.y;
+      const speed = Math.hypot(dx, dy);
+      const stretch = 1 + Math.min(speed / 48, 0.85);
+      const angle = speed > 0.4 ? Math.atan2(dy, dx) : 0;
+      const blur = speed > 1.2 ? 10 : 6;
+      cursor.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0) rotate(${angle}rad) scale(${stretch}, ${1 / Math.sqrt(stretch)})`;
+      cursor.style.filter = `blur(${blur}px)`;
+      rafRef.current = requestAnimationFrame(tick);
     };
+    rafRef.current = requestAnimationFrame(tick);
 
     const onMove = (event: PointerEvent) => {
       if (event.pointerType !== "mouse") return;
-      const x = event.clientX;
-      const y = event.clientY;
-      root.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-      const native = nativeTarget(event.target);
-      if (native) {
-        root.dataset.hide = "1";
-        root.dataset.mode = "zen";
-        return;
-      }
-      root.dataset.hide = "0";
-      const dx = x - lastRef.current.x;
-      const dy = y - lastRef.current.y;
-      lastRef.current = { x, y };
-      if (dx * dx + dy * dy > MOVE_PX) {
-        root.dataset.mode = "blitz";
-        window.clearTimeout(idleRef.current);
-        idleRef.current = window.setTimeout(() => {
-          root.dataset.mode = "zen";
-        }, IDLE_MS);
+      mouseRef.current = { x: event.clientX, y: event.clientY };
+      if (nativeTarget(event.target)) {
+        cursor.dataset.hide = "1";
+      } else {
+        cursor.dataset.hide = "0";
       }
     };
 
     const onLeave = (event: MouseEvent) => {
       if (event.relatedTarget) return;
-      hide();
-    };
-
-    const onClick = (event: MouseEvent) => {
-      if (glitchingRef.current) return;
-      if (!isRouteChangeClick(event)) return;
-      glitchingRef.current = true;
-      setGlitch(true);
-      window.clearTimeout(glitchRef.current);
-      glitchRef.current = window.setTimeout(() => {
-        setGlitch(false);
-        glitchingRef.current = false;
-      }, GLITCH_MS);
+      cursor.dataset.hide = "1";
     };
 
     window.addEventListener("pointermove", onMove);
     document.addEventListener("mouseout", onLeave);
-    document.addEventListener("click", onClick, true);
     return () => {
+      window.cancelAnimationFrame(rafRef.current);
       window.removeEventListener("pointermove", onMove);
       document.removeEventListener("mouseout", onLeave);
-      document.removeEventListener("click", onClick, true);
     };
   }, [on]);
+
+  useEffect(() => {
+    if (!on) return;
+    let seen = false;
+    let lastPath = window.location.pathname;
+    const runGlitch = () => {
+      if (glitchingRef.current) return;
+      glitchingRef.current = true;
+      const html = document.documentElement;
+      const map = mapRef.current;
+      html.classList.add("blitz-route-glitch");
+      SCALES.forEach((scale, index) => {
+        window.setTimeout(() => {
+          map?.setAttribute("scale", String(scale));
+        }, (GLITCH_MS / (SCALES.length - 1)) * index);
+      });
+      window.clearTimeout(glitchRef.current);
+      glitchRef.current = window.setTimeout(() => {
+        html.classList.remove("blitz-route-glitch");
+        map?.setAttribute("scale", "0");
+        glitchingRef.current = false;
+      }, GLITCH_MS);
+    };
+
+    const unsub = router.subscribe("onResolved", () => {
+      const next = window.location.pathname;
+      if (!seen) {
+        seen = true;
+        lastPath = next;
+        return;
+      }
+      if (next === lastPath) return;
+      lastPath = next;
+      runGlitch();
+    });
+    return unsub;
+  }, [on, router]);
 
   if (!on) return null;
 
   return (
     <>
-      <div ref={rootRef} className="blitz-pointer" aria-hidden="true" data-mode="zen" data-hide="1">
-        <span className="blitz-pointer-zen" />
-        <svg className="blitz-pointer-bolt" viewBox="0 0 14 22" fill="none" aria-hidden="true">
-          <polyline
-            points="8,1 4,11 9,11 5,21"
-            stroke="currentColor"
-            strokeWidth="1.25"
-            strokeLinejoin="miter"
-            strokeLinecap="square"
+      <div ref={cursorRef} className="blitz-pointer" aria-hidden="true" data-hide="1" />
+      <svg className="blitz-filter" aria-hidden="true" width="0" height="0">
+        <filter id="blitz-displace" x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9 0.04" numOctaves="1" result="noise" />
+          <feDisplacementMap
+            ref={mapRef}
+            in="SourceGraphic"
+            in2="noise"
+            scale="0"
+            xChannelSelector="R"
+            yChannelSelector="G"
           />
-        </svg>
-      </div>
-      {glitch ? (
-        <div className="blitz-glitch" aria-hidden="true">
-          <span className="blitz-glitch-band" />
-          <span className="blitz-glitch-band" />
-          <span className="blitz-glitch-band" />
-        </div>
-      ) : null}
+        </filter>
+      </svg>
     </>
   );
 }

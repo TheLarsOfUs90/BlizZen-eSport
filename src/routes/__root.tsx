@@ -58,7 +58,9 @@ export const Route = createRootRoute({
       </head>
       <body className="bg-void text-fog font-sans">
         <PrefsProvider>
-          <Outlet />
+          <div className="blitz-page-root">
+            <Outlet />
+          </div>
           <ThemedToaster />
         </PrefsProvider>
         <BlitzPointer />
