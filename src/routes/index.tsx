@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { CountUp } from "@/components/count-up";
-import { fillCols, fillSpan } from "@/lib/fill-grid";
+import { GamesMarquee } from "@/components/games-marquee";
 import { RosterMarquee } from "@/components/roster-marquee";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteShell } from "@/components/site-shell";
@@ -9,15 +9,14 @@ import { SocialLinks } from "@/components/social-links";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "@/components/external-link";
 import { org } from "@/data/org";
-import { featuredPlayers, titles } from "@/data/roster";
-import { usePrefs, tx } from "@/lib/prefs";
+import { featuredPlayers } from "@/data/roster";
+import { usePrefs } from "@/lib/prefs";
 import { asset } from "@/lib/asset";
-import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
-  const { t, locale } = usePrefs();
+  const { t } = usePrefs();
   const faces = featuredPlayers();
 
   return (
@@ -32,23 +31,20 @@ function Home() {
         </div>
       </section>
 
-      <section className="border-b border-edge">
-        <div className="mx-auto max-w-[1440px] px-4 py-16 sm:px-6 sm:py-20 lg:px-10">
-          <SectionKicker index="01" label={t.home.gamesKicker} />
-          <h2 className="display mt-4 max-w-3xl text-5xl sm:text-6xl">{t.home.gamesH}</h2>
-          <p className="mt-4 max-w-2xl text-mist">{t.home.gamesP}</p>
-          <ul className={cn("mt-10 grid gap-px bg-edge", fillCols(titles.length))}>
-            {titles.map((g, index) => (
-              <li key={g.id} className={cn("bg-void p-6", fillSpan(index, titles.length))}>
-                <Link to="/games/$gameId" params={{ gameId: g.id }} className="block h-full hover:text-fog">
-                  <p className="kicker">{g.soon ? t.home.gamesSoon : g.short}</p>
-                  <h3 className="display mt-2 text-3xl">{tx(g.name, locale)}</h3>
-                  <p className="mt-2 text-sm text-mist">{tx(g.blurb, locale)}</p>
-                </Link>
-              </li>
-            ))}
-          </ul>
+      <section>
+        <div className="mx-auto flex max-w-[1440px] flex-col gap-6 px-4 py-16 sm:flex-row sm:items-end sm:justify-between sm:px-6 sm:py-20 lg:px-10">
+          <div>
+            <SectionKicker index="01" label={t.home.gamesKicker} />
+            <h2 className="display mt-4 max-w-3xl text-5xl sm:text-6xl">{t.home.gamesH}</h2>
+            <p className="mt-4 max-w-2xl text-mist">{t.home.gamesP}</p>
+          </div>
+          <Button asChild variant="ghost" className="self-start sm:self-auto">
+            <Link to="/games">
+              {t.home.gamesCta} <ArrowRight className="size-4" />
+            </Link>
+          </Button>
         </div>
+        <GamesMarquee />
       </section>
 
       <section>
