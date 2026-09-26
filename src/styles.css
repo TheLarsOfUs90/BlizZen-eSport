@@ -386,6 +386,118 @@ html.blitz-pointer-on .roster-marquee.is-dragging * {
   overflow: hidden;
 }
 
+.game-tile-cover {
+  opacity: 0.4;
+  transform: scale(1);
+  transition:
+    transform 250ms ease-out,
+    opacity 250ms ease-out;
+}
+
+.game-tile-r6 .game-tile-cover {
+  object-position: left center;
+  transition-duration: 150ms;
+}
+
+.game-tile-rl .game-tile-cover {
+  object-position: center 78%;
+  transition-duration: 350ms;
+}
+
+.game-tile-gt7 .game-tile-cover {
+  filter: contrast(1.18) saturate(0.82) brightness(0.92);
+}
+
+.game-tile-dayz .game-tile-cover {
+  opacity: 0.28;
+  filter: grayscale(0.5) saturate(0.4) brightness(0.65);
+}
+
+.game-tile-gta .game-tile-cover {
+  opacity: 0.32;
+}
+
+.game-tile-dayz-wash {
+  background: color-mix(in oklab, #3f4a3c 70%, black);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.game-tile-face {
+  filter: brightness(0.42) contrast(1.15);
+}
+
+.game-tile-faces {
+  transform: none;
+  transition: transform 250ms ease-out;
+}
+
+.game-tile-blurb {
+  opacity: 1;
+  transition:
+    opacity 250ms ease-out,
+    transform 250ms ease-out;
+}
+
+.game-tile-r6 .game-tile-faces,
+.game-tile-r6 .game-tile-blurb {
+  transition-duration: 150ms;
+}
+
+.game-tile-rl .game-tile-faces,
+.game-tile-rl .game-tile-blurb {
+  transition-duration: 350ms;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .game-tile:hover .game-tile-cover,
+  .game-tile:focus-visible .game-tile-cover {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+
+  .game-tile-gta:hover .game-tile-cover,
+  .game-tile-gta:focus-visible .game-tile-cover {
+    opacity: 0.32;
+    transform: none;
+  }
+
+  .game-tile-blurb {
+    opacity: 0;
+    transform: translateY(0.35rem);
+  }
+
+  .game-tile:hover .game-tile-blurb,
+  .game-tile:focus-visible .game-tile-blurb,
+  .game-tile-gta .game-tile-blurb {
+    opacity: 1;
+    transform: none;
+  }
+
+  .game-tile-faces {
+    transform: translateX(110%);
+  }
+
+  .game-tile:hover .game-tile-faces,
+  .game-tile:focus-visible .game-tile-faces {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-tile-cover,
+  .game-tile-faces,
+  .game-tile-blurb {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .game-tile-blurb,
+  .game-tile-faces {
+    opacity: 1 !important;
+  }
+}
+
 html.blitz-route-glitch .blitz-page-root {
   filter: url(#blitz-displace) drop-shadow(6px 0 0 #f4f6fa) drop-shadow(-6px 0 0 var(--bz-live));
 }
