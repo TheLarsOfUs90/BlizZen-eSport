@@ -5,6 +5,10 @@
     },
     "nav": {
       "roster": "Team",
+      "members": "Mitglieder",
+      "allTeams": "Alle Teams",
+      "matches": "Alle Matches",
+      "achievements": "Erfolge",
       "about": "About",
       "aboutBlizzen": "About BlizZen",
       "brand": "Brand Guidelines",
@@ -160,6 +164,24 @@
       "socialH": "Kanäle.",
       "socialP": "Was öffentlich ist, liegt hier. Kein Formular, kein Shop."
     },
+    "matches": {
+      "kicker": "Team",
+      "title": "Alle Matches.",
+      "dek": "Live, anstehend, vorbei. Sobald wir antreten, steht das Ergebnis hier.",
+      "live": "Live",
+      "upcoming": "Anstehend",
+      "past": "Vergangen",
+      "empty": "Noch keine Matches.",
+      "emptyP": "Kein Kalender, kein Spoiler — wir tragen ein, sobald was ansteht."
+    },
+    "achievementsPage": {
+      "kicker": "Team",
+      "title": "Erfolge.",
+      "dek": "Was wir geholt haben. Noch leer — der Club ist jung.",
+      "empty": "Noch keine Erfolge.",
+      "emptyP": "Titel, Cups und verrückte Runs landen hier. Pro Spiel zusätzlich auf der jeweiligen Team-Seite.",
+      "club": "Club"
+    },
     "legal": {
       "kicker": "Hinweise",
       "title": "Rechtliches & Datenschutz",
@@ -186,6 +208,10 @@
     },
     "nav": {
       "roster": "Team",
+      "members": "Members",
+      "allTeams": "All teams",
+      "matches": "All matches",
+      "achievements": "Achievements",
       "about": "About",
       "aboutBlizzen": "About BlizZen",
       "brand": "Brand Guidelines",
@@ -340,6 +366,24 @@
       "socialKicker": "Socials",
       "socialH": "Channels.",
       "socialP": "What’s public is here. No form, no shop."
+    },
+    "matches": {
+      "kicker": "Team",
+      "title": "All matches.",
+      "dek": "Live, upcoming, past. Results land here once we play.",
+      "live": "Live",
+      "upcoming": "Upcoming",
+      "past": "Past",
+      "empty": "No matches yet.",
+      "emptyP": "No calendar, no spoilers — we log it when something is on."
+    },
+    "achievementsPage": {
+      "kicker": "Team",
+      "title": "Achievements.",
+      "dek": "What we’ve taken. Still empty — the club is young.",
+      "empty": "No achievements yet.",
+      "emptyP": "Titles, cups and wild runs land here. Per-game notes also sit on each team page.",
+      "club": "Club"
     },
     "legal": {
       "kicker": "Legal",

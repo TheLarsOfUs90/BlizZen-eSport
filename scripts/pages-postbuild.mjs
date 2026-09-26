@@ -10,7 +10,7 @@ if (!existsSync(shell)) {
 copyFileSync(shell, `${dir}/index.html`);
 copyFileSync(shell, `${dir}/404.html`);
 
-for (const page of ["about", "roster", "legal", "games"]) {
+for (const page of ["about", "roster", "legal", "games", "matches", "achievements"]) {
   copyFileSync(shell, `${dir}/${page}.html`);
 }
 

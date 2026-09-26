@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { org } from "@/data/org";
 import { usePrefs } from "@/lib/prefs";
 import { aboutNav } from "@/lib/about-nav";
+import { teamNav } from "@/lib/team-nav";
 import { SocialLinks } from "@/components/social-links";
 import { asset } from "@/lib/asset";
 
@@ -31,16 +32,13 @@ export function SiteFooter() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link to="/roster" className="hover:text-fog">
-                {t.nav.roster}
-              </Link>
-            </li>
-            <li>
-              <Link to="/games" className="hover:text-fog">
-                {t.nav.games}
-              </Link>
-            </li>
+            {teamNav(t).map((item) => (
+              <li key={item.to}>
+                <Link to={item.to} className="hover:text-fog">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
             <li>
               <Link to="/legal" className="hover:text-fog">
                 {t.nav.legal}

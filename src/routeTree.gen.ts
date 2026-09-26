@@ -18,6 +18,8 @@ import { Route as AboutMediaRouteImport } from './routes/about.media'
 import { Route as AboutContactRouteImport } from './routes/about.contact'
 import { Route as GamesRouteImport } from './routes/games'
 import { Route as LegalRouteImport } from './routes/legal'
+import { Route as MatchesRouteImport } from './routes/matches'
+import { Route as AchievementsRouteImport } from './routes/achievements'
 import { Route as RosterRouteImport } from './routes/roster'
 import { Route as RosterPlayerIdRouteImport } from './routes/roster.$playerId'
 import { Route as GamesGameIdRouteImport } from './routes/games.$gameId'
@@ -68,6 +70,16 @@ const LegalRoute = LegalRouteImport.update({
   path: '/legal',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MatchesRoute = MatchesRouteImport.update({
+  id: '/matches',
+  path: '/matches',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AchievementsRoute = AchievementsRouteImport.update({
+  id: '/achievements',
+  path: '/achievements',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RosterRoute = RosterRouteImport.update({
   id: '/roster',
   path: '/roster',
@@ -100,6 +112,8 @@ export interface FileRoutesByFullPath {
   '/games': typeof GamesRouteWithChildren
   '/games/$gameId': typeof GamesGameIdRoute
   '/legal': typeof LegalRoute
+  '/matches': typeof MatchesRoute
+  '/achievements': typeof AchievementsRoute
   '/roster': typeof RosterRouteWithChildren
   '/roster/$playerId': typeof RosterPlayerIdRoute
 }
@@ -114,6 +128,8 @@ export interface FileRoutesByTo {
   '/games': typeof GamesRouteWithChildren
   '/games/$gameId': typeof GamesGameIdRoute
   '/legal': typeof LegalRoute
+  '/matches': typeof MatchesRoute
+  '/achievements': typeof AchievementsRoute
   '/roster': typeof RosterRouteWithChildren
   '/roster/$playerId': typeof RosterPlayerIdRoute
 }
@@ -129,15 +145,17 @@ export interface FileRoutesById {
   '/games': typeof GamesRouteWithChildren
   '/games/$gameId': typeof GamesGameIdRoute
   '/legal': typeof LegalRoute
+  '/matches': typeof MatchesRoute
+  '/achievements': typeof AchievementsRoute
   '/roster': typeof RosterRouteWithChildren
   '/roster/$playerId': typeof RosterPlayerIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/about/' | '/about/brand' | '/about/partners' | '/about/media' | '/about/contact' | '/games' | '/games/$gameId' | '/legal' | '/roster' | '/roster/$playerId'
+  fullPaths: '/' | '/about' | '/about/' | '/about/brand' | '/about/partners' | '/about/media' | '/about/contact' | '/games' | '/games/$gameId' | '/legal' | '/matches' | '/achievements' | '/roster' | '/roster/$playerId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/about/' | '/about/brand' | '/about/partners' | '/about/media' | '/about/contact' | '/games' | '/games/$gameId' | '/legal' | '/roster' | '/roster/$playerId'
-  id: '__root__' | '/' | '/about' | '/about/' | '/about/brand' | '/about/partners' | '/about/media' | '/about/contact' | '/games' | '/games/$gameId' | '/legal' | '/roster' | '/roster/$playerId'
+  to: '/' | '/about' | '/about/' | '/about/brand' | '/about/partners' | '/about/media' | '/about/contact' | '/games' | '/games/$gameId' | '/legal' | '/matches' | '/achievements' | '/roster' | '/roster/$playerId'
+  id: '__root__' | '/' | '/about' | '/about/' | '/about/brand' | '/about/partners' | '/about/media' | '/about/contact' | '/games' | '/games/$gameId' | '/legal' | '/matches' | '/achievements' | '/roster' | '/roster/$playerId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -145,6 +163,8 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRouteWithChildren
   GamesRoute: typeof GamesRouteWithChildren
   LegalRoute: typeof LegalRoute
+  MatchesRoute: typeof MatchesRoute
+  AchievementsRoute: typeof AchievementsRoute
   RosterRoute: typeof RosterRouteWithChildren
 }
 
@@ -227,6 +247,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LegalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/matches': {
+      id: '/matches'
+      path: '/matches'
+      fullPath: '/matches'
+      preLoaderRoute: typeof MatchesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/achievements': {
+      id: '/achievements'
+      path: '/achievements'
+      fullPath: '/achievements'
+      preLoaderRoute: typeof AchievementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/roster': {
       id: '/roster'
       path: '/roster'
@@ -292,6 +326,8 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRouteWithChildren,
   GamesRoute: GamesRouteWithChildren,
   LegalRoute: LegalRoute,
+  MatchesRoute: MatchesRoute,
+  AchievementsRoute: AchievementsRoute,
   RosterRoute: RosterRouteWithChildren,
 }
 export const routeTree = rootRouteImport
