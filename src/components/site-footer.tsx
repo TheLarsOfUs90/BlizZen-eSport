@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { org } from "@/data/org";
 import { usePrefs } from "@/lib/prefs";
+import { aboutNav } from "@/lib/about-nav";
 import { SocialLinks } from "@/components/social-links";
 import { asset } from "@/lib/asset";
 
@@ -23,11 +24,13 @@ export function SiteFooter() {
         </div>
         <div className="flex flex-col justify-between gap-8 lg:col-span-5 lg:items-end">
           <ul className="space-y-2 text-sm text-mist">
-            <li>
-              <Link to="/about" className="hover:text-fog">
-                {t.nav.about}
-              </Link>
-            </li>
+            {aboutNav(t).map((item) => (
+              <li key={item.to}>
+                <Link to={item.to} className="hover:text-fog">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
             <li>
               <Link to="/roster" className="hover:text-fog">
                 {t.nav.roster}

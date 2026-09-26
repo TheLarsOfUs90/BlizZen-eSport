@@ -11,6 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AboutIndexRouteImport } from './routes/about.index'
+import { Route as AboutBrandRouteImport } from './routes/about.brand'
+import { Route as AboutPartnersRouteImport } from './routes/about.partners'
+import { Route as AboutMediaRouteImport } from './routes/about.media'
+import { Route as AboutContactRouteImport } from './routes/about.contact'
 import { Route as GamesRouteImport } from './routes/games'
 import { Route as LegalRouteImport } from './routes/legal'
 import { Route as RosterRouteImport } from './routes/roster'
@@ -27,6 +32,31 @@ const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AboutIndexRoute = AboutIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AboutRoute,
+} as any)
+const AboutBrandRoute = AboutBrandRouteImport.update({
+  id: '/brand',
+  path: '/brand',
+  getParentRoute: () => AboutRoute,
+} as any)
+const AboutPartnersRoute = AboutPartnersRouteImport.update({
+  id: '/partners',
+  path: '/partners',
+  getParentRoute: () => AboutRoute,
+} as any)
+const AboutMediaRoute = AboutMediaRouteImport.update({
+  id: '/media',
+  path: '/media',
+  getParentRoute: () => AboutRoute,
+} as any)
+const AboutContactRoute = AboutContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => AboutRoute,
 } as any)
 const GamesRoute = GamesRouteImport.update({
   id: '/games',
@@ -61,7 +91,12 @@ const GamesIndexRoute = GamesIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/about': typeof AboutRouteWithChildren
+  '/about/': typeof AboutIndexRoute
+  '/about/brand': typeof AboutBrandRoute
+  '/about/partners': typeof AboutPartnersRoute
+  '/about/media': typeof AboutMediaRoute
+  '/about/contact': typeof AboutContactRoute
   '/games': typeof GamesRouteWithChildren
   '/games/$gameId': typeof GamesGameIdRoute
   '/legal': typeof LegalRoute
@@ -70,7 +105,12 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/about': typeof AboutRouteWithChildren
+  '/about/': typeof AboutIndexRoute
+  '/about/brand': typeof AboutBrandRoute
+  '/about/partners': typeof AboutPartnersRoute
+  '/about/media': typeof AboutMediaRoute
+  '/about/contact': typeof AboutContactRoute
   '/games': typeof GamesRouteWithChildren
   '/games/$gameId': typeof GamesGameIdRoute
   '/legal': typeof LegalRoute
@@ -80,7 +120,12 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/about': typeof AboutRouteWithChildren
+  '/about/': typeof AboutIndexRoute
+  '/about/brand': typeof AboutBrandRoute
+  '/about/partners': typeof AboutPartnersRoute
+  '/about/media': typeof AboutMediaRoute
+  '/about/contact': typeof AboutContactRoute
   '/games': typeof GamesRouteWithChildren
   '/games/$gameId': typeof GamesGameIdRoute
   '/legal': typeof LegalRoute
@@ -89,15 +134,15 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/games' | '/games/$gameId' | '/legal' | '/roster' | '/roster/$playerId'
+  fullPaths: '/' | '/about' | '/about/' | '/about/brand' | '/about/partners' | '/about/media' | '/about/contact' | '/games' | '/games/$gameId' | '/legal' | '/roster' | '/roster/$playerId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/games' | '/games/$gameId' | '/legal' | '/roster' | '/roster/$playerId'
-  id: '__root__' | '/' | '/about' | '/games' | '/games/$gameId' | '/legal' | '/roster' | '/roster/$playerId'
+  to: '/' | '/about' | '/about/' | '/about/brand' | '/about/partners' | '/about/media' | '/about/contact' | '/games' | '/games/$gameId' | '/legal' | '/roster' | '/roster/$playerId'
+  id: '__root__' | '/' | '/about' | '/about/' | '/about/brand' | '/about/partners' | '/about/media' | '/about/contact' | '/games' | '/games/$gameId' | '/legal' | '/roster' | '/roster/$playerId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
+  AboutRoute: typeof AboutRouteWithChildren
   GamesRoute: typeof GamesRouteWithChildren
   LegalRoute: typeof LegalRoute
   RosterRoute: typeof RosterRouteWithChildren
@@ -118,6 +163,41 @@ declare module '@tanstack/react-router' {
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/about/': {
+      id: '/about/'
+      path: '/'
+      fullPath: '/about/'
+      preLoaderRoute: typeof AboutIndexRouteImport
+      parentRoute: typeof AboutRoute
+    }
+    '/about/brand': {
+      id: '/about/brand'
+      path: '/brand'
+      fullPath: '/about/brand'
+      preLoaderRoute: typeof AboutBrandRouteImport
+      parentRoute: typeof AboutRoute
+    }
+    '/about/partners': {
+      id: '/about/partners'
+      path: '/partners'
+      fullPath: '/about/partners'
+      preLoaderRoute: typeof AboutPartnersRouteImport
+      parentRoute: typeof AboutRoute
+    }
+    '/about/media': {
+      id: '/about/media'
+      path: '/media'
+      fullPath: '/about/media'
+      preLoaderRoute: typeof AboutMediaRouteImport
+      parentRoute: typeof AboutRoute
+    }
+    '/about/contact': {
+      id: '/about/contact'
+      path: '/contact'
+      fullPath: '/about/contact'
+      preLoaderRoute: typeof AboutContactRouteImport
+      parentRoute: typeof AboutRoute
     }
     '/games': {
       id: '/games'
@@ -164,6 +244,25 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AboutRouteChildren {
+  AboutIndexRoute: typeof AboutIndexRoute
+  AboutBrandRoute: typeof AboutBrandRoute
+  AboutPartnersRoute: typeof AboutPartnersRoute
+  AboutMediaRoute: typeof AboutMediaRoute
+  AboutContactRoute: typeof AboutContactRoute
+}
+
+const AboutRouteChildren: AboutRouteChildren = {
+  AboutIndexRoute: AboutIndexRoute,
+  AboutBrandRoute: AboutBrandRoute,
+  AboutPartnersRoute: AboutPartnersRoute,
+  AboutMediaRoute: AboutMediaRoute,
+  AboutContactRoute: AboutContactRoute,
+}
+
+const AboutRouteWithChildren =
+  AboutRoute._addFileChildren(AboutRouteChildren)
+
 interface RosterRouteChildren {
   RosterPlayerIdRoute: typeof RosterPlayerIdRoute
 }
@@ -190,7 +289,7 @@ const GamesRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
+  AboutRoute: AboutRouteWithChildren,
   GamesRoute: GamesRouteWithChildren,
   LegalRoute: LegalRoute,
   RosterRoute: RosterRouteWithChildren,

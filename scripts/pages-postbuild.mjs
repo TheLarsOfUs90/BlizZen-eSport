@@ -17,6 +17,13 @@ for (const page of ["about", "roster", "legal", "games"]) {
 mkdirSync(`${dir}/roster`, { recursive: true });
 copyFileSync(shell, `${dir}/roster/index.html`);
 
+mkdirSync(`${dir}/about`, { recursive: true });
+copyFileSync(shell, `${dir}/about/index.html`);
+for (const page of ["brand", "partners", "media", "contact"]) {
+  mkdirSync(`${dir}/about/${page}`, { recursive: true });
+  copyFileSync(shell, `${dir}/about/${page}/index.html`);
+}
+
 mkdirSync(`${dir}/games`, { recursive: true });
 copyFileSync(shell, `${dir}/games/index.html`);
 
