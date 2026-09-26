@@ -5,10 +5,14 @@ const LERP = 0.18;
 const GLITCH_MS = 200;
 const SCALES = [18, 10, 4, 0];
 
+function prefersReducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
 function canUsePointer() {
   return (
     window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
-    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    !prefersReducedMotion()
   );
 }
 
@@ -20,7 +24,8 @@ function nativeTarget(node: EventTarget | null) {
 }
 
 export function BlitzPointer() {
-  const [on, setOn] = useState(false);
+  const [cursorOn, setCursorOn] = useState(false);
+  const [glitchOn, setGlitchOn] = useState(false);
   const cursorRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<SVGFEDisplacementMapElement>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
@@ -31,9 +36,12 @@ export function BlitzPointer() {
   const router = useRouter();
 
   useEffect(() => {
-    if (!canUsePointer()) return;
-    setOn(true);
-    document.documentElement.classList.add("blitz-pointer-on");
+    if (prefersReducedMotion()) return;
+    setGlitchOn(true);
+    if (canUsePointer()) {
+      setCursorOn(true);
+      document.documentElement.classList.add("blitz-pointer-on");
+    }
     return () => {
       document.documentElement.classList.remove("blitz-pointer-on");
       document.documentElement.classList.remove("blitz-route-glitch");
@@ -43,7 +51,7 @@ export function BlitzPointer() {
   }, []);
 
   useEffect(() => {
-    if (!on) return;
+    if (!cursorOn) return;
     const cursor = cursorRef.current;
     if (!cursor) return;
 
@@ -86,10 +94,10 @@ export function BlitzPointer() {
       window.removeEventListener("pointermove", onMove);
       document.removeEventListener("mouseout", onLeave);
     };
-  }, [on]);
+  }, [cursorOn]);
 
   useEffect(() => {
-    if (!on) return;
+    if (!glitchOn) return;
     let seen = false;
     let lastPath = window.location.pathname;
     const runGlitch = () => {
@@ -123,13 +131,13 @@ export function BlitzPointer() {
       runGlitch();
     });
     return unsub;
-  }, [on, router]);
+  }, [glitchOn, router]);
 
-  if (!on) return null;
+  if (!cursorOn && !glitchOn) return null;
 
   return (
     <>
-      <div ref={cursorRef} className="blitz-pointer" aria-hidden="true" data-hide="1" />
+      {cursorOn ? <div ref={cursorRef} className="blitz-pointer" aria-hidden="true" data-hide="1" /> : null}
       <svg className="blitz-filter" aria-hidden="true" width="0" height="0">
         <filter id="blitz-displace" x="-20%" y="-20%" width="140%" height="140%">
           <feTurbulence type="fractalNoise" baseFrequency="0.9 0.04" numOctaves="1" result="noise" />
