@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ChevronDown, Menu, Moon, Sun, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { org } from "@/data/org";
 import { usePrefs } from "@/lib/prefs";
 import { aboutNav } from "@/lib/about-nav";
@@ -10,9 +10,10 @@ import { cn } from "@/lib/utils";
 import { LogoLockup } from "@/components/lightning-mark";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "@/components/external-link";
+import { LangSwitch, ThemeSwitch } from "@/components/pref-switch";
 
 export function SiteHeader() {
-  const { t, locale, setLocale, theme, toggleTheme } = usePrefs();
+  const { t } = usePrefs();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const [menu, setMenu] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
@@ -46,39 +47,9 @@ export function SiteHeader() {
           />
         </nav>
 
-        <div className="ml-auto flex items-center gap-1">
-          <button
-            type="button"
-            onClick={() => setLocale(locale === "de" ? "en" : "de")}
-            className="grid size-11 place-items-center font-mono text-[11px] tracking-widest uppercase text-mist sm:hidden"
-            aria-label={t.nav.lang}
-          >
-            {locale === "de" ? "EN" : "DE"}
-          </button>
-          <div className="hidden items-center sm:flex" role="group" aria-label={t.nav.lang}>
-            {(["de", "en"] as const).map((l) => (
-              <button
-                key={l}
-                type="button"
-                onClick={() => setLocale(l)}
-                aria-pressed={locale === l}
-                className={cn(
-                  "grid h-11 min-w-11 place-items-center font-mono text-[11px] tracking-widest uppercase",
-                  locale === l ? "bg-ice text-ink" : "text-mist hover:text-fog",
-                )}
-              >
-                {l}
-              </button>
-            ))}
-          </div>
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className="grid size-11 place-items-center text-fog"
-            aria-label={theme === "dark" ? t.nav.themeLight : t.nav.themeDark}
-          >
-            {theme === "dark" ? <Sun className="size-5" /> : <Moon className="size-5" />}
-          </button>
+        <div className="ml-auto flex items-center gap-2">
+          <LangSwitch />
+          <ThemeSwitch />
           {org.socials.discord ? (
             <Button asChild size="sm" className="hidden md:inline-flex">
               <ExternalLink href={org.socials.discord}>{t.nav.join}</ExternalLink>
