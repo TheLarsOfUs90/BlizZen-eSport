@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const IDLE_MS = 120;
-const FLASH_MS = 80;
+const GLITCH_MS = 160;
 const MOVE_PX = 1;
 
 function canUsePointer() {
@@ -41,11 +41,11 @@ function isRouteChangeClick(event: MouseEvent) {
 
 export function BlitzPointer() {
   const [on, setOn] = useState(false);
-  const [flash, setFlash] = useState(false);
+  const [glitch, setGlitch] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const idleRef = useRef(0);
-  const flashRef = useRef(0);
-  const flashingRef = useRef(false);
+  const glitchRef = useRef(0);
+  const glitchingRef = useRef(false);
   const lastRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -55,7 +55,7 @@ export function BlitzPointer() {
     return () => {
       document.documentElement.classList.remove("blitz-pointer-on");
       window.clearTimeout(idleRef.current);
-      window.clearTimeout(flashRef.current);
+      window.clearTimeout(glitchRef.current);
     };
   }, []);
 
@@ -98,15 +98,15 @@ export function BlitzPointer() {
     };
 
     const onClick = (event: MouseEvent) => {
-      if (flashingRef.current) return;
+      if (glitchingRef.current) return;
       if (!isRouteChangeClick(event)) return;
-      flashingRef.current = true;
-      setFlash(true);
-      window.clearTimeout(flashRef.current);
-      flashRef.current = window.setTimeout(() => {
-        setFlash(false);
-        flashingRef.current = false;
-      }, FLASH_MS);
+      glitchingRef.current = true;
+      setGlitch(true);
+      window.clearTimeout(glitchRef.current);
+      glitchRef.current = window.setTimeout(() => {
+        setGlitch(false);
+        glitchingRef.current = false;
+      }, GLITCH_MS);
     };
 
     window.addEventListener("pointermove", onMove);
@@ -135,7 +135,13 @@ export function BlitzPointer() {
           />
         </svg>
       </div>
-      {flash ? <div className="blitz-flash" aria-hidden="true" /> : null}
+      {glitch ? (
+        <div className="blitz-glitch" aria-hidden="true">
+          <span className="blitz-glitch-band" />
+          <span className="blitz-glitch-band" />
+          <span className="blitz-glitch-band" />
+        </div>
+      ) : null}
     </>
   );
 }
