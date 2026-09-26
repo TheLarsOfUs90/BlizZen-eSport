@@ -3,6 +3,8 @@ import type { Player } from "@/data/roster";
 import { usePrefs, tx } from "@/lib/prefs";
 import { cn } from "@/lib/utils";
 import { asset } from "@/lib/asset";
+import { SocialLinks } from "@/components/social-links";
+import { PlayerStats } from "@/components/player-stats";
 import { fillCols } from "@/lib/fill-grid";
 
 export const playerCardTracks =
@@ -25,11 +27,13 @@ export function PlayerCard({
   large,
   className,
   stacked,
+  details,
 }: {
   player: Player;
   large?: boolean;
   className?: string;
   stacked?: boolean;
+  details?: boolean;
 }) {
   const { locale } = usePrefs();
   const quote = tx(player.quote, locale);
@@ -37,7 +41,7 @@ export function PlayerCard({
 
   return (
     <article
-      className={cn("overflow-hidden bg-panel", className)}
+      className={cn("flex h-full flex-col overflow-hidden bg-panel", className)}
       style={{ ["--player-accent" as string]: accent }}
     >
       <Link
@@ -45,7 +49,7 @@ export function PlayerCard({
         params={{ playerId: player.id }}
         className={cn(
           "player-tile group relative block overflow-hidden",
-          stacked ? "aspect-[4/5] h-full" : "aspect-[4/5] min-h-[70vh]",
+          stacked || details ? "aspect-[4/5]" : "aspect-[4/5] min-h-[70vh]",
           large && "min-h-[320px] sm:min-h-[420px]",
         )}
       >
@@ -71,6 +75,20 @@ export function PlayerCard({
           <h3 className="display mt-1 text-[36px] leading-none sm:text-[42px]">{player.ign}</h3>
         </div>
       </Link>
+      {details ? (
+        <div className="flex flex-1 flex-col px-4 py-5 sm:px-5">
+          <p className="kicker text-mist">
+            {tx(player.role, locale)} · {tx(player.country, locale)}
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-mist">{tx(player.bio, locale)}</p>
+          <div className="mt-4">
+            <PlayerStats stats={player.stats} compact />
+          </div>
+          <div className="mt-auto flex min-h-11 items-center pt-3">
+            <SocialLinks links={player.socials} />
+          </div>
+        </div>
+      ) : null}
     </article>
   );
 }
