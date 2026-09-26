@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/page-hero";
 import { SiteShell } from "@/components/site-shell";
 import { brandColors, brandLogos } from "@/data/brand";
+import { fillCols, fillSpan } from "@/lib/fill-grid";
 import { usePrefs, tx } from "@/lib/prefs";
 import { asset } from "@/lib/asset";
 import { cn } from "@/lib/utils";
@@ -60,9 +61,9 @@ function BrandPage() {
           <p className="kicker">{t.brand.colorKicker}</p>
           <h2 className="display mt-3 text-4xl sm:text-5xl">{t.brand.colorH}</h2>
           <p className="mt-4 max-w-2xl text-mist">{t.brand.colorP}</p>
-          <ul className="mt-10 grid gap-px bg-edge sm:grid-cols-2 lg:grid-cols-4">
-            {brandColors.map((color) => (
-              <li key={color.hex} className="bg-void">
+          <ul className={cn("mt-10 grid gap-px bg-edge", fillCols(brandColors.length))}>
+            {brandColors.map((color, index) => (
+              <li key={color.hex} className={cn("bg-void", fillSpan(index, brandColors.length))}>
                 <div className="h-28 border-b border-edge" style={{ background: color.hex }} />
                 <div className="p-5">
                   <p className="kicker">{color.name}</p>
