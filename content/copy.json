@@ -167,8 +167,7 @@
     "matches": {
       "kicker": "Team",
       "title": "Alle Matches.",
-      "dek": "Live, anstehend, vorbei. Sobald wir antreten, steht das Ergebnis hier.",
-      "live": "Live",
+      "dek": "Anstehend und vorbei. Sobald wir antreten, steht das Ergebnis hier.",
       "upcoming": "Anstehend",
       "past": "Vergangen",
       "empty": "Noch keine Matches.",
@@ -370,8 +369,7 @@
     "matches": {
       "kicker": "Team",
       "title": "All matches.",
-      "dek": "Live, upcoming, past. Results land here once we play.",
-      "live": "Live",
+      "dek": "Upcoming and past. Results land here once we play.",
       "upcoming": "Upcoming",
       "past": "Past",
       "empty": "No matches yet.",

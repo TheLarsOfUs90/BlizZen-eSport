@@ -14,7 +14,6 @@ function MatchesPage() {
   const { t, locale } = usePrefs();
   const [tab, setTab] = useState<MatchStatus>("upcoming");
   const tabs: { id: MatchStatus; label: string }[] = [
-    { id: "live", label: t.matches.live },
     { id: "upcoming", label: t.matches.upcoming },
     { id: "past", label: t.matches.past },
   ];
