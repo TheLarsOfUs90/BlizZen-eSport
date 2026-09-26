@@ -69,12 +69,27 @@ function asPlayer(raw: (typeof team)[number]): Player | undefined {
   };
 }
 
+function lineupIds(raw: unknown): string[] {
+  if (!Array.isArray(raw)) return [];
+  const seen = new Set<string>();
+  const ids: string[] = [];
+  for (const value of raw) {
+    if (typeof value !== "string") continue;
+    const id = playerId(value);
+    if (!id || seen.has(id)) continue;
+    seen.add(id);
+    ids.push(id);
+  }
+  return ids;
+}
+
 export const titles = site.games.map((game) => ({
   id: game.id,
   name: game.name,
   short: game.short,
   blurb: game.blurb,
   soon: "soon" in game ? Boolean(game.soon) : false,
+  lineupIds: lineupIds("lineup" in game ? game.lineup : []),
 }));
 
 export const players: Player[] = team.flatMap((row) => {
@@ -91,4 +106,20 @@ export function getPlayer(id: string) {
 export function featuredPlayers() {
   const featured = players.filter((p) => p.featured);
   return featured.length > 0 ? featured : players.slice(0, 1);
+}
+
+export const games = titles.map((game) => ({
+  ...game,
+  lineup: game.lineupIds.flatMap((id) => {
+    const player = players.find((entry) => entry.id === id);
+    return player ? [player] : [];
+  }),
+}));
+
+export function squadKey(count: number) {
+  if (count <= 0) return "open" as const;
+  if (count === 1) return "solo" as const;
+  if (count === 2) return "duo" as const;
+  if (count === 3) return "trio" as const;
+  return "squad" as const;
 }

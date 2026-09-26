@@ -34,6 +34,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link to="/games" className="hover:text-fog">
+                {t.nav.games}
+              </Link>
+            </li>
+            <li>
               <Link to="/legal" className="hover:text-fog">
                 {t.nav.legal}
               </Link>

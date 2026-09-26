@@ -40,9 +40,11 @@ function Home() {
           <ul className={cn("mt-10 grid gap-px bg-edge", fillCols(titles.length))}>
             {titles.map((g, index) => (
               <li key={g.id} className={cn("bg-void p-6", fillSpan(index, titles.length))}>
-                <p className="kicker">{g.soon ? t.home.gamesSoon : g.short}</p>
-                <h3 className="display mt-2 text-3xl">{tx(g.name, locale)}</h3>
-                <p className="mt-2 text-sm text-mist">{tx(g.blurb, locale)}</p>
+                <Link to="/games" hash={g.id} className="block h-full hover:text-fog">
+                  <p className="kicker">{g.soon ? t.home.gamesSoon : g.short}</p>
+                  <h3 className="display mt-2 text-3xl">{tx(g.name, locale)}</h3>
+                  <p className="mt-2 text-sm text-mist">{tx(g.blurb, locale)}</p>
+                </Link>
               </li>
             ))}
           </ul>

@@ -16,6 +16,7 @@ export function SiteHeader() {
   const nav = [
     { to: "/about", label: t.nav.about },
     { to: "/roster", label: t.nav.roster },
+    { to: "/games", label: t.nav.games },
   ] as const;
 
   return (

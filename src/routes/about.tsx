@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/page-hero";
 import { SiteShell } from "@/components/site-shell";
 import { SocialLinks } from "@/components/social-links";
@@ -52,8 +52,10 @@ function AboutPage() {
           <ul className={cn("mt-6 grid gap-px bg-edge", fillCols(titles.length))}>
             {titles.map((g, index) => (
               <li key={g.id} className={cn("bg-void p-5", fillSpan(index, titles.length))}>
-                <p className="kicker">{g.soon ? t.home.gamesSoon : g.short}</p>
-                <p className="display mt-2 text-2xl">{tx(g.name, locale)}</p>
+                <Link to="/games" hash={g.id} className="block hover:text-fog">
+                  <p className="kicker">{g.soon ? t.home.gamesSoon : g.short}</p>
+                  <p className="display mt-2 text-2xl">{tx(g.name, locale)}</p>
+                </Link>
               </li>
             ))}
           </ul>

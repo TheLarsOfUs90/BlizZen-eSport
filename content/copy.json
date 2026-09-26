@@ -6,6 +6,7 @@
     "nav": {
       "roster": "Team",
       "about": "Club",
+      "games": "Spiele",
       "join": "Discord",
       "legal": "Hinweise",
       "menu": "Menü",
@@ -52,6 +53,20 @@
       "title": "Das Team.",
       "dek": "Das aktuelle Line-up. Wer neu dazukommt, startet im Discord.",
       "back": "Team"
+    },
+    "games": {
+      "kicker": "Spiele",
+      "title": "Wer spielt was.",
+      "dek": "Aktive Line-ups nach Titel. Solo, Duo oder Squad — je nachdem, wer gerade auf dem Feld steht.",
+      "jump": "Titel",
+      "solo": "Solo",
+      "duo": "Duo",
+      "trio": "Trio",
+      "squad": "Squad",
+      "open": "Kein aktives Line-up",
+      "openP": "Wer hier mitziehen will, startet im Discord.",
+      "soon": "Ab Release",
+      "toProfile": "Zum Profil"
     },
     "about": {
       "kicker": "Club",
@@ -106,6 +121,7 @@
     "nav": {
       "roster": "Team",
       "about": "Club",
+      "games": "Games",
       "join": "Discord",
       "legal": "Legal",
       "menu": "Menu",
@@ -152,6 +168,20 @@
       "title": "The team.",
       "dek": "The current lineup. New faces arrive through Discord.",
       "back": "Team"
+    },
+    "games": {
+      "kicker": "Games",
+      "title": "Who plays what.",
+      "dek": "Active line-ups by title. Solo, duo or squad — whoever is on the field right now.",
+      "jump": "Titles",
+      "solo": "Solo",
+      "duo": "Duo",
+      "trio": "Trio",
+      "squad": "Squad",
+      "open": "No active line-up",
+      "openP": "Want in? Start on Discord.",
+      "soon": "When it drops",
+      "toProfile": "View profile"
     },
     "about": {
       "kicker": "Club",

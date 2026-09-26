@@ -19,7 +19,8 @@
       "blurb": {
         "de": "Das Runde muss ins eckige.",
         "en": "You’ve got to put the ball in the net."
-      }
+      },
+      "lineup": ["crak", "skill"]
     },
     {
       "id": "fifa",
@@ -28,7 +29,8 @@
       "blurb": {
         "de": "Hoch und weit bringt Sicherheit.",
         "en": "If in doubt, kick it out."
-      }
+      },
+      "lineup": []
     },
     {
       "id": "r6",
@@ -37,7 +39,8 @@
       "blurb": {
         "de": "Blitzend reingehen.",
         "en": "Goes in like a flash."
-      }
+      },
+      "lineup": ["skill"]
     },
     {
       "id": "otg",
@@ -46,7 +49,8 @@
       "blurb": {
         "de": "Neue Glieder, neues Glück.",
         "en": "New limbs, new luck."
-      }
+      },
+      "lineup": ["thelars"]
     },
     {
       "id": "bf",
@@ -55,7 +59,8 @@
       "blurb": {
         "de": "Im Feuer ist Schluss.",
         "en": "In the fire, it’s over."
-      }
+      },
+      "lineup": ["skill", "dead", "thelars"]
     },
     {
       "id": "apex",
@@ -64,7 +69,8 @@
       "blurb": {
         "de": "Heiß droppen, Ruhe bewahren.",
         "en": "Drop hot, stay cool."
-      }
+      },
+      "lineup": ["dead", "skill"]
     },
     {
       "id": "dayz",
@@ -73,7 +79,8 @@
       "blurb": {
         "de": "Heute Freund, morgen Loot.",
         "en": "Friend today, loot tomorrow."
-      }
+      },
+      "lineup": ["thelars"]
     },
     {
       "id": "gt7",
@@ -82,7 +89,8 @@
       "blurb": {
         "de": "Wer bremst, verliert.",
         "en": "Braking is losing."
-      }
+      },
+      "lineup": ["thelars"]
     },
     {
       "id": "gta",
@@ -92,7 +100,8 @@
       "blurb": {
         "de": "Mehr Sterne, mehr Leben.",
         "en": "More stars, more life."
-      }
+      },
+      "lineup": []
     }
   ]
 }

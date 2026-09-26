@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as GamesRouteImport } from './routes/games'
 import { Route as LegalRouteImport } from './routes/legal'
 import { Route as RosterRouteImport } from './routes/roster'
 import { Route as RosterPlayerIdRouteImport } from './routes/roster.$playerId'
@@ -23,6 +24,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesRoute = GamesRouteImport.update({
+  id: '/games',
+  path: '/games',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LegalRoute = LegalRouteImport.update({
@@ -44,6 +50,7 @@ const RosterPlayerIdRoute = RosterPlayerIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/games': typeof GamesRoute
   '/legal': typeof LegalRoute
   '/roster': typeof RosterRouteWithChildren
   '/roster/$playerId': typeof RosterPlayerIdRoute
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/games': typeof GamesRoute
   '/legal': typeof LegalRoute
   '/roster': typeof RosterRouteWithChildren
   '/roster/$playerId': typeof RosterPlayerIdRoute
@@ -59,21 +67,23 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/games': typeof GamesRoute
   '/legal': typeof LegalRoute
   '/roster': typeof RosterRouteWithChildren
   '/roster/$playerId': typeof RosterPlayerIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/legal' | '/roster' | '/roster/$playerId'
+  fullPaths: '/' | '/about' | '/games' | '/legal' | '/roster' | '/roster/$playerId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/legal' | '/roster' | '/roster/$playerId'
-  id: '__root__' | '/' | '/about' | '/legal' | '/roster' | '/roster/$playerId'
+  to: '/' | '/about' | '/games' | '/legal' | '/roster' | '/roster/$playerId'
+  id: '__root__' | '/' | '/about' | '/games' | '/legal' | '/roster' | '/roster/$playerId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  GamesRoute: typeof GamesRoute
   LegalRoute: typeof LegalRoute
   RosterRoute: typeof RosterRouteWithChildren
 }
@@ -92,6 +102,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games': {
+      id: '/games'
+      path: '/games'
+      fullPath: '/games'
+      preLoaderRoute: typeof GamesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/legal': {
@@ -132,6 +149,7 @@ const RosterRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  GamesRoute: GamesRoute,
   LegalRoute: LegalRoute,
   RosterRoute: RosterRouteWithChildren,
 }
