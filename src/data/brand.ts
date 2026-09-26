@@ -9,7 +9,7 @@ export const brandColors = [
 ] as const;
 
 export const brandLogos = [
-  { id: "mark", file: "brand/logo-mark.png", label: { de: "Zeichen", en: "Mark" } },
-  { id: "full", file: "brand/logo-full.jpg", label: { de: "Wortmarke", en: "Wordmark" } },
-  { id: "square", file: "brand/logo-square.png", label: { de: "Quadrat", en: "Square" } },
+  { id: "mark", file: "brand/logo-mark.png", invert: true, label: { de: "Zeichen", en: "Mark" } },
+  { id: "full", file: "brand/logo-full.jpg", invert: false, label: { de: "Wortmarke", en: "Wordmark" } },
+  { id: "square", file: "brand/logo-square.png", invert: false, label: { de: "Quadrat", en: "Square" } },
 ] as const;

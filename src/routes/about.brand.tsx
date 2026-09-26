@@ -4,6 +4,7 @@ import { SiteShell } from "@/components/site-shell";
 import { brandColors, brandLogos } from "@/data/brand";
 import { usePrefs, tx } from "@/lib/prefs";
 import { asset } from "@/lib/asset";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/about/brand")({ component: BrandPage });
 
@@ -22,11 +23,16 @@ function BrandPage() {
           <ul className="mt-10 grid gap-px bg-edge sm:grid-cols-3">
             {brandLogos.map((logo) => (
               <li key={logo.id} className="bg-void p-8">
-                <div className="grid h-40 place-items-center bg-panel">
+                <div
+                  className={cn(
+                    "grid h-40 place-items-center",
+                    logo.invert ? "bg-panel" : "stage-dark bg-[#0a0e1a]",
+                  )}
+                >
                   <img
                     src={asset(logo.file)}
                     alt=""
-                    className="logo-mark max-h-24 w-auto"
+                    className={cn("max-h-24 w-auto", logo.invert && "logo-mark")}
                     style={{ outline: "none" }}
                   />
                 </div>

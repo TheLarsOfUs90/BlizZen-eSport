@@ -5,6 +5,7 @@ import { brandLogos } from "@/data/brand";
 import { titles } from "@/data/roster";
 import { usePrefs, tx } from "@/lib/prefs";
 import { asset } from "@/lib/asset";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/about/media")({ component: MediaPage });
 
@@ -35,8 +36,18 @@ function MediaPage() {
           <ul className="mt-10 grid gap-px bg-edge sm:grid-cols-3">
             {brandLogos.map((logo) => (
               <li key={logo.id} className="bg-void p-6">
-                <div className="grid h-36 place-items-center bg-panel">
-                  <img src={asset(logo.file)} alt="" className="logo-mark max-h-20 w-auto" style={{ outline: "none" }} />
+                <div
+                  className={cn(
+                    "grid h-36 place-items-center",
+                    logo.invert ? "bg-panel" : "stage-dark bg-[#0a0e1a]",
+                  )}
+                >
+                  <img
+                    src={asset(logo.file)}
+                    alt=""
+                    className={cn("max-h-20 w-auto", logo.invert && "logo-mark")}
+                    style={{ outline: "none" }}
+                  />
                 </div>
                 <p className="kicker mt-4">{tx(logo.label, locale)}</p>
                 <a
