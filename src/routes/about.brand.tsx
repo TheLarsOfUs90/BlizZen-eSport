@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/page-hero";
 import { SiteShell } from "@/components/site-shell";
 import { brandColors, brandLogos } from "@/data/brand";
-import { fillCols, fillSpan } from "@/lib/fill-grid";
+import { fillCols, isOrphan, orphanCard, orphanSlot } from "@/lib/fill-grid";
 import { usePrefs, tx } from "@/lib/prefs";
 import { asset } from "@/lib/asset";
 import { cn } from "@/lib/utils";
@@ -62,16 +62,21 @@ function BrandPage() {
           <h2 className="display mt-3 text-4xl sm:text-5xl">{t.brand.colorH}</h2>
           <p className="mt-4 max-w-2xl text-mist">{t.brand.colorP}</p>
           <ul className={cn("mt-10 grid gap-px bg-edge", fillCols(brandColors.length))}>
-            {brandColors.map((color, index) => (
-              <li key={color.hex} className={cn("bg-void", fillSpan(index, brandColors.length))}>
-                <div className="h-28 border-b border-edge" style={{ background: color.hex }} />
-                <div className="p-5">
-                  <p className="kicker">{color.name}</p>
-                  <p className="display mt-2 text-2xl">{color.hex}</p>
-                  <p className="mt-2 text-sm text-mist">{tx(color.note, locale)}</p>
-                </div>
-              </li>
-            ))}
+            {brandColors.map((color, index) => {
+              const orphan = isOrphan(index, brandColors.length);
+              return (
+                <li key={color.hex} className={cn(orphan && orphanSlot())}>
+                  <div className={cn("bg-void", orphan && orphanCard())}>
+                    <div className="h-28 border-b border-edge" style={{ background: color.hex }} />
+                    <div className="p-5">
+                      <p className="kicker">{color.name}</p>
+                      <p className="display mt-2 text-2xl">{color.hex}</p>
+                      <p className="mt-2 text-sm text-mist">{tx(color.note, locale)}</p>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>
