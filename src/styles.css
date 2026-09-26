@@ -387,8 +387,8 @@ html.blitz-pointer-on .roster-marquee.is-dragging * {
 }
 
 .game-tile-cover {
-  opacity: 0.4;
-  transform: scale(1);
+  opacity: 1;
+  transform: scale(1.04);
   transition:
     transform 250ms ease-out,
     opacity 250ms ease-out;
@@ -402,10 +402,6 @@ html.blitz-pointer-on .roster-marquee.is-dragging * {
 .game-tile-rl .game-tile-cover {
   object-position: center 78%;
   transition-duration: 350ms;
-}
-
-.game-tile-gta .game-tile-cover {
-  opacity: 0.32;
 }
 
 .game-tile-blurb {
@@ -424,16 +420,15 @@ html.blitz-pointer-on .roster-marquee.is-dragging * {
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .game-tile-cover {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
   .game-tile:hover .game-tile-cover,
   .game-tile:focus-visible .game-tile-cover {
     opacity: 1;
     transform: scale(1.04);
-  }
-
-  .game-tile-gta:hover .game-tile-cover,
-  .game-tile-gta:focus-visible .game-tile-cover {
-    opacity: 0.32;
-    transform: none;
   }
 
   .game-tile-blurb {
