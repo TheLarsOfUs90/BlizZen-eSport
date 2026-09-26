@@ -24,9 +24,27 @@ export function SiteHeader() {
   const teamActive = teamNavActive(pathname);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-edge/80 bg-void/90 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-[1440px] items-center gap-3 px-4 sm:px-6 lg:px-10">
-        <Link to="/" className="shrink-0" onClick={() => setMenu(false)}>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-edge/80 bg-void/90 backdrop-blur-md">
+      {import.meta.env.VITE_PREVIEW === "1" ? (
+        <p className="border-b border-edge bg-panel px-4 py-2 text-center font-mono text-[11px] tracking-[0.18em] text-dim uppercase">
+          Preview — nicht die Live-Seite
+        </p>
+      ) : null}
+      <div className="relative mx-auto flex h-16 max-w-[1440px] items-center gap-3 px-4 sm:px-6 lg:px-10">
+        <button
+          type="button"
+          className="grid size-11 shrink-0 place-items-center text-fog sm:hidden"
+          onClick={() => setMenu((v) => !v)}
+          aria-label={menu ? t.nav.close : t.nav.menu}
+        >
+          {menu ? <X className="size-5" /> : <Menu className="size-5" />}
+        </button>
+
+        <Link
+          to="/"
+          className="absolute left-1/2 shrink-0 -translate-x-1/2 sm:static sm:translate-x-0"
+          onClick={() => setMenu(false)}
+        >
           <LogoLockup />
         </Link>
 
@@ -55,14 +73,6 @@ export function SiteHeader() {
               <ExternalLink href={org.socials.discord}>{t.nav.join}</ExternalLink>
             </Button>
           ) : null}
-          <button
-            type="button"
-            className="grid size-11 place-items-center text-fog sm:hidden"
-            onClick={() => setMenu((v) => !v)}
-            aria-label={menu ? t.nav.close : t.nav.menu}
-          >
-            {menu ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
         </div>
       </div>
 
