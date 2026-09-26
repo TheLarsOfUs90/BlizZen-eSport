@@ -25,8 +25,10 @@
       "tiktok": "https://www.tiktok.com/@thelarsofus90"
     },
     "stats": [
-      { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "Papa", "en": "Dad" } },
-      { "label": { "de": "Offline", "en": "Offline" }, "value": { "de": "Möchtegern-Superheld", "en": "Wannabe superhero" } }
+      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
+      { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "Möchtegern-Superheld", "en": "Wannabe superhero" } },
+      { "label": { "de": "Offline", "en": "Offline" }, "value": { "de": "Papa", "en": "Dad" } },
+      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "zu alt", "en": "too old" } }
     ]
   },
   {
@@ -55,9 +57,11 @@
       "tiktok": ""
     },
     "stats": [
+      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
       { "label": { "de": "Main", "en": "Main" }, "value": { "de": "Skyrim", "en": "Skyrim" } },
       { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "Pilze", "en": "Mushrooms" } },
-      { "label": { "de": "Offline", "en": "Offline" }, "value": { "de": "Mum", "en": "Mum" } }
+      { "label": { "de": "Offline", "en": "Offline" }, "value": { "de": "Mum", "en": "Mum" } },
+      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "zu alt", "en": "too old" } }
     ]
   },
   {
@@ -85,7 +89,10 @@
       "youtube": "",
       "tiktok": ""
     },
-    "stats": []
+    "stats": [
+      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
+      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "Jungspund", "en": "Youngster" } }
+    ]
   },
   {
     "id": "dead",
@@ -113,8 +120,10 @@
       "tiktok": ""
     },
     "stats": [
-      { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "Baschtl", "en": "Baschtl" } },
-      { "label": { "de": "Offline", "en": "Offline" }, "value": { "de": "Schandtaten", "en": "Dirty deeds" } }
+      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
+      { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "Schandtaten", "en": "Dirty deeds" } },
+      { "label": { "de": "Offline", "en": "Offline" }, "value": { "de": "Baschtl", "en": "Baschtl" } },
+      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "Mitte 30", "en": "Mid-30s" } }
     ]
   },
   {
@@ -143,8 +152,10 @@
       "tiktok": ""
     },
     "stats": [
+      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
       { "label": { "de": "Main", "en": "Main" }, "value": { "de": "ARK", "en": "ARK" } },
-      { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "Beach Bobs", "en": "Beach Bobs" } }
+      { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "Beach Bobs", "en": "Beach Bobs" } },
+      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "7eleven", "en": "7eleven" } }
     ]
   },
   {
@@ -173,7 +184,9 @@
       "tiktok": ""
     },
     "stats": [
-      { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "Beach Bobs", "en": "Beach Bobs" } }
+      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
+      { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "Beach Bobs", "en": "Beach Bobs" } },
+      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "Jung geblieben", "en": "Young at heart" } }
     ]
   },
   {
@@ -202,7 +215,9 @@
       "tiktok": ""
     },
     "stats": [
-      { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "die Dudes", "en": "the dudes" } }
+      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
+      { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "die Dudes", "en": "the dudes" } },
+      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "35", "en": "35" } }
     ]
   }
 ]
