@@ -16,6 +16,7 @@ import { Route as LegalRouteImport } from './routes/legal'
 import { Route as RosterRouteImport } from './routes/roster'
 import { Route as RosterPlayerIdRouteImport } from './routes/roster.$playerId'
 import { Route as GamesGameIdRouteImport } from './routes/games.$gameId'
+import { Route as GamesIndexRouteImport } from './routes/games.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -50,6 +51,11 @@ const RosterPlayerIdRoute = RosterPlayerIdRouteImport.update({
 const GamesGameIdRoute = GamesGameIdRouteImport.update({
   id: '/$gameId',
   path: '/$gameId',
+  getParentRoute: () => GamesRoute,
+} as any)
+const GamesIndexRoute = GamesIndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => GamesRoute,
 } as any)
 
@@ -127,6 +133,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GamesGameIdRouteImport
       parentRoute: typeof GamesRoute
     }
+    '/games/': {
+      id: '/games/'
+      path: '/'
+      fullPath: '/games/'
+      preLoaderRoute: typeof GamesIndexRouteImport
+      parentRoute: typeof GamesRoute
+    }
     '/legal': {
       id: '/legal'
       path: '/legal'
@@ -164,10 +177,12 @@ const RosterRouteWithChildren =
 
 interface GamesRouteChildren {
   GamesGameIdRoute: typeof GamesGameIdRoute
+  GamesIndexRoute: typeof GamesIndexRoute
 }
 
 const GamesRouteChildren: GamesRouteChildren = {
   GamesGameIdRoute: GamesGameIdRoute,
+  GamesIndexRoute: GamesIndexRoute,
 }
 
 const GamesRouteWithChildren =
