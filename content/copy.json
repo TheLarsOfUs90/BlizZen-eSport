@@ -66,7 +66,11 @@
       "open": "Kein aktives Line-up",
       "openP": "Wer hier mitziehen will, startet im Discord.",
       "soon": "Ab Release",
-      "toProfile": "Zum Profil"
+      "toProfile": "Zum Profil",
+      "back": "Spiele",
+      "rosterH": "Aktives Line-up",
+      "achievements": "Erfolge",
+      "achievementsEmpty": "Noch keine Erfolge eingetragen. Kommt, sobald wir was zu feiern haben."
     },
     "about": {
       "kicker": "Club",
@@ -181,7 +185,11 @@
       "open": "No active line-up",
       "openP": "Want in? Start on Discord.",
       "soon": "When it drops",
-      "toProfile": "View profile"
+      "toProfile": "View profile",
+      "back": "Games",
+      "rosterH": "Active line-up",
+      "achievements": "Achievements",
+      "achievementsEmpty": "No achievements logged yet. They’ll land here when we have something to celebrate."
     },
     "about": {
       "kicker": "Club",

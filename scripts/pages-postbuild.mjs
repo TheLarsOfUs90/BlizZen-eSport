@@ -1,4 +1,4 @@
-import { copyFileSync, existsSync, mkdirSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readFileSync } from "node:fs";
 
 const dir = "dist/client";
 const shell = `${dir}/_shell.html`;
@@ -16,5 +16,15 @@ for (const page of ["about", "roster", "legal", "games"]) {
 
 mkdirSync(`${dir}/roster`, { recursive: true });
 copyFileSync(shell, `${dir}/roster/index.html`);
+
+mkdirSync(`${dir}/games`, { recursive: true });
+copyFileSync(shell, `${dir}/games/index.html`);
+
+const site = JSON.parse(readFileSync("content/site.json", "utf8"));
+for (const game of site.games ?? []) {
+  if (!game?.id) continue;
+  mkdirSync(`${dir}/games/${game.id}`, { recursive: true });
+  copyFileSync(shell, `${dir}/games/${game.id}/index.html`);
+}
 
 console.log("pages-postbuild: wrote index.html, 404.html, and route shells");

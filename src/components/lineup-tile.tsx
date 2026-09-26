@@ -4,7 +4,15 @@ import { usePrefs, tx } from "@/lib/prefs";
 import { asset } from "@/lib/asset";
 import { cn } from "@/lib/utils";
 
-export function LineupTile({ player, className }: { player: Player; className?: string }) {
+export function LineupTile({
+  player,
+  className,
+  compact,
+}: {
+  player: Player;
+  className?: string;
+  compact?: boolean;
+}) {
   const { locale, t } = usePrefs();
 
   return (
@@ -31,9 +39,11 @@ export function LineupTile({ player, className }: { player: Player; className?: 
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-void via-void/20 to-transparent" />
         </div>
-        <div className="p-5">
+        <div className={compact ? "p-3" : "p-5"}>
           <p className="kicker text-mist">{tx(player.role, locale)}</p>
-          <h3 className="display mt-1 text-3xl leading-none">{player.ign}</h3>
+          <h3 className={cn("display mt-1 leading-none", compact ? "text-lg sm:text-2xl" : "text-3xl")}>
+            {player.ign}
+          </h3>
         </div>
       </Link>
     </li>

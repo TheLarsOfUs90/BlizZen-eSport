@@ -83,13 +83,27 @@ function lineupIds(raw: unknown): string[] {
   return ids;
 }
 
+function achievementsOf(raw: unknown): { year: string; title: L10n }[] {
+  if (!Array.isArray(raw)) return [];
+  return raw.flatMap((row) => {
+    if (!row || typeof row !== "object") return [];
+    const rec = row as { year?: unknown; title?: unknown };
+    const year = typeof rec.year === "string" ? rec.year.trim() : "";
+    const title = asL10n(rec.title);
+    if (!year || !title) return [];
+    return [{ year: clip(year, 12), title }];
+  });
+}
+
 export const titles = site.games.map((game) => ({
   id: game.id,
   name: game.name,
   short: game.short,
   blurb: game.blurb,
   soon: "soon" in game ? Boolean(game.soon) : false,
+  cover: mediaPath(`media/games/${game.id}.jpg`),
   lineupIds: lineupIds("lineup" in game ? game.lineup : []),
+  achievements: achievementsOf("achievements" in game ? game.achievements : []),
 }));
 
 export const players: Player[] = team.flatMap((row) => {
@@ -122,4 +136,10 @@ export function squadKey(count: number) {
   if (count === 2) return "duo" as const;
   if (count === 3) return "trio" as const;
   return "squad" as const;
+}
+
+export function getGame(id: string) {
+  const safe = playerId(id);
+  if (!safe) return undefined;
+  return games.find((game) => game.id === safe);
 }

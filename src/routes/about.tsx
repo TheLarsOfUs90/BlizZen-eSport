@@ -52,7 +52,7 @@ function AboutPage() {
           <ul className={cn("mt-6 grid gap-px bg-edge", fillCols(titles.length))}>
             {titles.map((g, index) => (
               <li key={g.id} className={cn("bg-void p-5", fillSpan(index, titles.length))}>
-                <Link to="/games" hash={g.id} className="block hover:text-fog">
+                <Link to="/games/$gameId" params={{ gameId: g.id }} className="block hover:text-fog">
                   <p className="kicker">{g.soon ? t.home.gamesSoon : g.short}</p>
                   <p className="display mt-2 text-2xl">{tx(g.name, locale)}</p>
                 </Link>
