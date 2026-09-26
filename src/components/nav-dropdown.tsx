@@ -20,7 +20,7 @@ export function NavDropdown({
       <Link
         to={rootTo}
         className={cn(
-          "inline-flex h-16 items-center gap-1 font-display text-[13px] tracking-[0.16em] uppercase transition-colors duration-150",
+          "inline-flex h-20 items-center gap-1 font-display text-[13px] tracking-[0.16em] uppercase transition-colors duration-150",
           active ? "text-fog" : "text-mist hover:text-fog",
         )}
       >

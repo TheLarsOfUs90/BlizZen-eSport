@@ -8,9 +8,8 @@ import { teamNav, teamNavActive } from "@/lib/team-nav";
 import { NavDropdown } from "@/components/nav-dropdown";
 import { cn } from "@/lib/utils";
 import { LogoLockup } from "@/components/lightning-mark";
-import { Button } from "@/components/ui/button";
 import { ExternalLink } from "@/components/external-link";
-import { LangSwitch, ThemeSwitch } from "@/components/pref-switch";
+import { DiscordMark } from "@/components/social-links";
 
 export function SiteHeader() {
   const { t } = usePrefs();
@@ -22,6 +21,7 @@ export function SiteHeader() {
   const teamItems = teamNav(t);
   const aboutActive = pathname === "/about" || pathname.startsWith("/about/");
   const teamActive = teamNavActive(pathname);
+  const settingsActive = pathname === "/settings";
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-edge/80 bg-void/90 backdrop-blur-md">
@@ -30,7 +30,7 @@ export function SiteHeader() {
           Preview — nicht die Live-Seite
         </p>
       ) : null}
-      <div className="relative mx-auto flex h-16 max-w-[1440px] items-center gap-3 px-4 sm:px-6 lg:px-10">
+      <div className="relative mx-auto flex h-20 max-w-[1440px] items-center gap-3 px-4 sm:px-6 lg:px-10">
         <button
           type="button"
           className="grid size-11 shrink-0 place-items-center text-fog sm:hidden"
@@ -45,10 +45,10 @@ export function SiteHeader() {
           className="absolute left-1/2 shrink-0 -translate-x-1/2 sm:static sm:translate-x-0"
           onClick={() => setMenu(false)}
         >
-          <LogoLockup />
+          <LogoLockup markClassName="h-14 w-auto sm:h-16" />
         </Link>
 
-        <nav className="ml-4 hidden items-center gap-5 sm:flex">
+        <nav className="ml-6 hidden items-center gap-6 sm:flex">
           <NavDropdown
             label={t.nav.about}
             rootTo="/about"
@@ -63,15 +63,26 @@ export function SiteHeader() {
             active={teamActive}
             pathname={pathname}
           />
+          <Link
+            to="/settings"
+            className={cn(
+              "font-display text-[13px] tracking-[0.16em] uppercase transition-colors duration-150",
+              settingsActive ? "text-fog" : "text-mist hover:text-fog",
+            )}
+          >
+            {t.nav.settings}
+          </Link>
         </nav>
 
-        <div className="ml-auto flex items-center gap-2">
-          <LangSwitch />
-          <ThemeSwitch />
+        <div className="ml-auto flex items-center">
           {org.socials.discord ? (
-            <Button asChild size="sm" className="hidden md:inline-flex">
-              <ExternalLink href={org.socials.discord}>{t.nav.join}</ExternalLink>
-            </Button>
+            <ExternalLink
+              href={org.socials.discord}
+              aria-label={t.nav.join}
+              className="grid size-11 place-items-center text-fog transition-colors hover:text-ice"
+            >
+              <DiscordMark className="size-6" />
+            </ExternalLink>
           ) : null}
         </div>
       </div>
@@ -118,15 +129,13 @@ export function SiteHeader() {
                 </Link>
               ))
             : null}
-          {org.socials.discord ? (
-            <ExternalLink
-              href={org.socials.discord}
-              onClick={() => setMenu(false)}
-              className="flex h-12 items-center font-display text-lg tracking-[0.14em] uppercase"
-            >
-              {t.nav.join}
-            </ExternalLink>
-          ) : null}
+          <Link
+            to="/settings"
+            onClick={() => setMenu(false)}
+            className="flex h-12 items-center border-b border-edge font-display text-lg tracking-[0.14em] uppercase"
+          >
+            {t.nav.settings}
+          </Link>
         </nav>
       ) : null}
     </header>

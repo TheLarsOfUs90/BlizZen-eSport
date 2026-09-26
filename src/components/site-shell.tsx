@@ -8,7 +8,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
     <div className="flex min-h-dvh flex-col overflow-x-hidden bg-void text-fog">
       <ScrollProgress />
       <SiteHeader />
-      <main className={import.meta.env.VITE_PREVIEW === "1" ? "flex-1 pt-[6.25rem]" : "flex-1 pt-16"}>
+      <main className={import.meta.env.VITE_PREVIEW === "1" ? "flex-1 pt-[7.25rem]" : "flex-1 pt-20"}>
         {children}
       </main>
       <SiteFooter />

@@ -40,6 +40,11 @@ export function SiteFooter() {
               </li>
             ))}
             <li>
+              <Link to="/settings" className="hover:text-fog">
+                {t.nav.settings}
+              </Link>
+            </li>
+            <li>
               <Link to="/legal" className="hover:text-fog">
                 {t.nav.legal}
               </Link>
