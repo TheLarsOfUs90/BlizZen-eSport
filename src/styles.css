@@ -335,6 +335,81 @@ html.light .stage-dark .logo-mark {
   width: max-content;
 }
 
+html.blitz-pointer-on,
+html.blitz-pointer-on body {
+  cursor: none;
+}
+
+html.blitz-pointer-on input,
+html.blitz-pointer-on textarea,
+html.blitz-pointer-on [contenteditable] {
+  cursor: text;
+}
+
+html.blitz-pointer-on select {
+  cursor: default;
+}
+
+html.blitz-pointer-on .roster-marquee,
+html.blitz-pointer-on .roster-marquee * {
+  cursor: grab;
+}
+
+html.blitz-pointer-on .roster-marquee.is-dragging,
+html.blitz-pointer-on .roster-marquee.is-dragging * {
+  cursor: grabbing;
+}
+
+.blitz-pointer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -11px;
+  color: var(--bz-fog);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.blitz-pointer[data-hide="1"] {
+  visibility: hidden;
+}
+
+.blitz-pointer-zen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--bz-fog);
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+}
+
+.blitz-pointer-bolt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 22px;
+  transform: translate(-50%, -50%);
+}
+
+.blitz-pointer[data-mode="zen"] .blitz-pointer-bolt,
+.blitz-pointer[data-mode="blitz"] .blitz-pointer-zen {
+  display: none;
+}
+
+.blitz-flash {
+  position: fixed;
+  inset: 0;
+  z-index: 201;
+  background: var(--bz-fog);
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
