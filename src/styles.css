@@ -404,32 +404,8 @@ html.blitz-pointer-on .roster-marquee.is-dragging * {
   transition-duration: 350ms;
 }
 
-.game-tile-gt7 .game-tile-cover {
-  filter: contrast(1.18) saturate(0.82) brightness(0.92);
-}
-
-.game-tile-dayz .game-tile-cover {
-  opacity: 0.28;
-  filter: grayscale(0.5) saturate(0.4) brightness(0.65);
-}
-
 .game-tile-gta .game-tile-cover {
   opacity: 0.32;
-}
-
-.game-tile-dayz-wash {
-  background: color-mix(in oklab, #3f4a3c 70%, black);
-  mix-blend-mode: multiply;
-  pointer-events: none;
-}
-
-.game-tile-face {
-  filter: brightness(0.42) contrast(1.15);
-}
-
-.game-tile-faces {
-  transform: none;
-  transition: transform 250ms ease-out;
 }
 
 .game-tile-blurb {
@@ -439,12 +415,10 @@ html.blitz-pointer-on .roster-marquee.is-dragging * {
     transform 250ms ease-out;
 }
 
-.game-tile-r6 .game-tile-faces,
 .game-tile-r6 .game-tile-blurb {
   transition-duration: 150ms;
 }
 
-.game-tile-rl .game-tile-faces,
 .game-tile-rl .game-tile-blurb {
   transition-duration: 350ms;
 }
@@ -468,32 +442,20 @@ html.blitz-pointer-on .roster-marquee.is-dragging * {
   }
 
   .game-tile:hover .game-tile-blurb,
-  .game-tile:focus-visible .game-tile-blurb,
-  .game-tile-gta .game-tile-blurb {
+  .game-tile:focus-visible .game-tile-blurb {
     opacity: 1;
     transform: none;
-  }
-
-  .game-tile-faces {
-    transform: translateX(110%);
-  }
-
-  .game-tile:hover .game-tile-faces,
-  .game-tile:focus-visible .game-tile-faces {
-    transform: translateX(0);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .game-tile-cover,
-  .game-tile-faces,
   .game-tile-blurb {
     transition: none !important;
     transform: none !important;
   }
 
-  .game-tile-blurb,
-  .game-tile-faces {
+  .game-tile-blurb {
     opacity: 1 !important;
   }
 }
