@@ -149,26 +149,32 @@ export function BandMarquee({
 
   const onMouseDown = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (event.pointerType !== "mouse" || event.button !== 0) return;
-    draggingRef.current = true;
+    pressedRef.current = true;
+    draggingRef.current = false;
     movedRef.current = false;
     lastXRef.current = event.clientX;
     startXRef.current = event.clientX;
-    event.currentTarget.setPointerCapture(event.pointerId);
   };
 
   const onMouseMove = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (event.pointerType !== "mouse" || !draggingRef.current) return;
+    if (event.pointerType !== "mouse" || !pressedRef.current) return;
+    const totalX = event.clientX - startXRef.current;
+    if (!draggingRef.current) {
+      if (Math.abs(totalX) < DRAG_THRESHOLD) return;
+      draggingRef.current = true;
+      movedRef.current = true;
+      lastXRef.current = startXRef.current;
+      setDragging(true);
+      event.currentTarget.setPointerCapture(event.pointerId);
+    }
     const dx = event.clientX - lastXRef.current;
     lastXRef.current = event.clientX;
     if (dx !== 0) applyOffset(offsetRef.current - dx);
-    if (Math.abs(event.clientX - startXRef.current) >= DRAG_THRESHOLD) {
-      movedRef.current = true;
-      setDragging(true);
-    }
   };
 
   const onMouseUp = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (event.pointerType !== "mouse") return;
+    pressedRef.current = false;
     draggingRef.current = false;
     setDragging(false);
     if (event.currentTarget.hasPointerCapture(event.pointerId)) {
