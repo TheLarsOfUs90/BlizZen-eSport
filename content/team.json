@@ -13,8 +13,8 @@
       "en": "Play flat, win high."
     },
     "bio": {
-      "de": "BlizZen-eSport 2026 in der Altmark gestartet | Möchtegern-Superheld | Papa | eSport ist auch Sport | Einfach nur Daddeln",
-      "en": "BlizZen-eSport 2026 launched in the Altmark | Wannabe superhero | Dad | eSports is a sport too | Just gaming"
+      "de": "BlizZen 2026 in der Altmark gestartet. Einfach nur daddeln.",
+      "en": "Started BlizZen in the Altmark in 2026. Just gaming."
     },
     "socials": {
       "x": "https://x.com/TheLarsOfUs",
@@ -25,9 +25,8 @@
       "tiktok": "https://www.tiktok.com/@thelarsofus90"
     },
     "stats": [
-      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
-      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Altmark", "en": "Altmark" } },
-      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "zu alt", "en": "too old" } }
+      { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "Papa", "en": "Dad" } },
+      { "label": { "de": "Offline", "en": "Offline" }, "value": { "de": "Möchtegern-Superheld", "en": "Wannabe superhero" } }
     ]
   },
   {
@@ -44,8 +43,8 @@
       "en": "Tastes good."
     },
     "bio": {
-      "de": "Mitglied der Stunde 0 | Pilze | Mum | Muggel | Skyrim main",
-      "en": "Hour-zero member | Mushrooms | Mum | Muggle | Skyrim main"
+      "de": "Mitglied der Stunde 0. Muggel.",
+      "en": "Hour-zero member. Muggle."
     },
     "socials": {
       "x": "",
@@ -56,9 +55,9 @@
       "tiktok": ""
     },
     "stats": [
-      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
-      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Altmark", "en": "Altmark" } },
-      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "zu alt", "en": "too old" } }
+      { "label": { "de": "Main", "en": "Main" }, "value": { "de": "Skyrim", "en": "Skyrim" } },
+      { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "Pilze", "en": "Mushrooms" } },
+      { "label": { "de": "Offline", "en": "Offline" }, "value": { "de": "Mum", "en": "Mum" } }
     ]
   },
   {
@@ -86,11 +85,7 @@
       "youtube": "",
       "tiktok": ""
     },
-    "stats": [
-      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
-      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Norddeutschland", "en": "North Germany" } },
-      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "Jungspund", "en": "Youngster" } }
-    ]
+    "stats": []
   },
   {
     "id": "dead",
@@ -118,9 +113,8 @@
       "tiktok": ""
     },
     "stats": [
-      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
-      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Siegen", "en": "Siegen" } },
-      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "Mitte 30", "en": "Mid-30s" } }
+      { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "Baschtl", "en": "Baschtl" } },
+      { "label": { "de": "Offline", "en": "Offline" }, "value": { "de": "Schandtaten", "en": "Dirty deeds" } }
     ]
   },
   {
@@ -149,9 +143,8 @@
       "tiktok": ""
     },
     "stats": [
-      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
-      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Deutschland", "en": "Germany" } },
-      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "7eleven", "en": "7eleven" } }
+      { "label": { "de": "Main", "en": "Main" }, "value": { "de": "ARK", "en": "ARK" } },
+      { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "Beach Bobs", "en": "Beach Bobs" } }
     ]
   },
   {
@@ -180,9 +173,7 @@
       "tiktok": ""
     },
     "stats": [
-      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
-      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "NRW", "en": "NRW" } },
-      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "Jung geblieben", "en": "Young at heart" } }
+      { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "Beach Bobs", "en": "Beach Bobs" } }
     ]
   },
   {
@@ -211,9 +202,7 @@
       "tiktok": ""
     },
     "stats": [
-      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
-      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Sachsen Anhalt", "en": "Saxony-Anhalt" } },
-      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "35", "en": "35" } }
+      { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "die Dudes", "en": "the dudes" } }
     ]
   }
 ]

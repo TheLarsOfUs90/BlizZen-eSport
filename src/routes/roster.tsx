@@ -39,12 +39,7 @@ function RosterPage() {
           const orphan = isOrphan(index, count);
           return (
             <li key={player.id} className={cn(orphan && orphanSlot())}>
-              <PlayerCard
-                player={player}
-                stacked
-                statsLayout="tiles"
-                className={cn("h-full", orphan && orphanCard())}
-              />
+              <PlayerCard player={player} className={cn("h-full", orphan && orphanCard())} />
             </li>
           );
         })}

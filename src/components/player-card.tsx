@@ -3,8 +3,6 @@ import type { Player } from "@/data/roster";
 import { usePrefs, tx } from "@/lib/prefs";
 import { cn } from "@/lib/utils";
 import { asset } from "@/lib/asset";
-import { SocialLinks } from "@/components/social-links";
-import { PlayerStats } from "@/components/player-stats";
 import { fillCols } from "@/lib/fill-grid";
 
 export const playerCardTracks =
@@ -12,46 +10,50 @@ export const playerCardTracks =
 
 export const memberCols = fillCols;
 
+const ACCENT: Record<string, string> = {
+  thelars: "#7ec8ff",
+  inus: "#c4b5a0",
+  skill: "#f4f6fa",
+  dead: "#b54545",
+  dark: "#8b95a8",
+  maxi: "#9bb7d4",
+  crak: "#e8eef6",
+};
+
 export function PlayerCard({
   player,
   large,
   className,
   stacked,
-  statsLayout,
 }: {
   player: Player;
   large?: boolean;
   className?: string;
   stacked?: boolean;
-  statsLayout?: "tiles" | "rows";
 }) {
   const { locale } = usePrefs();
   const quote = tx(player.quote, locale);
-  const bio = tx(player.bio, locale);
+  const accent = ACCENT[player.id] ?? "var(--bz-live)";
 
   return (
     <article
-      className={cn(
-        stacked
-          ? "grid h-full [grid-template-rows:auto_auto_1fr_auto_auto] overflow-hidden bg-panel"
-          : "row-span-5 grid h-full grid-rows-subgrid overflow-hidden bg-panel",
-        "shadow-border transition-[box-shadow] duration-150 hover:shadow-border-hover",
-        className,
-      )}
+      className={cn("overflow-hidden bg-panel", className)}
+      style={{ ["--player-accent" as string]: accent }}
     >
       <Link
         to="/roster/$playerId"
         params={{ playerId: player.id }}
         className={cn(
-          "group relative block min-h-0 overflow-hidden",
-          large ? "min-h-[320px] sm:min-h-[420px]" : "aspect-[4/5]",
+          "player-tile group relative block overflow-hidden",
+          stacked ? "aspect-[4/5] h-full" : "aspect-[4/5] min-h-[70vh]",
+          large && "min-h-[320px] sm:min-h-[420px]",
         )}
       >
         {player.image ? (
           <img
             src={asset(player.image)}
             alt={player.ign}
-            className="absolute inset-0 h-full w-full object-cover object-[center_22%] transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+            className="absolute inset-0 h-full w-full object-cover object-[center_22%]"
           />
         ) : (
           <div className="absolute inset-0 bg-panel-2">
@@ -60,27 +62,15 @@ export function PlayerCard({
             </span>
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-void via-void/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-void via-void/30 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+          {quote ? <p className="player-tile-quote display mb-4 leading-none">{quote}</p> : null}
           <p className="kicker text-mist">
             {player.countryCode} · {tx(player.role, locale)}
           </p>
           <h3 className="display mt-1 text-[36px] leading-none sm:text-[42px]">{player.ign}</h3>
-          {player.name ? <p className="text-sm text-mist">{player.name}</p> : null}
         </div>
       </Link>
-      <p className="px-4 pt-4 text-lg leading-snug text-fog sm:px-5 sm:pt-5 sm:text-xl">{quote}</p>
-      <p className="px-4 pt-3 text-sm leading-relaxed text-mist sm:px-5">{bio}</p>
-      <div className="mt-4">
-        <PlayerStats
-          stats={player.stats}
-          compact
-          layout={statsLayout ?? (stacked ? "rows" : "tiles")}
-        />
-      </div>
-      <div className="flex h-14 shrink-0 items-center px-1 sm:px-2">
-        <SocialLinks links={player.socials} compact={stacked} />
-      </div>
     </article>
   );
 }

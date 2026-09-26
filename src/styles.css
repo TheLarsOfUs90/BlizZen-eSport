@@ -455,6 +455,40 @@ html.blitz-pointer-on .roster-marquee.is-dragging * {
   }
 }
 
+.player-tile-quote {
+  font-size: 1.5rem;
+  color: var(--bz-fog);
+  border-left: 2px solid var(--player-accent, var(--bz-live));
+  padding-left: 0.75rem;
+  text-shadow: 0 0 12px color-mix(in oklab, var(--player-accent, var(--bz-live)) 45%, transparent);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .player-tile-quote {
+    font-size: 2.25rem;
+    opacity: 0;
+    transition: opacity 200ms ease-out;
+  }
+
+  @media (min-width: 640px) {
+    .player-tile-quote {
+      font-size: 3rem;
+    }
+  }
+
+  .player-tile:hover .player-tile-quote,
+  .player-tile:focus-visible .player-tile-quote {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .player-tile-quote {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}
+
 html.blitz-route-glitch .blitz-page-root {
   filter: url(#blitz-displace) drop-shadow(6px 0 0 #f4f6fa) drop-shadow(-6px 0 0 var(--bz-live));
 }
