@@ -219,5 +219,36 @@
       { "label": { "de": "Vibe", "en": "Vibe" }, "value": { "de": "die Dudes", "en": "the dudes" } },
       { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "35", "en": "35" } }
     ]
+  },
+  {
+    "id": "lab",
+    "ign": "Laborknecht",
+    "name": "",
+    "role": { "de": "Support", "en": "Support" },
+    "country": { "de": "Hamburgey", "en": "Hamburgey" },
+    "countryCode": "DE",
+    "image": "media/player-lab.png",
+    "featured": true,
+    "quote": {
+      "de": "Du bischt supported!",
+      "en": "Du bischt supported!"
+    },
+    "bio": {
+      "de": "Ein kleines Lächeln auf der Lippe der Controller liegt parat, bereit für jedes Abenteuer, das streichzart vor sich hat.",
+      "en": "Ein kleines Lächeln auf der Lippe der Controller liegt parat, bereit für jedes Abenteuer, das streichzart vor sich hat."
+    },
+    "socials": {
+      "x": "",
+      "discord": "",
+      "instagram": "",
+      "twitch": "",
+      "youtube": "",
+      "tiktok": ""
+    },
+    "stats": [
+      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
+      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Hamburgey", "en": "Hamburgey" } },
+      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "37,5", "en": "37,5" } }
+    ]
   }
 ]

@@ -20,6 +20,7 @@ const ACCENT: Record<string, string> = {
   dark: "#8b95a8",
   maxi: "#9bb7d4",
   crak: "#e8eef6",
+  lab: "#e07040",
 };
 
 export function PlayerCard({

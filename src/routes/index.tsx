@@ -121,6 +121,7 @@ const HERO_ACCENT: Record<string, string> = {
   dark: "#8b95a8",
   maxi: "#9bb7d4",
   crak: "#e8eef6",
+  lab: "#e07040",
 };
 
 function pickHeroPlayer(pool: Player[]): Player | undefined {
