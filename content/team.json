@@ -250,5 +250,36 @@
       { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Hamburgey", "en": "Hamburgey" } },
       { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "37,5", "en": "37,5" } }
     ]
+  },
+  {
+    "id": "shal",
+    "ign": "Shallow Throat",
+    "name": "",
+    "role": { "de": "Kampfheiler", "en": "Support" },
+    "country": { "de": "Kiel", "en": "Kiel" },
+    "countryCode": "DE",
+    "image": "media/player-shal.png",
+    "featured": true,
+    "quote": {
+      "de": "Top Notch Swords!",
+      "en": "Top Notch Swords!"
+    },
+    "bio": {
+      "de": "Kann gleichzeitig süß, sarkastisch, hungrig und ein bisschen sassy sein. Würde wahrscheinlich zuerst deinen Hund mögen. Mag Fooddates, entspannte Gespräche und Menschen mit Humor und klarer Energie. Keine ONS, F+ oder offene Beziehungen.",
+      "en": "Kann gleichzeitig süß, sarkastisch, hungrig und ein bisschen sassy sein. Würde wahrscheinlich zuerst deinen Hund mögen. Mag Fooddates, entspannte Gespräche und Menschen mit Humor und klarer Energie. Keine ONS, F+ oder offene Beziehungen."
+    },
+    "socials": {
+      "x": "",
+      "discord": "",
+      "instagram": "",
+      "twitch": "",
+      "youtube": "",
+      "tiktok": ""
+    },
+    "stats": [
+      { "label": { "de": "Seit", "en": "Since" }, "value": { "de": "2026", "en": "2026" } },
+      { "label": { "de": "Heimat", "en": "Home" }, "value": { "de": "Kiel", "en": "Kiel" } },
+      { "label": { "de": "Alter", "en": "Age" }, "value": { "de": "Altersmilde", "en": "Altersmilde" } }
+    ]
   }
 ]
