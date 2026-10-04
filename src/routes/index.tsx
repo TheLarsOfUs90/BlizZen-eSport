@@ -122,6 +122,7 @@ const HERO_ACCENT: Record<string, string> = {
   maxi: "#9bb7d4",
   crak: "#e8eef6",
   lab: "#e07040",
+  shal: "#6ad4f0",
 };
 
 function pickHeroPlayer(pool: Player[]): Player | undefined {
