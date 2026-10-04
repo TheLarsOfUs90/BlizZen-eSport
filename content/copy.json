@@ -192,13 +192,17 @@
       "mode": "Modus",
       "modeP": "Hell oder dunkel. Blitz und Eis."
     },
+    "music": {
+      "mute": "Musik aus",
+      "play": "Musik an"
+    },
     "legal": {
       "kicker": "Hinweise",
       "title": "Rechtliches & Datenschutz",
       "dek": "Statische Clubseite. Kein Shop, kein Login, kein Tracking.",
       "p1": "Diese Website ist die öffentliche Präsenz von BlizZen eSport, einem privaten Adult-eSport-Club aus der Altmark. Sie wird über GitHub Pages bereitgestellt.",
       "p2": "Es gibt keine Benutzerkonten, keine Formulare, keinen Shop und keine serverseitige Datenverarbeitung. Kontakt läuft über Discord oder die Team-E-Mail.",
-      "p3": "Es werden keine Analyse- oder Werbecookies gesetzt. Sprache und Darstellung (Hell/Dunkel) speichert der Browser lokal (localStorage). Das ist technisch nötig für die Anzeige und wird nicht an uns übermittelt.",
+      "p3": "Es werden keine Analyse- oder Werbecookies gesetzt. Sprache, Darstellung (Hell/Dunkel) und Musik speichert der Browser lokal (localStorage). Das ist technisch nötig für die Anzeige und wird nicht an uns übermittelt.",
       "p4": "Teamfotos und Texte erscheinen nur mit Einverständnis der jeweiligen Person. Klarnamen, Privatadressen oder Geburtsdaten gehören nicht auf diese Seite.",
       "impressum": "Impressum",
       "operator": "Betreiber",
@@ -405,13 +409,17 @@
       "mode": "Mode",
       "modeP": "Light or dark. Bolt and ice."
     },
+    "music": {
+      "mute": "Mute music",
+      "play": "Play music"
+    },
     "legal": {
       "kicker": "Legal",
       "title": "Legal & privacy",
       "dek": "Static club site. No shop, no login, no tracking.",
       "p1": "This website is the public presence of BlizZen eSport, a private adult esports club from the Altmark. It is hosted on GitHub Pages.",
       "p2": "There are no accounts, forms, shop, or server-side processing. Contact happens through Discord or the team email.",
-      "p3": "No analytics or advertising cookies are set. Language and theme (light/dark) stay in the browser (localStorage). That is needed to render the page and is not sent to us.",
+      "p3": "No analytics or advertising cookies are set. Language, theme (light/dark) and music stay in the browser (localStorage). That is needed to render the page and is not sent to us.",
       "p4": "Team photos and copy appear only with that person’s consent. Real names, private addresses, or dates of birth do not belong on this site.",
       "impressum": "Legal notice",
       "operator": "Operator",

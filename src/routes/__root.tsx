@@ -2,6 +2,7 @@ import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-r
 import { PrefsProvider } from "@/lib/prefs";
 import { BlitzPointer } from "@/components/blitz-pointer";
 import { ThemedToaster } from "@/components/themed-toaster";
+import { SiteMusic } from "@/components/site-music";
 import { asset } from "@/lib/asset";
 import { copy } from "@/lib/copy";
 import appCss from "../styles.css?url";
@@ -62,6 +63,7 @@ export const Route = createRootRoute({
             <Outlet />
           </div>
           <ThemedToaster />
+          <SiteMusic />
         </PrefsProvider>
         <BlitzPointer />
         <Scripts />
