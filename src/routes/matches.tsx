@@ -147,11 +147,7 @@ function MatchRow({ match }: { match: ClubMatch }) {
         {match.kind === "event" ? tx(match.event, locale) : `${org.short} vs ${tx(match.opponent, locale)}`}
       </p>
       <p className={cn("text-sm text-mist", match.kind === "match" ? "sm:col-span-3" : "sm:col-span-4")}>
-        {match.kind === "event" ? (
-          <HostLink name={tx(match.opponent, locale)} href={match.opponentHref} />
-        ) : (
-          tx(match.event, locale)
-        )}
+        {match.kind === "event" ? tx(match.opponent, locale) : tx(match.event, locale)}
       </p>
       {match.kind === "match" ? (
         <p className="font-mono text-sm sm:col-span-1 sm:text-right">
