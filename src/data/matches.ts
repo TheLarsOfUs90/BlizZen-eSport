@@ -17,16 +17,21 @@ export type ClubMatch = {
   event: L10n;
   image?: string;
   note?: L10n;
+  info?: L10n;
   more?: L10n;
   moreHref?: string;
+  opponentHref?: string;
   score?: { us: number; them: number };
 };
 
-function asL10n(value: unknown): L10n | undefined {
+function asL10n(value: unknown, max = 120): L10n | undefined {
   if (!value || typeof value !== "object") return undefined;
   const rec = value as { de?: unknown; en?: unknown };
   if (typeof rec.de !== "string" || typeof rec.en !== "string") return undefined;
-  return { de: clip(rec.de, 120), en: clip(rec.en, 120) };
+  const de = clip(rec.de, max);
+  const en = clip(rec.en, max);
+  if (!de || !en) return undefined;
+  return { de, en };
 }
 
 function asWhen(value: unknown): L10n | undefined {
@@ -54,10 +59,11 @@ function asMatch(raw: unknown): ClubMatch | undefined {
   if (!opponent || !event || !when) return undefined;
   const kind: MatchKind = rec.kind === "event" ? "event" : "match";
   const image = mediaPath(rec.image);
-  const noteRaw = asL10n(rec.note);
-  const note = noteRaw ? { de: clip(noteRaw.de, 240), en: clip(noteRaw.en, 240) } : undefined;
+  const note = asL10n(rec.note, 240);
+  const info = asL10n(rec.info, 280);
   const more = asL10n(rec.more);
   const moreHref = httpsUrl(rec.moreHref);
+  const opponentHref = httpsUrl(rec.opponentHref);
   const scoreRaw = rec.score;
   let score: ClubMatch["score"];
   if (scoreRaw && typeof scoreRaw === "object") {
@@ -66,7 +72,22 @@ function asMatch(raw: unknown): ClubMatch | undefined {
       score = { us: pair.us, them: pair.them };
     }
   }
-  return { id, gameId, status, kind, when, opponent, event, image, note, more, moreHref, score };
+  return {
+    id,
+    gameId,
+    status,
+    kind,
+    when,
+    opponent,
+    event,
+    image,
+    note,
+    info,
+    more,
+    moreHref,
+    opponentHref,
+    score,
+  };
 }
 
 export const matches: ClubMatch[] = Array.isArray(matchesJson)

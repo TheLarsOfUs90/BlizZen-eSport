@@ -58,6 +58,7 @@ function MatchesPage() {
                 const game = getGame(group.gameId);
                 const image = group.rows.find((row) => row.image)?.image;
                 const note = group.rows.find((row) => row.note)?.note;
+                const info = group.rows.find((row) => row.info)?.info;
                 const moreRow = group.rows.find((row) => row.more && row.moreHref);
                 return (
                   <section key={group.gameId}>
@@ -82,6 +83,7 @@ function MatchesPage() {
                         )}
                       </h2>
                       {note ? <p className="mt-4 max-w-2xl text-sm text-mist">{tx(note, locale)}</p> : null}
+                      {info ? <p className="mt-3 max-w-2xl text-sm text-mist">{tx(info, locale)}</p> : null}
                     </div>
                     <ol className="mt-8 divide-y divide-edge border-y border-edge">
                       {group.rows.map((match) => (
@@ -113,7 +115,17 @@ function MatchRow({ match }: { match: ClubMatch }) {
         {match.kind === "event" ? tx(match.event, locale) : `${org.short} vs ${tx(match.opponent, locale)}`}
       </p>
       <p className="text-sm text-mist sm:col-span-2">
-        {match.kind === "event" ? tx(match.opponent, locale) : tx(match.event, locale)}
+        {match.kind === "event" ? (
+          match.opponentHref ? (
+            <ExternalLink href={match.opponentHref} className="hover:text-fog hover:underline">
+              {tx(match.opponent, locale)}
+            </ExternalLink>
+          ) : (
+            tx(match.opponent, locale)
+          )
+        ) : (
+          tx(match.event, locale)
+        )}
       </p>
       {match.kind === "match" ? (
         <p className="font-mono text-sm sm:col-span-1 sm:text-right">

@@ -6,11 +6,16 @@
     "kind": "event",
     "when": { "de": "Mo 19:00 CET", "en": "Mon 19:00 CET" },
     "opponent": { "de": "AleksaFlamingo", "en": "AleksaFlamingo" },
+    "opponentHref": "https://www.twitch.tv/aleksaflamingo",
     "event": { "de": "Casual Solos", "en": "Casual Solos" },
     "image": "media/OTG-event.png",
     "note": {
       "de": "Du kannst nur an einem der Turniere teilnehmen — Casual Solos oder Fortgeschrittene Solos.",
       "en": "You can only play in one of the tournaments — Casual Solos or Above-average Solos."
+    },
+    "info": {
+      "de": "Cosmic und AleksaFlamingo sind die Caster und Streamer. Sie erstellen die lokale Lobby und teilen im Twitch-Stream mit, wie du beitrittst.",
+      "en": "Cosmic and AleksaFlamingo are the casters and streamers. They create the local lobby and share how to join in the Twitch stream."
     },
     "more": {
       "de": "Mehr Infos: x.com/playoffthegrid",
@@ -25,6 +30,7 @@
     "kind": "event",
     "when": { "de": "Di 19:00 CET", "en": "Tue 19:00 CET" },
     "opponent": { "de": "Cosmic", "en": "Cosmic" },
+    "opponentHref": "https://www.twitch.tv/cosmicramblings",
     "event": { "de": "Fortgeschrittene Solos", "en": "Above-average Solos" }
   },
   {
@@ -34,6 +40,7 @@
     "kind": "event",
     "when": { "de": "Mi 19:00 CET", "en": "Wed 19:00 CET" },
     "opponent": { "de": "AleksaFlamingo", "en": "AleksaFlamingo" },
+    "opponentHref": "https://www.twitch.tv/aleksaflamingo",
     "event": { "de": "Casual Solos", "en": "Casual Solos" }
   },
   {
@@ -43,6 +50,7 @@
     "kind": "event",
     "when": { "de": "Do 19:00 CET", "en": "Thu 19:00 CET" },
     "opponent": { "de": "Cosmic", "en": "Cosmic" },
+    "opponentHref": "https://www.twitch.tv/cosmicramblings",
     "event": { "de": "Fortgeschrittene Solos", "en": "Above-average Solos" }
   }
 ]
