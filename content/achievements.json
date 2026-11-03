@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "year": "2026",
+    "game": "rl",
+    "title": {
+      "de": "4 Jahre in Folge GC in Rocket League – Skillbasiert hält das Level konstant!",
+      "en": "4 years in a row GC in Rocket League — Skillbasiert keeps the rank locked in!"
+    },
+    "body": {
+      "de": "Respekt für die Leistung. ⚽",
+      "en": "Respect for the run. ⚽"
+    },
+    "image": "media/GC-skillbasiert.jpg",
+    "tags": ["RocketLeague", "GC"]
+  }
+]

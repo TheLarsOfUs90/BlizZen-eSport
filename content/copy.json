@@ -178,7 +178,7 @@
     "achievementsPage": {
       "kicker": "Team",
       "title": "Erfolge.",
-      "dek": "Was wir geholt haben. Noch leer — der Club ist jung.",
+      "dek": "Was wir geholt haben.",
       "empty": "Noch keine Erfolge.",
       "emptyP": "Titel, Cups und verrückte Runs landen hier. Pro Spiel zusätzlich auf der jeweiligen Team-Seite.",
       "club": "Club"
@@ -395,7 +395,7 @@
     "achievementsPage": {
       "kicker": "Team",
       "title": "Achievements.",
-      "dek": "What we’ve taken. Still empty — the club is young.",
+      "dek": "What we’ve taken.",
       "empty": "No achievements yet.",
       "emptyP": "Titles, cups and wild runs land here. Per-game notes also sit on each team page.",
       "club": "Club"
