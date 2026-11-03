@@ -59,6 +59,7 @@ function MatchesPage() {
                 const image = group.rows.find((row) => row.image)?.image;
                 const note = group.rows.find((row) => row.note)?.note;
                 const info = group.rows.find((row) => row.info)?.info;
+                const casters = group.rows.find((row) => row.casters?.length)?.casters;
                 const moreRow = group.rows.find((row) => row.more && row.moreHref);
                 return (
                   <section key={group.gameId}>
@@ -83,7 +84,17 @@ function MatchesPage() {
                         )}
                       </h2>
                       {note ? <p className="mt-4 max-w-2xl text-sm text-mist">{tx(note, locale)}</p> : null}
-                      {info ? <p className="mt-3 max-w-2xl text-sm text-mist">{tx(info, locale)}</p> : null}
+                      {casters?.length || info ? (
+                        <p className="mt-3 max-w-2xl text-sm text-mist">
+                          {casters?.map((caster, index) => (
+                            <span key={caster.href}>
+                              {index === 0 ? null : index === casters.length - 1 ? (locale === "de" ? " und " : " and ") : ", "}
+                              <HostLink name={tx(caster.name, locale)} href={caster.href} />
+                            </span>
+                          ))}
+                          {info ? ` ${tx(info, locale)}` : null}
+                        </p>
+                      ) : null}
                     </div>
                     <ol className="mt-8 divide-y divide-edge border-y border-edge">
                       {group.rows.map((match) => (
@@ -106,23 +117,38 @@ function MatchesPage() {
   );
 }
 
+function twitchLabel(href: string) {
+  try {
+    const url = new URL(href);
+    return `${url.hostname.replace(/^www\./, "")}${url.pathname.replace(/\/$/, "")}`;
+  } catch {
+    return href;
+  }
+}
+
+function HostLink({ name, href }: { name: string; href?: string }) {
+  if (!href) return name;
+  return (
+    <>
+      {name}{" "}
+      <ExternalLink href={href} className="text-fog hover:underline">
+        {twitchLabel(href)}
+      </ExternalLink>
+    </>
+  );
+}
+
 function MatchRow({ match }: { match: ClubMatch }) {
   const { locale } = usePrefs();
   return (
     <li className="grid gap-3 py-6 sm:grid-cols-12 sm:items-center">
       <p className="kicker sm:col-span-3">{tx(match.when, locale)}</p>
-      <p className="display text-2xl sm:col-span-6">
+      <p className="display text-2xl sm:col-span-5">
         {match.kind === "event" ? tx(match.event, locale) : `${org.short} vs ${tx(match.opponent, locale)}`}
       </p>
-      <p className="text-sm text-mist sm:col-span-2">
+      <p className={cn("text-sm text-mist", match.kind === "match" ? "sm:col-span-3" : "sm:col-span-4")}>
         {match.kind === "event" ? (
-          match.opponentHref ? (
-            <ExternalLink href={match.opponentHref} className="hover:text-fog hover:underline">
-              {tx(match.opponent, locale)}
-            </ExternalLink>
-          ) : (
-            tx(match.opponent, locale)
-          )
+          <HostLink name={tx(match.opponent, locale)} href={match.opponentHref} />
         ) : (
           tx(match.event, locale)
         )}
@@ -131,9 +157,7 @@ function MatchRow({ match }: { match: ClubMatch }) {
         <p className="font-mono text-sm sm:col-span-1 sm:text-right">
           {match.score ? `${match.score.us}–${match.score.them}` : "—"}
         </p>
-      ) : (
-        <span className="hidden sm:col-span-1 sm:block" />
-      )}
+      ) : null}
     </li>
   );
 }

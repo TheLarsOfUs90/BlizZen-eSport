@@ -21,6 +21,7 @@ export type ClubMatch = {
   more?: L10n;
   moreHref?: string;
   opponentHref?: string;
+  casters?: { name: L10n; href: string }[];
   score?: { us: number; them: number };
 };
 
@@ -32,6 +33,23 @@ function asL10n(value: unknown, max = 120): L10n | undefined {
   const en = clip(rec.en, max);
   if (!de || !en) return undefined;
   return { de, en };
+}
+
+function asCasters(value: unknown): { name: L10n; href: string }[] {
+  if (!Array.isArray(value)) return [];
+  const seen = new Set<string>();
+  const list: { name: L10n; href: string }[] = [];
+  for (const row of value) {
+    if (!row || typeof row !== "object") continue;
+    const rec = row as { name?: unknown; href?: unknown };
+    const name = asL10n(rec.name);
+    const href = httpsUrl(rec.href);
+    if (!name || !href || seen.has(href)) continue;
+    seen.add(href);
+    list.push({ name, href });
+    if (list.length >= 6) break;
+  }
+  return list;
 }
 
 function asWhen(value: unknown): L10n | undefined {
@@ -64,6 +82,7 @@ function asMatch(raw: unknown): ClubMatch | undefined {
   const more = asL10n(rec.more);
   const moreHref = httpsUrl(rec.moreHref);
   const opponentHref = httpsUrl(rec.opponentHref);
+  const casters = asCasters(rec.casters);
   const scoreRaw = rec.score;
   let score: ClubMatch["score"];
   if (scoreRaw && typeof scoreRaw === "object") {
@@ -86,6 +105,7 @@ function asMatch(raw: unknown): ClubMatch | undefined {
     more,
     moreHref,
     opponentHref,
+    casters: casters.length > 0 ? casters : undefined,
     score,
   };
 }

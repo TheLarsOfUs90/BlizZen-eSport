@@ -13,9 +13,13 @@
       "de": "Du kannst nur an einem der Turniere teilnehmen — Casual Solos oder Fortgeschrittene Solos.",
       "en": "You can only play in one of the tournaments — Casual Solos or Above-average Solos."
     },
+    "casters": [
+      { "name": { "de": "Cosmic", "en": "Cosmic" }, "href": "https://www.twitch.tv/cosmicramblings" },
+      { "name": { "de": "AleksaFlamingo", "en": "AleksaFlamingo" }, "href": "https://www.twitch.tv/aleksaflamingo" }
+    ],
     "info": {
-      "de": "Cosmic und AleksaFlamingo sind die Caster und Streamer. Sie erstellen die lokale Lobby und teilen im Twitch-Stream mit, wie du beitrittst.",
-      "en": "Cosmic and AleksaFlamingo are the casters and streamers. They create the local lobby and share how to join in the Twitch stream."
+      "de": "sind die Caster und Streamer. Sie erstellen die lokale Lobby und teilen im Twitch-Stream mit, wie du beitrittst.",
+      "en": "are the casters and streamers. They create the local lobby and share how to join in the Twitch stream."
     },
     "more": {
       "de": "Mehr Infos: x.com/playoffthegrid",
