@@ -117,24 +117,12 @@ function MatchesPage() {
   );
 }
 
-function twitchLabel(href: string) {
-  try {
-    const url = new URL(href);
-    return `${url.hostname.replace(/^www\./, "")}${url.pathname.replace(/\/$/, "")}`;
-  } catch {
-    return href;
-  }
-}
-
 function HostLink({ name, href }: { name: string; href?: string }) {
   if (!href) return name;
   return (
-    <>
-      {name}{" "}
-      <ExternalLink href={href} className="text-fog hover:underline">
-        {twitchLabel(href)}
-      </ExternalLink>
-    </>
+    <ExternalLink href={href} className="text-fog hover:underline">
+      {name}
+    </ExternalLink>
   );
 }
 
