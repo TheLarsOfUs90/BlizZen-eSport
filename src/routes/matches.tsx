@@ -61,8 +61,12 @@ function MatchesPage() {
                 return (
                   <section key={group.gameId}>
                     {image ? (
-                      <div className="relative aspect-[16/9] overflow-hidden bg-panel sm:aspect-[21/9]">
-                        <img src={asset(image)} alt="" className="absolute inset-0 h-full w-full object-cover" />
+                      <div className="relative aspect-[16/9] overflow-hidden bg-panel">
+                        <img
+                          src={asset(image)}
+                          alt=""
+                          className="absolute inset-0 h-full w-full object-cover object-top"
+                        />
                       </div>
                     ) : null}
                     <div className={cn(image ? "mt-8" : "")}>

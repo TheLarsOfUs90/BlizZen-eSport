@@ -9,10 +9,10 @@
     "event": { "de": "Casual Solos", "en": "Casual Solos" },
     "image": "media/OTG-event.png",
     "more": {
-      "de": "Mehr Infos: trete dem OTG Discord bei",
-      "en": "More info: join the OTG Discord"
+      "de": "Mehr Infos: x.com/playoffthegrid",
+      "en": "More info: x.com/playoffthegrid"
     },
-    "moreHref": "https://discord.com/channels/1136951763170250752/1425643356469465128/1566773188250042420"
+    "moreHref": "https://x.com/playoffthegrid"
   },
   {
     "id": "otg-cosmic-tue",
