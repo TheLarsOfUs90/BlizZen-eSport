@@ -55,7 +55,7 @@ function MatchesPage() {
                 const game = titles.find((entry) => entry.id === match.gameId);
                 return (
                   <li key={match.id} className="grid gap-3 py-6 sm:grid-cols-12 sm:items-center">
-                    <p className="kicker sm:col-span-2">{match.when}</p>
+                    <p className="kicker sm:col-span-2">{tx(match.when, locale)}</p>
                     <p className="sm:col-span-2">
                       {game ? (
                         <Link to="/games/$gameId" params={{ gameId: game.id }} className="kicker text-fog hover:underline">
@@ -64,9 +64,13 @@ function MatchesPage() {
                       ) : null}
                     </p>
                     <p className="display text-2xl sm:col-span-5">
-                      {org.short} vs {tx(match.opponent, locale)}
+                      {match.kind === "event"
+                        ? tx(match.event, locale)
+                        : `${org.short} vs ${tx(match.opponent, locale)}`}
                     </p>
-                    <p className="text-sm text-mist sm:col-span-2">{tx(match.event, locale)}</p>
+                    <p className="text-sm text-mist sm:col-span-2">
+                      {match.kind === "event" ? tx(match.opponent, locale) : tx(match.event, locale)}
+                    </p>
                     <p className="font-mono text-sm sm:col-span-1 sm:text-right">
                       {match.score ? `${match.score.us}–${match.score.them}` : "—"}
                     </p>
