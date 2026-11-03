@@ -8,6 +8,10 @@
     "opponent": { "de": "AleksaFlamingo", "en": "AleksaFlamingo" },
     "event": { "de": "Casual Solos", "en": "Casual Solos" },
     "image": "media/OTG-event.png",
+    "note": {
+      "de": "Du kannst nur an einem der Turniere teilnehmen — Casual Solos oder Fortgeschrittene Solos.",
+      "en": "You can only play in one of the tournaments — Casual Solos or Above-average Solos."
+    },
     "more": {
       "de": "Mehr Infos: x.com/playoffthegrid",
       "en": "More info: x.com/playoffthegrid"

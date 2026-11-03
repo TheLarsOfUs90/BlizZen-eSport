@@ -57,6 +57,7 @@ function MatchesPage() {
               {groups.map((group) => {
                 const game = getGame(group.gameId);
                 const image = group.rows.find((row) => row.image)?.image;
+                const note = group.rows.find((row) => row.note)?.note;
                 const moreRow = group.rows.find((row) => row.more && row.moreHref);
                 return (
                   <section key={group.gameId}>
@@ -80,6 +81,7 @@ function MatchesPage() {
                           group.gameId
                         )}
                       </h2>
+                      {note ? <p className="mt-4 max-w-2xl text-sm text-mist">{tx(note, locale)}</p> : null}
                     </div>
                     <ol className="mt-8 divide-y divide-edge border-y border-edge">
                       {group.rows.map((match) => (

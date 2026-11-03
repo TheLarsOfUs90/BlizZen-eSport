@@ -16,6 +16,7 @@ export type ClubMatch = {
   opponent: L10n;
   event: L10n;
   image?: string;
+  note?: L10n;
   more?: L10n;
   moreHref?: string;
   score?: { us: number; them: number };
@@ -53,6 +54,8 @@ function asMatch(raw: unknown): ClubMatch | undefined {
   if (!opponent || !event || !when) return undefined;
   const kind: MatchKind = rec.kind === "event" ? "event" : "match";
   const image = mediaPath(rec.image);
+  const noteRaw = asL10n(rec.note);
+  const note = noteRaw ? { de: clip(noteRaw.de, 240), en: clip(noteRaw.en, 240) } : undefined;
   const more = asL10n(rec.more);
   const moreHref = httpsUrl(rec.moreHref);
   const scoreRaw = rec.score;
@@ -63,7 +66,7 @@ function asMatch(raw: unknown): ClubMatch | undefined {
       score = { us: pair.us, them: pair.them };
     }
   }
-  return { id, gameId, status, kind, when, opponent, event, image, more, moreHref, score };
+  return { id, gameId, status, kind, when, opponent, event, image, note, more, moreHref, score };
 }
 
 export const matches: ClubMatch[] = Array.isArray(matchesJson)
