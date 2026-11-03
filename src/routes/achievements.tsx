@@ -1,13 +1,14 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/page-hero";
 import { SiteShell } from "@/components/site-shell";
+import { AchievementCard } from "@/components/achievement-card";
 import { allAchievements } from "@/data/achievements";
-import { usePrefs, tx } from "@/lib/prefs";
+import { usePrefs } from "@/lib/prefs";
 
 export const Route = createFileRoute("/achievements")({ component: AchievementsPage });
 
 function AchievementsPage() {
-  const { t, locale } = usePrefs();
+  const { t } = usePrefs();
   const items = allAchievements();
 
   return (
@@ -23,30 +24,11 @@ function AchievementsPage() {
               </div>
             </div>
           ) : (
-            <ol className="divide-y divide-edge border-y border-edge">
+            <div className="space-y-10">
               {items.map((item) => (
-                <li
-                  key={`${item.year}-${item.title.de}-${item.gameId ?? "club"}`}
-                  className="grid gap-3 py-6 sm:grid-cols-12 sm:items-baseline"
-                >
-                  <span className="font-mono text-sm tracking-wider text-dim sm:col-span-2">{item.year}</span>
-                  <span className="sm:col-span-2">
-                    {item.gameId ? (
-                      <Link
-                        to="/games/$gameId"
-                        params={{ gameId: item.gameId }}
-                        className="kicker text-fog hover:underline"
-                      >
-                        {item.gameShort}
-                      </Link>
-                    ) : (
-                      <span className="kicker">{t.achievementsPage.club}</span>
-                    )}
-                  </span>
-                  <span className="display text-2xl sm:col-span-8 sm:text-3xl">{tx(item.title, locale)}</span>
-                </li>
+                <AchievementCard key={`${item.year}-${item.title.de}-${item.gameId ?? "club"}`} item={item} />
               ))}
-            </ol>
+            </div>
           )}
         </div>
       </section>

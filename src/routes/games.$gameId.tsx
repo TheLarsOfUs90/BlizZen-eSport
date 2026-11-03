@@ -1,10 +1,12 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { SiteShell } from "@/components/site-shell";
+import { AchievementCard } from "@/components/achievement-card";
 import { LineupTile } from "@/components/lineup-tile";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "@/components/external-link";
 import { org } from "@/data/org";
+import { achievementsForGame } from "@/data/achievements";
 import { getGame, squadKey } from "@/data/roster";
 import { usePrefs, tx } from "@/lib/prefs";
 import { asset } from "@/lib/asset";
@@ -19,6 +21,7 @@ function GamePage() {
   const game = getGame(gameId);
   if (!game) throw notFound();
 
+  const achievements = achievementsForGame(game.id);
   const count = game.lineup.length;
   const format = t.games[squadKey(count)];
   const status = game.soon ? t.games.soon : count > 0 ? format : t.games.open;
@@ -76,15 +79,12 @@ function GamePage() {
         <div className="mx-auto max-w-[1440px] px-4 py-16 sm:px-6 sm:py-20 lg:px-10">
           <p className="kicker">{t.games.achievements}</p>
           <h2 className="display mt-3 text-4xl sm:text-5xl">{t.games.achievements}</h2>
-          {game.achievements.length > 0 ? (
-            <ol className="mt-10 divide-y divide-edge border-y border-edge">
-              {game.achievements.map((item) => (
-                <li key={`${item.year}-${item.title.de}`} className="grid grid-cols-[5rem_1fr] gap-6 py-5 sm:grid-cols-[7rem_1fr]">
-                  <span className="font-mono text-sm tracking-wider text-dim">{item.year}</span>
-                  <span className="display text-2xl sm:text-3xl">{tx(item.title, locale)}</span>
-                </li>
+          {achievements.length > 0 ? (
+            <div className="mt-10 space-y-10">
+              {achievements.map((item) => (
+                <AchievementCard key={`${item.year}-${item.title.de}`} item={item} />
               ))}
-            </ol>
+            </div>
           ) : (
             <p className="mt-6 max-w-lg text-mist">{t.games.achievementsEmpty}</p>
           )}
