@@ -1,6 +1,6 @@
 import matchesJson from "../../content/matches.json";
 import type { L10n } from "@/lib/prefs";
-import { clip, playerId } from "@/lib/safe";
+import { clip, httpsUrl, mediaPath, playerId } from "@/lib/safe";
 import { titles } from "@/data/roster";
 
 export type MatchStatus = "live" | "upcoming" | "past";
@@ -15,6 +15,9 @@ export type ClubMatch = {
   when: L10n;
   opponent: L10n;
   event: L10n;
+  image?: string;
+  more?: L10n;
+  moreHref?: string;
   score?: { us: number; them: number };
 };
 
@@ -49,6 +52,9 @@ function asMatch(raw: unknown): ClubMatch | undefined {
   const when = asWhen(rec.when);
   if (!opponent || !event || !when) return undefined;
   const kind: MatchKind = rec.kind === "event" ? "event" : "match";
+  const image = mediaPath(rec.image);
+  const more = asL10n(rec.more);
+  const moreHref = httpsUrl(rec.moreHref);
   const scoreRaw = rec.score;
   let score: ClubMatch["score"];
   if (scoreRaw && typeof scoreRaw === "object") {
@@ -57,7 +63,7 @@ function asMatch(raw: unknown): ClubMatch | undefined {
       score = { us: pair.us, them: pair.them };
     }
   }
-  return { id, gameId, status, kind, when, opponent, event, score };
+  return { id, gameId, status, kind, when, opponent, event, image, more, moreHref, score };
 }
 
 export const matches: ClubMatch[] = Array.isArray(matchesJson)
@@ -69,4 +75,27 @@ export const matches: ClubMatch[] = Array.isArray(matchesJson)
 
 export function matchesByStatus(status: MatchStatus) {
   return matches.filter((match) => match.status === status);
+}
+
+export function matchesByGame(status: MatchStatus) {
+  const rows = matchesByStatus(status);
+  const byGame = new Map<string, ClubMatch[]>();
+  for (const row of rows) {
+    const list = byGame.get(row.gameId);
+    if (list) list.push(row);
+    else byGame.set(row.gameId, [row]);
+  }
+  const groups: { gameId: string; rows: ClubMatch[] }[] = [];
+  const seen = new Set<string>();
+  for (const game of titles) {
+    const list = byGame.get(game.id);
+    if (!list) continue;
+    seen.add(game.id);
+    groups.push({ gameId: game.id, rows: list });
+  }
+  for (const [gameId, list] of byGame) {
+    if (seen.has(gameId)) continue;
+    groups.push({ gameId, rows: list });
+  }
+  return groups;
 }

@@ -6,7 +6,13 @@
     "kind": "event",
     "when": { "de": "Mo 19:00 CET", "en": "Mon 19:00 CET" },
     "opponent": { "de": "AleksaFlamingo", "en": "AleksaFlamingo" },
-    "event": { "de": "Casual Solos", "en": "Casual Solos" }
+    "event": { "de": "Casual Solos", "en": "Casual Solos" },
+    "image": "media/OTG-event.png",
+    "more": {
+      "de": "Mehr Infos: trete dem OTG Discord bei",
+      "en": "More info: join the OTG Discord"
+    },
+    "moreHref": "https://discord.com/channels/1136951763170250752/1425643356469465128/1566773188250042420"
   },
   {
     "id": "otg-cosmic-tue",
